@@ -1,0 +1,236 @@
+
+    body{
+        background-color: lightgray
+    }
+
+   .loginHeader{
+       background-color: darkslategray;
+       color: white;
+       text-align: center;
+       font-family: "Times New Roman", Times, serif;
+       border-radius: 10px;
+       padding: 0px;
+   }
+
+   .loginHeader img{
+     height: 100px;
+   }
+
+
+    /* format the form in here*/
+    .container{
+        height: 100vh;
+        object-position: center;
+        width:65%;
+        padding-top: 20px;
+        margin:0 auto;
+        align-content: center;  
+    }
+
+     .loginContainer{
+        /*height: 100vh;*/
+        object-position: center;
+        padding: 15 px;
+        width:40%;
+        margin:0 auto;
+        align-content: center;    
+    }
+
+
+    .radioContainer{
+           height: 100vh;
+        object-position: center;
+        width:65%;
+        padding-top: 20px;
+        margin:0 auto;
+        align-content: center;
+    }
+    .logoImage{
+        text-align: center; 
+        padding: 10px;
+    }
+    /* format each legend here*/
+    legend{
+        font-style:italic;
+        font-family: "Times New Roman", Times, serif;
+    }
+
+    .legendTerms{
+        font-style:italic;
+        font-family: "Times New Roman", Times, serif;
+        font-size: 15px;
+    }
+
+    p{
+        text-align: center;
+    }
+    /*general format for button class*/
+    .button{
+        border: 2px solid dodgerblue;
+        color: black;
+        background-color: white;
+        font-size:18px;
+        padding: 8px 22px;
+        border-radius: 6px;
+    }
+    
+    .button:hover{
+        border-color: green;
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+
+    /* used this to align the buttons for submit and save in middle of page*/
+    .buttonStudent{
+        text-align: center;
+        
+    }
+
+    /*format the save button*/
+    .buttonSave{
+       border: 2px solid dodgerblue;
+        color: black;
+        background-color: white;
+        font-size:18px;
+        padding: 8px 22px;
+        border-radius: 6px;
+    }
+    /*format the submit button*/
+    .buttonSubmit{
+       border: 2px solid dodgerblue;
+        color: black;
+        background-color: white;
+        font-size:18px;
+        padding: 8px 22px;
+        border-radius: 6px;
+    }
+    /* format both buttons upon hover*/
+    .buttonSubmit:hover{
+        border-color: green;
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+    .buttonSave:hover{
+        border-color: green;
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+      .buttonNext{
+       border: 2px solid dodgerblue;
+        color: black;
+        background-color: white;
+        font-size:18px;
+        padding: 8px 22px;
+        border-radius: 6px;
+    }
+    /* format both buttons upon hover*/
+    .buttonNext:hover{
+        border-color: green;
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+    /*format the headings as desired*/
+    h3{
+        text-align: center;
+        color: white;
+        font-family: "Times New Roman", Times, serif;
+        background-color: darkslategray;
+        border-radius: 6px; 
+    }
+    h5{
+        text-align: center;
+        font-family: "Times New Roman", Times, serif;
+        font-weight: bold;
+        font-size: 16px;
+    }
+
+    /*ul{
+        background-color: lightgray;
+        outline-color: white;
+    } */
+
+    /*format the layout of the terms of applying for the student*/
+    .terms{
+        width:95%;
+        align-content: center;
+        border: 1.5px solid black;
+        padding: 5px;
+        margin: auto;
+        border-radius: 6px;
+    }
+
+    .agreementHeading{
+        font-weight:bold;
+    } 
+
+    /*used to center the label for name tag name*/
+    .labelContainer{
+        text-align:center;
+    }
+
+    /*used to center and format the label  and checkbox checkbox*/
+    .labelCenter{
+        text-align:center;
+    }
+    
+    input[type="checkbox"] {
+        display:none;
+    }
+
+    input[type="checkbox"] {
+        display:inline-block;
+        width:40px;
+        height:40px;
+        margin: auto;
+        vertical-align:middle;
+        cursor:pointer;
+    }
+
+    /*used to format the page header navigation bar*/
+    ul.topnav {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color:darkslategray;
+        text-justify:  center;
+        border-radius: 10px;
+    }
+
+    ul.topnav li {float: left;}
+
+    ul.topnav li a {
+        display: inline-block;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 20px 20px;
+        text-decoration: none;
+        transition: 0.3s;
+        font-size: 18px;
+        font-family: "Times New Roman", Times, serif;
+    }
+
+    ul.topnav li a:hover {
+        background-color: darkgray; 
+        border-radius: 6px;
+    }
+
+    ul.topnav li.icon {display: none;}
+
+    nav{
+        padding-top: 10px;
+        width:100%;
+        text-align: center;
+    }
+
+    /*specifies that the bar should go across the entire screen*/
+    .nav{
+        width: 100%; 
+        margin: 0 auto;
+    }
+
+    ul{
+        text-align: center;  
+    }
+    /*specify the width of each section. 3 sections would need 33% 5 would need 20%*/
+    li{
+         width: 25%;
+        vertical-align: center;
+    }
+

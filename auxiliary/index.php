@@ -17,7 +17,7 @@
 
 <body>
     <div class="heading">
-<h1 align="center" class="loginHeader"><img src="auxlogo.jpg"><br>The American Legion Auxiliary<br>Georgia Girls State</h1>
+<h1 align="center" class="loginHeader"><img src="images/icon.jpg"><br>The American Legion Auxiliary<br>Georgia Girls State</h1>
 <div class="logoImage">
 </div>
     </div>
