@@ -20,18 +20,19 @@
     <div class="logoImage"></div>
 </div>
 
-    <form >
+    <form id = "create_auxiliary_account_form" action = "auxiliaryServices/create-auxiliary-account.php" method = "post" >
       <div class="form-group">
         <div class="well">
             <legend>Create Auxiliary Account</legend>
             
             <label for = "username:">Username:</label><br>
             <input type="text" class="form-control" id="username"  
-              placeholder="Unit Number">
+              name = "username" placeholder="Unit Number">
 
             
                  <label for = "password">Password: </label><br>
-                <input  type="password"  id ="password" class="form-control" ><br>
+                <input  type="password"  id ="password" 
+                name = "password" class="form-control" ><br>
 
                 <label for = "confirm_password">Confirm Password: </label><br>
                 <input type="password" id = "confirm-_password" class="form-control" >
