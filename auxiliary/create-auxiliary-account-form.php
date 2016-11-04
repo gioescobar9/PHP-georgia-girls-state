@@ -1,4 +1,5 @@
 <?php
+session_start();
 ?>
 <!DOCTYPE html>
 <html>
@@ -20,28 +21,46 @@
     <div class="logoImage"></div>
 </div>
 
-    <form id = "create_auxiliary_account_form" action = "auxiliaryServices/create-auxiliary-account.php" method = "post" >
+    <form id = "create_auxiliary_account_form" action = "auxiliaryServices/create-auxiliary-account.php" method = "post" 
+    name = "create_auxiliary_account_form">
       <div class="form-group">
         <div class="well">
             <legend>Create Auxiliary Account</legend>
             
             <label for = "username:">Username:</label><br>
             <input type="text" class="form-control" id="username"  
-              name = "username" placeholder="Unit Number">
+              name = "username" placeholder="Unit Number" required><br>
+
+             <label for = "auxEmail">Auxiliary Email: </label><br>
+            <input  type="email"  id ="auxEmail" 
+            name = "email" class="form-control" required><br>
 
             
                  <label for = "password">Password: </label><br>
                 <input  type="password"  id ="password" 
-                name = "password" class="form-control" ><br>
+                name = "password" class="form-control" required><br>
 
                 <label for = "confirm_password">Confirm Password: </label><br>
-                <input type="password" id = "confirm-_password" class="form-control" >
+                <input type="password" id = "confirm-_password" class="form-control" required>
             <br>
+
+            <?php
+                if(isset($_SESSION["auxExist"])){
+                    if($_SESSION["auxExist"] == true )
+                    echo "<div class = 'alert alert-danger'>This Auxiliary account already exist</div><br>";
+                }
+                
+                session_destroy();
+
+            ?>
+
+
             <p>
-               <button type="submit" class="button btn-primary" color="white">Create Account</button>
+               <input type="submit" class="button btn-primary" color="white" value = "Create Account">
             </p>
         </div>
       </div>
     </form>
+
 </body>
 </html>

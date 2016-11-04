@@ -1,4 +1,5 @@
 <?php
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -12,7 +13,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="styleSheet.css">
+    <link rel="stylesheet" type="text/css" href="css/auxiliaryStyleSheet.css">
 </head>
 
 <body>
@@ -23,18 +24,29 @@
     </div>
  <div class="form-group">
         <div class="well">
-          <form>
+          <form id = "auxiliary_login" action = "auxiliaryServices/auxiliary-login.php"
+          method = "post" name = "auxiliary_login_form">
             <legend>Login</legend>
             
             <label class="control-label" for="username">Username:</label><br> 
-            <input type="email" ng-model="theEmail" id="inputEmail" maxlength="20" placeholder="Email" class="form-control"><br>
+            <input type="text"  id="auxLoginUsername" maxlength="20" placeholder="Unit Number" class="form-control" name = "username" required><br>
         
             <label class="control-label" for="password">Password:</label><br>
-            <input  type="password" ng-model="thePassword" passwordValidate id="inputPassword" maxlength="20" placeholder="Password" class="form-control"><br>
+            <input  type="password" passwordValidate id="inputPassword" maxlength="20" placeholder="Password" class="form-control" name = "password" required><br>
+
+            <?php
+                if(isset($_SESSION["loggedIn"])){
+                    if($_SESSION["loggedIn"] == false )
+                    echo "<div class = 'alert alert-danger'>Wrong Username or Password</div><br>";
+                }
+                
+                session_destroy();
+
+            ?>
             
               <div class = "logInButtons">
-              <button type="submit" class="button btn-primary" color="white">Submit</button>
-              <button type="button" class="button btn-primary" color="white" ng-click = "">Create Auxillary Account</button>
+              <input type="submit" class = "button btn-primary" color = "white" value = "Submit">
+              <button type="button" class="button btn-primary" color="white" ><a href = "create-auxiliary-account.php">Create Auxillary Account</a></button>
             </div>
           </form>
       </div>
