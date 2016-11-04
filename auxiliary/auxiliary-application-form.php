@@ -19,15 +19,15 @@
 <nav class="navigation">
 <div class="nav">
 <ul class="topnav" id="myTopnav">
-  <li><a class="active" href="auxiliary-application-form.php">Auxiliary Form</a></li>
-  <li><a href="#info">My Information</a></li>
+  <li><a class="#roleCreator" href="auxiliary-role-creator-form.php">Initiate Student Account</a></li>
+  <li><a href="#info">My Students</a></li>
   <!--<li><img src="georgiaLogo.jpg" id="logo" style="width:75px;height:75px;" /></li>-->
-  <li><a class="#schools" href="#schools">My Schools</a></li>
-  <li><a href="#students">My Students</a></li>
+  <li><a class="active" href="auxiliary-application-form.php">Auxiliary Information Form</a></li>
+  <li><a href="#about">About</a></li>
   <li class="icon">
     <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>
   </li>
- <div class="logo"></div>
+  <div class="logo"></div>
 </ul>
 </div>
 </nav>
