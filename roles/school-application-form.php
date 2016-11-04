@@ -45,7 +45,7 @@ enforce proper restrictions-->
         <legend>School Details</legend>
         <div class="col-md-12">
             <label for = "schoolName">School Name: </label>
-                <input type="text" class="form-control" id="schoolName" maxlength="50"" pattern="[a-zA-Z]+" required autofocus><br>
+                <input type="text" class="form-control" id="schoolName" maxlength="50" required autofocus><br>
         </div>
         <div class="col-md-6">
             <label for = "schoolAddressStreet">School Street:</label>
@@ -110,9 +110,9 @@ enforce proper restrictions-->
         <div class="agreementHeading">I certify that the above named student will meet the following criteria as of June of the program year.<br></div>
 	    -Be At Least 14 Years of Age.<br>
 	    -Should Successfully Have Completed Her Junior Year And Have At Least One Semester Remaining Before
-         &nbspGraduation.<br>
+         &nbsp Graduation.<br>
 	    -Displays Outstanding Qualities of Leadership, Character, Scholarship, Loyalty and Service To The School And
-         &nbspCommunity.<br>
+         &nbsp Community.<br>
 	    -Is In The Upper Third Of Their Class.  Exceptions Must Be Approved In Advance By The Director, Georgia Girls State.<br>
         </div>
         </div>

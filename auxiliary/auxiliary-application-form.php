@@ -19,7 +19,7 @@
 <nav class="navigation">
 <div class="nav">
 <ul class="topnav" id="myTopnav">
-  <li><a class="active" href="auxiliaryInfo.html">Auxiliary Form</a></li>
+  <li><a class="active" href="auxiliary-application-form.php">Auxiliary Form</a></li>
   <li><a href="#info">My Information</a></li>
   <!--<li><img src="georgiaLogo.jpg" id="logo" style="width:75px;height:75px;" /></li>-->
   <li><a class="#schools" href="#schools">My Schools</a></li>
