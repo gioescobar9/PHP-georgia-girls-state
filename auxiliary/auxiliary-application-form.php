@@ -38,60 +38,63 @@ Divide each field and label using col-md-3/6/12 for size needed. Collect all inf
 enforce proper restrictions-->
 <div class="container">
 <div class="well">
-<form class="form-horizontal" role="form">
+<form class="form-horizontal" role="form" id = "auxiliary-form">
     <div class="form-group">
            <h3>Auxiliary Information Form</h3>
            <legend>Auxiliary Information</legend>
             <div class="col-md-6">
             <label for = "unitNumber">Unit Number:</label>
-                <input type="text" class="form-control" id="unitNumber" maxlength="10" autofocus required> 
+                <input type="text" class="form-control" id="unitNumber" maxlength="10" autofocus required><br>
             </div>
             <div class="col-md-6">
             <label for = "unitLocation">Unit Location:</label>
-                <input type="text" class="form-control" id="unitLocation" maxlength="25" placeholder="Unit County" required>
+                <input type="text" class="form-control" id="unitLocation" maxlength="25" placeholder="Unit County" required><br>
             </div>
             <div class="col-md-8">
-            <label for = "unitStreetAddress">Street Address</label>
-                <input type="text" class="form-control" id="unitStreetAddress" maxlength="30" required>
+            <label for = "unitStreetAddress">Street Address:</label>
+                <input type="text" class="form-control" id="unitStreetAddress" maxlength="30" required><br>
             </div>
             <div class="col-md-8">
             <label for = "unitCity">City,State,Zip:</label>
-                <input type="text" class="form-control" id="unitCity" maxlength="30" placeholder="City,State,Zip" required>
+                <input type="text" class="form-control" id="unitCity" maxlength="30" placeholder="City,State,Zip" required><br>
             </div>
             <div class="col-md-6">
             <label for = "unitEmail">Email:</label>
-                <input type="text" class="form-control" id="unitEmail" maxlength="50" placeholder="user@gmail.com" required>
+                <input type="text" class="form-control" id="unitEmail" maxlength="50" placeholder="user@gmail.com" required><br>
             </div>
             <div class="col-md-6">
             <label for = "unitPhone">Phone Number:</label>
-                <input type="text" class="form-control" id="unitPhone" maxlength="15" placeholder="(555)888-0000" required>
+                <input type="text" class="form-control" id="unitPhone" maxlength="15" placeholder="(555)888-0000" required><br>
             </div>
             <legend>Auxiliary Sponsoring Official Information</legend>
             <div class="col-md-6">
             <label for = "officialFirstName">First Name:</label>
-                <input type="text" class="form-control" id="officialFirstName" maxlength="25" required>
+                <input type="text" class="form-control" id="officialFirstName" maxlength="25" required><br>
             </div>
             <div class="col-md-6">
             <label for = "officialLastName">Last Name:</label>
-                <input type="text" class="form-control" id="officialLastName" maxlength="25" required>
+                <input type="text" class="form-control" id="officialLastName" maxlength="25" required><br>
             </div>
             <div class="col-md-6">
             <label for = "officialEmail">Official's Email:</label>
-                <input type="text" class="form-control" id="officialEmail" maxlength="25" placeholder="user@gmail.com" required>
+                <input type="text" class="form-control" id="officialEmail" maxlength="25" placeholder="user@gmail.com" required><br>
             </div>
             <div class="col-md-6">
             <label for = "officialPhone">Official's Phone:</label>
                 <input type="text" class="form-control" id="officialPhone" maxlength="15" placeholder="(555)888-0000" required><br>
             </div>
             <div class="buttonStudent">
-                <button type="submit" class="buttonSubmit" color="black">Update Information</button>
+                <button type="submit" class="buttonSubmit" onclick="testFunction()">Update Information</button>
 
-                <button type="submit" class="buttonSave" color="white">Exit Without Saving</button>
+                <button type="submit" class="buttonSave">Exit Without Saving</button>
     </div>
+    </div>
+    
+    
 </form>
 </div>
 </div> 
-
+<!--testing purposes <p id="demo">hello</p>-->
 <script type="text/javascript">
         function myFunction() {
     var x = document.getElementById("myTopnav");
@@ -101,6 +104,14 @@ enforce proper restrictions-->
         x.className = "topnav";
     }
 }
-    </script>v
+    function testFunction() {
+        var x = document.getElementById("auxiliary-form").elements.length; 
+        document.getElementById("demo").innerHTML = "Found "+x+" elements in the form.";
+        //var inputs = document.getElementById('auxiliary-form').getElementsByTagName('input');
+        //document.getElementById("demo").innerHTML = inputs.toString();
+        
+    }
+    
+    </script>
 </body>
 </html>
