@@ -24,7 +24,7 @@
   <li><a class="active" href="student.html">Student Form</a></li>
   <li><a href="#info">My Information</a></li>
   <!--<li><img src="georgiaLogo.jpg" id="logo" style="width:75px;height:75px;" /></li>-->
-  <li><a class="#medicalConsent" href="parentConsentForm.html">Medical Consent Form</a></li>
+  <li><a class="#medicalConsent" href="parent-consent-form.php">Medical Consent Form</a></li>
   <li><a href="#about">About</a></li>
   <li class="icon">
     <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>

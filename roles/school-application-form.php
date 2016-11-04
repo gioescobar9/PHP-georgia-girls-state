@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<!--test comment-->
+<!--test comment git add . , git commit, git push-->
 <head>
     <title>School Account Information</title>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
