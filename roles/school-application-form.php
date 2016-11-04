@@ -21,7 +21,7 @@
 <nav class="navigation">
 <div class="nav">
 <ul class="topnav" id="myTopnav">
-  <li><a class="active" href="school.html">School Form</a></li>
+  <li><a class="active" href="school-application-form.php">School Form</a></li>
   <li><a href="#info">My Information</a></li>
   <!--<li><img src="georgiaLogo.jpg" id="logo" style="width:75px;height:75px;" /></li>-->
   <li><a href="#students">My Students</a></li>
