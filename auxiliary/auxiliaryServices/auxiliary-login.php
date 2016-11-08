@@ -20,7 +20,7 @@ else
 
 
 if($_SESSION["loggedIn"] == true){
-	$redirect = "../auxiliary-main.php";
+	$redirect = "../auxiliary-main-interface.php";
 	closeConnection($auxConnection);
 
 	// in the future this will be where i could set cookies....

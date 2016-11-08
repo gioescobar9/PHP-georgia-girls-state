@@ -22,8 +22,12 @@ session_start();
 <div class="logoImage">
 </div>
     </div>
+
+
  <div class="form-group">
         <div class="well">
+
+
           <form id = "auxiliary_login" action = "auxiliaryServices/auxiliary-login.php"
           method = "post" name = "auxiliary_login_form">
             <legend>Login</legend>
@@ -40,13 +44,18 @@ session_start();
                     echo "<div class = 'alert alert-danger'>Wrong Username or Password</div><br>";
                 }
                 
+                if(isset($_SESSION["loggedOut"])){
+                  if($_SESSION["loggedOut"] == false)
+                    echo "<div class = 'alert alert-success'>You Have been successfully logged out!</div>";
+                }
                 session_destroy();
 
             ?>
             
               <div class = "logInButtons">
               <input type="submit" class = "button btn-primary" color = "white" value = "Login">
-              <button type="button" class="button btn-primary" color="white" ><a href = "create-auxiliary-account-form.php">Create Auxillary Account</a></button>
+
+              <a href = "create-auxiliary-account-form.php"><input type="button" class="button btn-primary" color="white" value="Create Auxiliary Account" > </a>
             </div>
           </form>
       </div>
