@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -17,22 +17,11 @@
     
 </head>
 <header>
-<!-- create nav bar design, not complete yet just here for layout image-->
-<nav class="navigation">
-<div class="nav">
-<ul class="topnav" id="myTopnav">
-  <li><a class="active" href="initiateStudentAccount.html">Initiate Student Account</a></li>
-  <li><a href="#info">My Students</a></li>
-  <!--<li><img src="georgiaLogo.jpg" id="logo" style="width:75px;height:75px;" /></li>-->
-  <li><a class="#auxiliaryInfo" href="AuxiliaryInfo.html">Auxiliary Information Form</a></li>
-  <li><a href="#about">About</a></li>
-  <li class="icon">
-    <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>
-  </li>
-  <div class="logo"></div>
-</ul>
-</div>
-</nav>
+   <div class="heading">
+<h1 align="center" class="loginHeader"><img src="images/icon.jpg"> 
+<a href = "auxiliaryServices/auxiliary-logout.php"><span style = "float: right; margin-left: -20%" class = "btn btn-primary">logout</span></a> 
+<br>The American Legion Auxiliary<br>Georgia Girls State</h1>
+  </div>
 </header>
 <body>
 <!--create a container to wrap the form for easy formatting, class well uses bootsrap for some of CSS. 
@@ -87,25 +76,16 @@ enforce proper restrictions-->
            </div>
 
            <div class="buttonStudent">
-            <button type="submit" class="buttonSubmit">Submit</button>
-
-            <button type="submit" class="buttonSave">Save</button><br>
+            <button type="submit" class="buttonSave">Submit</button><br>
            </div>
 
     </div>
 </form>
+  <div class = "buttonStudent">
+    <a href = "auxiliary-main-interface.php"><button class="buttonSubmit">Cancel</button></a>
+  </div>
 </div>
 </div>
 
-<script type="text/javascript">
-        function myFunction() {
-    var x = document.getElementById("myTopnav");
-    if (x.className === "topnav") {
-        x.className += " responsive";
-    } else {
-        x.className = "topnav";
-    }
-}
-    </script>
 </body>
 </html>
