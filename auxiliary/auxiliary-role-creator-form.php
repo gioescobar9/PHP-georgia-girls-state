@@ -5,7 +5,7 @@ session_start();
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Initiate Accounts</title>
+    <title>New Application</title>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <script src="dist/js/bootstrap-checkbox.min.js" defer></script>
     <meta charset="utf-8">
@@ -18,8 +18,7 @@ session_start();
 </head>
 <header>
    <div class="heading">
-<h1 align="center" class="loginHeader"><img src="images/icon.jpg"> 
-<a href = "auxiliaryServices/auxiliary-logout.php"><span style = "float: right; margin-left: -20%" class = "btn btn-primary">logout</span></a> 
+<h1 align="center" class="loginHeader"><img src="images/icon.jpg">  
 <br>The American Legion Auxiliary<br>Georgia Girls State</h1>
   </div>
 </header>
@@ -29,30 +28,37 @@ Divide each field and label using col-md-3/6/12 for size needed. Collect all inf
 enforce proper restrictions-->
 <div class="container">
 <div class="well">
-<form class="form-horizontal" role="form">
+
+
+<form id= "role-creator-form" name = "role_creator_form" class="form-horizontal" 
+ action = "auxiliaryServices/auxiliary-role-creator.php" method = "post">
     <div class="form-group">
            <h3>Initiate Student Account</h3>
            <legend>Student Information</legend>
             <div class="col-md-6">
             <label for = "studentFirstName">Student First Name:</label>
-               <input type="text" class="form-control" id="studentFirstName" maxlength="25" pattern="[a-zA-Z]+" autofocus required><br>
+               <input type="text" class="form-control" id="studentFirstName" maxlength="25" pattern="[a-zA-Z]+" autofocus  name = "stuFirstName" required><br>
            </div>
            <div class="col-md-6">
             <label for = "studentLastName">Student Last Name:</label>
-               <input type="text" class="form-control" id="studentLastName" maxlength="25" pattern="[a-zA-Z]+"  required><br>
+               <input type="text" class="form-control" id="studentLastName" maxlength="25" pattern="[a-zA-Z]+" 
+               name = "stuLastName" required><br>
            </div>
            <div class="col-md-8">
             <label for = "studentEmail">Student Email:</label>
-               <input type="text" class="form-control" id="studentEmail" maxlength="50"  placeholder="user@gmail.com" required><br>
+               <input type="text" class="form-control" id="studentEmail" maxlength="50"  placeholder="user@gmail.com" 
+               name = "stuEmail" required><br>
            </div>
               <legend>School Information</legend>
             <div class="col-md-6">
             <label for = "schoolName">School Name:</label>
-               <input type="text" class="form-control" id="schoolName" maxlength="30" pattern="[a-z A-Z]+" required><br>
+               <input type="text" class="form-control" id="schoolName" maxlength="30" pattern="[a-z A-Z]+" 
+               name = "schName" required><br>
            </div>
            <div class="col-md-6">
             <label for = "schoolEmail">School Email:</label>
-               <input type="text" class="form-control" id="schoolEmail" maxlength="25" placeholder="user@gmail.com" required><br>
+               <input type="text" class="form-control" id="schoolEmail" maxlength="25" placeholder="user@gmail.com" 
+               name = "schEmail" required><br>
            </div>
            <legend>Official Agreement</legend>
            <div class="col-md-12">
@@ -68,15 +74,16 @@ enforce proper restrictions-->
 
             <div class="col-md-8">
             <label for = "officialSignature">Official Signature:</label>
-               <input type="text" class="form-control" id="officialSignature" maxlength="25" pattern="[a-z A-Z]+" placeholder="Electronic Signature" required><br>
+               <input type="text" class="form-control" id="officialSignature" maxlength="25" pattern="[a-z A-Z]+" placeholder="Electronic Signature" name = "officialSignature" required><br>
            </div>
            <div class="col-md-4">
             <label for = "signatureDate">Date:</label>
-               <input type="date" class="form-control" id="signatureDate"  required><br>
+               <input type="date" class="form-control" id="signatureDate" name = "officialSignatureDate" required><br>
            </div>
 
            <div class="buttonStudent">
-            <button type="submit" class="buttonSave">Submit</button><br>
+           <input type = "submit" class = "buttonSave" value = "Submit"><br>
+            
            </div>
 
     </div>

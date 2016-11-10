@@ -23,6 +23,11 @@ if($_SESSION["loggedIn"] == true){
 	$redirect = "../auxiliary-main-interface.php";
 	closeConnection($auxConnection);
 
+	$record = $result->fetch_assoc();
+	setcookie("unitNumber",$username, time() + 86400, "/");
+	setcookie("auxiliaryEmail", $record["auxEmail"], time() + 86400, "/");
+	setcookie("auxiliaryID", $record["auxiliaryID"], time() + 86400, "/");
+	
 	// in the future this will be where i could set cookies....
 
 }
