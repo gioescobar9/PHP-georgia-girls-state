@@ -14,37 +14,27 @@
     <link rel="stylesheet" type="text/css" href="css/auxiliaryStyleSheet.css">
     
 </head>
-<header>
-<!-- create nav bar design, not complete yet just here for layout image-->
-<nav class="navigation">
-<div class="nav">
-<ul class="topnav" id="myTopnav">
-  <li><a class="active" href="auxiliaryInfo.html">Auxiliary Form</a></li>
-  <li><a href="#info">My Information</a></li>
-  <!--<li><img src="georgiaLogo.jpg" id="logo" style="width:75px;height:75px;" /></li>-->
-  <li><a class="#schools" href="#schools">My Schools</a></li>
-  <li><a href="#students">My Students</a></li>
-  <li class="icon">
-    <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>
-  </li>
- <div class="logo"></div>
-</ul>
-</div>
-</nav>
-</header>
+
 <body>
+
+<header>
+    <div class="heading">
+        <h1 align="center" class="loginHeader"><img src="images/icon.jpg">  
+        <br>The American Legion Auxiliary<br>Georgia Girls State</h1>
+    </div>
+</header>
 <!--create a container to wrap the form for easy formatting, class well uses bootsrap for some of CSS. 
 Divide each field and label using col-md-3/6/12 for size needed. Collect all information in the form and 
 enforce proper restrictions-->
 <div class="container">
 <div class="well">
-<form class="form-horizontal" role="form">
-    <div class="form-group">
-           <h3>Auxiliary Information Form</h3>
-           <legend>Auxiliary Information</legend>
+    <form class="form-horizontal" name = "auxiliary_application_form" action = "auxiliaryServices/auxiliary-application.php" method = "post">
+        <div class="form-group">
+            <h3>Auxiliary Information Form</h3>
+            <legend>Auxiliary Information</legend>
             <div class="col-md-6">
             <label for = "unitNumber">Unit Number:</label>
-                <input type="text" class="form-control" id="unitNumber" maxlength="10" autofocus required> 
+                <input type="text" class="form-control" id="unitNumber"  autofocus required> 
             </div>
             <div class="col-md-6">
             <label for = "unitLocation">Unit Location:</label>
@@ -84,23 +74,18 @@ enforce proper restrictions-->
                 <input type="text" class="form-control" id="officialPhone" maxlength="15" placeholder="(555)888-0000" required><br>
             </div>
             <div class="buttonStudent">
-                <button type="submit" class="buttonSubmit" color="black">Update Information</button>
-
-                <button type="submit" class="buttonSave" color="white">Exit Without Saving</button>
-    </div>
-</form>
+            <input type = "submit" class = "buttonSubmit" 
+            value = "Update Information">
+            </div>
+    </form>
+           
+            
 </div>
+ <div class = "buttonStudent">
+                <a href = "auxiliary-main-interface.php"><button class="buttonSubmit">Exit Without Saving</button></a>
+            </div>
 </div> 
 
-<script type="text/javascript">
-        function myFunction() {
-    var x = document.getElementById("myTopnav");
-    if (x.className === "topnav") {
-        x.className += " responsive";
-    } else {
-        x.className = "topnav";
-    }
-}
-    </script>v
+
 </body>
 </html>

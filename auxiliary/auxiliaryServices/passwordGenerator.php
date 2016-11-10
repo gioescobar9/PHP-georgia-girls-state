@@ -16,7 +16,7 @@ function getSuffix(){
 	$suffix = "";
 	$time = $_SERVER["REQUEST_TIME"];
 
-	$length = 5;
+	$length = 4;
 	$chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
 	$part1 = substr(str_shuffle($chars),0, $length);
 
