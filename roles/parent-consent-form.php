@@ -17,7 +17,6 @@
 </head>
 <header>
     <div class="heading">
-        <div class="heading">
             <h1 align="center" class="loginHeader"><img src="images/icon.jpg">
             <a href = "student-interface.php"><span style = "float: left; margin-right: -20%" class="btn btn-info btn-lg">
                 <span class="glyphicon glyphicon-home"><br>Home</span></a><br>The American Legion Auxiliary<br>Georgia Girls State</h1>
@@ -26,7 +25,7 @@
 <body>
 <div class="radioContainer">
     <div class="well">
-        <form class="form-horizontal" role="form">
+        <form class="form-horizontal" role="form" action="services/parent-consent-form-action.php" method = "post">
             <div class="form-group">
                 <h3>Consent Form</h3>
                     <div class="col-md-12">
@@ -58,7 +57,7 @@
                     </div>
                     <div class="col-md-6">
                         <label for = "emergencyPhone"> Emergency Contact Phone:</label><br>
-                            <input type="text" class="form-control" name="emergecncyPhone" maxlength="20"placeholder="(555)888-0000"><br>
+                            <input type="text" class="form-control" name="emergencyPhone" maxlength="20"placeholder="(555)888-0000"><br>
                     </div>
                     <div class="col-md-12">
                         <legend>Personal Information</legend>
@@ -126,13 +125,13 @@
                     </div>
 
                     <div class="col-md-6">
-                        <label for = "physiciansName">Physician's Name: </label>
-                            <input type="text" class="form-control" id="physiciansName" maxlength="50"required><br>
+                        <label for = "physicianName">Physician's Name: </label>
+                            <input type="text" class="form-control" name="physicianName" maxlength="50"required><br>
                     </div>
 
                     <div class="col-md-6">
-                        <label for = "physiciansPhoneNumber">Phone Number: </label>
-                            <input type="text" class="form-control" name="physiciansPhoneNumber" maxlength="50"required placeholder="(555)888-0000"><br>
+                        <label for = "physicianPhoneNumber">Phone Number: </label>
+                            <input type="text" class="form-control" name="physicianPhoneNumber" maxlength="50"required placeholder="(555)888-0000"><br>
                     </div>
                     <div class="col-md-12">
                         <legend>Insurance Provider Information</legend>
@@ -162,7 +161,7 @@
 
                     <div class="col-md-6">
                         <label for = "insuranceAddress" >Insurance City,State,Zip:</label>
-                    <input type="text" class="form-control" name="insuranceGroup" maxlength="50" placeholder="City,State,Zip"required><br>
+                    <input type="text" class="form-control" name="insuranceAddress" maxlength="50" placeholder="City,State,Zip"><br>
                     </div>
 
                     </div>
@@ -225,7 +224,7 @@
 
                     <div class="buttonStudent">
 
-                     <button type="submit" class="buttonSubmit" color="black" action="parent-consent-form-action.php">SubmitForm</button>
+                     <button type="submit" class="buttonSubmit" color="black">Submit Form</button>
 
                     <button type="submit" class="buttonSave" color="white">Save Form</button>
 

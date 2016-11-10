@@ -37,7 +37,7 @@
                 'emergencyRelationship' => $emergencyRelationship,
                 'emergencyPhone' => $emergencyPhone,
                 'illnessInput' => $illnessInput,
-                'treatmentInput' => $treatmetnInput,
+                'treatmentInput' => $treatmentInput,
                 'allergiesInput' => $allergiesInput,
                 'medsInput' => $medsInput,
                 'accomodationsInput' => $accomodationsInput,
@@ -55,7 +55,7 @@
                 'conditionInput' => $conditionInput,
                 'parentSignature' => $parentSignature,
                 'signDate' => $signDate,
-              )
+              );
                 
                 $result ="";
         foreach ($post_data as $key => $value)
