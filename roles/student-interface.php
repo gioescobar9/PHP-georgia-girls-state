@@ -23,24 +23,30 @@
         </div>
         <div class="container">
             <h3>Student Task Bar</h3>
-            <div class="col-md-2">
-            </div>
-            <div class="col-md-10" style="text-align:center;">
+            <div class="col-md-12" style="text-align:center;">
                 <div class="col-md-3">
                 <a href="student-application-form.php" class="btn btn-info btn-lg">
                 <span class="glyphicon glyphicon-user"><br>New<br>Application</span>
-            </a>
+            </a><br>
+                *create a new student application
                 </div>
                 <div class="col-md-3">
             <a href="student-application-form.php" class="btn btn-info btn-lg">
                 <span class="glyphicon glyphicon-pencil"><br>Edit<br>Application</span>
-            </a>
+            </a><br>
+                *return to previous application and make changes
                 </div>
                 <div class="col-md-3">
             <a href="student-application-form.php" class="btn btn-info btn-lg">
                 <span class="glyphicon glyphicon-info-sign"><br>Auxiliary<br>Information</span>
-            </a>
+            </a><br>
+                *view contact information for your auxiliary
                 </div>
+                <div class="col-md-3">
+                <a href="parent-consent-form.php" class="btn btn-info btn-lg">
+                <span class="glyphicon glyphicon-file"><br>Consent<br>Form</span>
+            </a><br>
+                *complete parent consent form
             </div>
             </div>
         </div>

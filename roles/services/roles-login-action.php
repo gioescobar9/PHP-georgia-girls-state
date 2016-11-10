@@ -14,10 +14,10 @@ $isStudent = false;
 $isSchool = false;
 $missmatch = false;
 
-if (preg_match('/stu/',$password)){
+if (preg_match('/Stu/',$password)){
     $isStudent = true;
 }
-else if(preg_match('/sch/',$password))
+else if(preg_match('/Sch/',$password))
     $isSchool = true;
 else{
     $missmatch = true;

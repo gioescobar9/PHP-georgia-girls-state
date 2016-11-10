@@ -1,7 +1,10 @@
+<?php
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Consent Form</title>
+    <title>Parent Consent Form</title>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <script src="dist/js/bootstrap-checkbox.min.js" defer></script>
     <meta charset="utf-8">
@@ -9,28 +12,16 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="jquery-1.12.4.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/rolesStyleSheet.css">
-    
 
 </head>
 <header>
-<!-- create nav bar design, not complete yet just here for layout image-->
-<nav class="navigation">
-<div class="nav">
-<ul class="topnav" id="myTopnav">
-  <li><a class="#student" href="student-application-form.php">Student Form</a></li>
-  <li><a href="#info">My Information</a></li>
-  <!--<li><img src="georgiaLogo.jpg" id="logo" style="width:75px;height:75px;" /></li>-->
-  <li><a class="active" href="parent-consent-form.php">Medical Consent Form</a></li>
-  <li><a href="#about">About</a></li>
-  <li class="icon">
-    <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>
-  </li>
-  <div class="logo"></div>
-</ul>
-</div>
-</nav>
+    <div class="heading">
+        <div class="heading">
+            <h1 align="center" class="loginHeader"><img src="images/icon.jpg">
+            <a href = "student-interface.php"><span style = "float: left; margin-right: -20%" class="btn btn-info btn-lg">
+                <span class="glyphicon glyphicon-home"><br>Home</span></a><br>The American Legion Auxiliary<br>Georgia Girls State</h1>
+    </div>
 </header>
 <body>
 <div class="radioContainer">
@@ -38,43 +29,47 @@
         <form class="form-horizontal" role="form">
             <div class="form-group">
                 <h3>Consent Form</h3>
-                    <legend>Parent Information</legend>
+                    <div class="col-md-12">
+                        <legend>Parent Information</legend>
+                    </div>
                     <div class="col-md-6">
                         <label for = "motherName"> Mother/Guardian Name:</label><br>
-                            <input type="text" class="form-control" id="motherName" maxlength="50" pattern="[a-zA-Z ]+" ><br>
+                            <input type="text" class="form-control" name="motherName" maxlength="50"><br>
                     </div>
                     <div class="col-md-6">
                         <label for = "motherPhone"> Mother/Guardian Phone:</label><br>
-                            <input type="text" class="form-control" id="motherName" maxlength="20" pattern="[1-9()-]+" placeholder="(555)888-0000"><br>
+                            <input type="text" class="form-control" name="motherPhone" maxlength="20"placeholder="(555)888-0000"><br>
                     </div>
                     <div class="col-md-6">
                         <label for = "fatherName">Father/Guardian Name:</label><br>
-                            <input type="text" class="form-control" id="fatherName" maxlength="50" pattern="[a-zA-Z ]+" ><br>
+                            <input type="text" class="form-control" name="fatherName" maxlength="50"><br>
                     </div>
                     <div class="col-md-6">
                         <label for = "fatherPhone">Father/Guardian Phone:</label><br>
-                            <input type="text" class="form-control" id="fatherName" maxlength="20" pattern="[1-9()-]+" placeholder="(555)888-0000"><br>
+                            <input type="text" class="form-control" name="fatherPhone" maxlength="20"placeholder="(555)888-0000"><br>
                     </div>
                     <div class="col-md-6">
                         <label for = "emergencyName">Emergency Contact Name:</label><br>
-                            <input type="text" class="form-control" id="emergencyName" maxlength="50" pattern="[a-zA-Z ]+" ><br>
+                            <input type="text" class="form-control" name="emergencyName" maxlength="50"><br>
                     </div>
                      <div class="col-md-6">
                         <label for = "emergencyRelationship">Emergency Contact Relationship:</label><br>
-                            <input type="text" class="form-control" id="emergencyRelationship" maxlength="25" pattern="[a-zA-Z ]+" ><br>
+                            <input type="text" class="form-control" name="emergencyRelationship" maxlength="25"><br>
                     </div>
                     <div class="col-md-6">
                         <label for = "emergencyPhone"> Emergency Contact Phone:</label><br>
-                            <input type="text" class="form-control" id="emergecncyPhone" maxlength="20" pattern="[1-9()-]+" placeholder="(555)888-0000"><br>
+                            <input type="text" class="form-control" name="emergecncyPhone" maxlength="20"placeholder="(555)888-0000"><br>
                     </div>
-                    <legend>Personal Information</legend>
+                    <div class="col-md-12">
+                        <legend>Personal Information</legend>
+                    </div>
                     <div class="col-md-8">
                     <label>Has your child had any serious illness?</label><br>
                         <input type="radio" name="answer" id="yes" onclick="showIllness()">Yes
                         <input type="radio" name="answer" id="no" onclick="hideIllness()">No<br><br>
                         <div id="textIllness">
                             Please Explain below:<br>
-                            <textarea id="illnessInput" class="form-control" rows="5" cols="50"></textarea>
+                            <textarea name="illnessInput" class="form-control" rows="5" cols="50"></textarea>
                         </div>
                     </div>
     
@@ -84,7 +79,7 @@
                         <input type="radio" name="answer" id="no" onclick="hideTreatment()">No<br><br>
                         <div id="textTreatment">
                             Please list below:<br>
-                            <textarea id="treatmentInput" class="form-control" rows="5" cols="50"></textarea>
+                            <textarea name="treatmentInput" class="form-control" rows="5" cols="50"></textarea>
                         </div>
                     </div>
                    
@@ -96,7 +91,7 @@
                         <input type="radio" name="answer" id="no" onclick="hideAllergies()">No<br><br>
                         <div id="textAllergies">
                             Please list below:<br>
-                            <textarea id="allergiesInput" class="form-control" rows="5" cols="50"></textarea>
+                            <textarea name="allergiesInput" class="form-control" rows="5" cols="50"></textarea>
                         </div>
                     </div>
 
@@ -106,7 +101,7 @@
                         <input type="radio" name="answer" id="no" onclick="hideMeds()">No<br><br>
                         <div id="textMeds">
                             Please list below:<br>
-                            <textarea id="medsInput" class="form-control" rows="5" cols="50" placeholder="med1,med2,med3"></textarea>
+                            <textarea name="medsInput" class="form-control" rows="5" cols="50" placeholder="med1,med2,med3"></textarea>
                         </div>
                     </div>
                     
@@ -116,7 +111,7 @@
                         <input type="radio" name="answer" id="no" onclick="hideAccomodations()">No<br><br>
                         <div id="textAccomodations">
                             Please Explain below:<br>
-                            <textarea id="accomodationsInput" class="form-control" rows="5" cols="50"></textarea>
+                            <textarea name="accomodationsInput" class="form-control" rows="5" cols="50"></textarea>
                         </div>
                     </div>
 
@@ -126,21 +121,22 @@
                         <input type="radio" name="answer" id="no" onclick="hideRestrictions()">No<br><br>
                         <div id="textRestrictions">
                             Please Explain below:<br>
-                            <textarea id="RestrictionsInput" class="form-control" rows="5" cols="50"></textarea>
+                            <textarea name="restrictionsInput" class="form-control" rows="5" cols="50"></textarea>
                         </div>
                     </div>
 
                     <div class="col-md-6">
                         <label for = "physiciansName">Physician's Name: </label>
-                            <input type="text" class="form-control" id="physiciansName" maxlength="50"" pattern="[a-zA-Z ]+" required><br>
+                            <input type="text" class="form-control" id="physiciansName" maxlength="50"required><br>
                     </div>
 
                     <div class="col-md-6">
                         <label for = "physiciansPhoneNumber">Phone Number: </label>
-                            <input type="text" class="form-control" id="physiciansPhoneNumber" maxlength="50"" pattern="[1-9-()]+" required placeholder="(555)888-0000"><br>
+                            <input type="text" class="form-control" name="physiciansPhoneNumber" maxlength="50"required placeholder="(555)888-0000"><br>
                     </div>
-
-                    <legend>Insurance Provider Information</legend>
+                    <div class="col-md-12">
+                        <legend>Insurance Provider Information</legend>
+                    </div>
                     <div class="col-md-8">
                     <label> Is your child insured?</label><br>
                         <input type="radio" name="answer" id="yes" onclick="showInfo()" >Yes
@@ -149,31 +145,33 @@
                     <div class="insured">
                     <div class="col-md-12">
                         <label for = "insuranceCompany" >Insurance Company:</label>
-                            <input type="text" class="form-control" id="insuranceCompany" maxlength="50" pattern="[a-zA-Z ]+" ><br>
+                            <input type="text" class="form-control" name="insuranceCompany" maxlength="50"><br>
                     </div>
                     <div class="col-md-6">
                         <label for = "insuranceGroup" >Group Name:</label>
-                            <input type="text" class="form-control" id="insuranceGroup" maxlength="50" pattern="[a-zA-Z ]+" ><br>
+                            <input type="text" class="form-control" name="insuranceGroup" maxlength="50"><br>
                     </div>
                     <div class="col-md-6">
                         <label for = "insuranceGroupNumber" >Group Number:</label>
-                            <input type="text" class="form-control" id="insuranceGroupNumber" maxlength="50" pattern="[a-zA-Z ]+" ><br>
+                            <input type="text" class="form-control" name="insuranceGroupNumber" maxlength="50"><br>
                     </div>
                     <div class="col-md-6">
                         <label for = "insuranceAddressStreet" >Insurance Street Address:</label>
-                            <input type="text" class="form-control" id="insuranceAddressStreet" maxlength="50" ><br>
+                            <input type="text" class="form-control" name="insuranceAddressStreet" maxlength="50" ><br>
                     </div>
 
                     <div class="col-md-6">
-                        <label for = "insuranceGroup" >Insurance City,State,Zip:</label>
-                            <input type="text" class="form-control" id="insuranceGroup" maxlength="50" pattern="[a-zA-Z 1-9 ,]+" placeholder="City,State,Zip" required><br>
+                        <label for = "insuranceAddress" >Insurance City,State,Zip:</label>
+                    <input type="text" class="form-control" name="insuranceGroup" maxlength="50" placeholder="City,State,Zip"required><br>
                     </div>
 
                     </div>
-                    <legend>Medical Release Agreement</legend>
+                    <div class="col-md-12">
+                        <legend>Medical Release Agreement</legend>
+                    </div>
                     <div class="col-md-6">
                         <label for = "childsName" >As parent or Guardian of:</label>
-                            <input type="text" class="form-control" id="childsName" maxlength="50" pattern="[a-zA-Z ]+" required><br>
+                            <input type="text" class="form-control" name="childsName" maxlength="50"required><br>
                     </div>
                     <div class="col-md-12">
                     <div class="terms">
@@ -184,8 +182,8 @@
                             of Girls State.  
                             We hereby release and discharge THE AMERICAN LEGION AUXILIARY, DEPARTMENT OF GEORGIA, INC., its Officers, Agents, 
                             Instructors and Employees, from all claims, demands, damages, suits, actions or causes of action which we may, can 
-                            or shall have by any reason of illness, injury or accident incurred or suffered by <div class="col-md-8"><input type="text" class="form-control" id="enterChildsName" maxlength="50" 
-                            pattern="[a-zA-Z ]+" placeholder="Daughter's Name"required></div><br><br><br>
+                            or shall have by any reason of illness, injury or accident incurred or suffered by
+<div class="col-md-8"><input type="text" class="form-control" name="enterChildsName" maxlength="50"placeholder="Daughter's Name"required></div><br><br><br>
                             while in attendance at said Girls State, no matter how caused or occasioned.
 
 	                            
@@ -203,7 +201,7 @@
                         <input type="radio" name="answer" id="no" onclick="hideConsent()">No<br><br>
                         <div id="textConsent">
                             If you have any restrictions please list them:<br>
-                            <textarea id="consentInput" class="form-control" rows="5" cols="50"></textarea>
+                            <textarea name="consentInput" class="form-control" rows="5" cols="50"></textarea>
                         </div>
                     </div>
 
@@ -213,25 +211,23 @@
                         <input type="radio" name="answer" id="no" onclick="hideCondition()">No<br><br>
                         <div id="textCondition">
                             If yes, please explain:<br>
-                            <textarea id="conditionInput" class="form-control" rows="5" cols="50"></textarea>
+                            <textarea name="conditionInput" class="form-control" rows="5" cols="50"></textarea>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <label for = "parentSignature"> Parent/Guardian Signature:</label><br>
-                            <input type="text" class="form-control" id="parentSignature" maxlength="50" pattern="[a-zA-Z ]+" ><br>
+                            <input type="text" class="form-control" name="parentSignature" maxlength="50" required><br>
                     </div>
                     <div class="col-md-6">
                         <label for = "signDate">Today's Date:</label>
-                            <input type="date" class="form-control" id="signDate" placeholder="mm/dd/yyyy"required><br>
+                            <input type="date" class="form-control" name="signDate" placeholder="mm/dd/yyyy"required><br>
                     </div>
 
                     <div class="buttonStudent">
 
-                        <button type="submit" class="buttonNext" color="white" formaction="student.html">Previous</button>
+                     <button type="submit" class="buttonSubmit" color="black" action="parent-consent-form-action.php">SubmitForm</button>
 
-                        <button type="submit" class="buttonSubmit" color="black">Submit Form</button>
-
-                        <button type="submit" class="buttonSave" color="white">Save Form</button>
+                    <button type="submit" class="buttonSave" color="white">Save Form</button>
 
                     </div>
             </div>
@@ -239,14 +235,7 @@
     </div>
 
     <script type="text/javascript">
-        function myFunction() {
-    var x = document.getElementById("myTopnav");
-    if (x.className === "topnav") {
-        x.className += " responsive";
-    } else {
-        x.className = "topnav";
-    }
-}
+   
 
     /*jQuery used to hide the text boxes initially until yes is selected*/
     $(document).ready(function(){
@@ -315,6 +304,6 @@
      
 
 </script>
-</body>
 </div>
+</body>
 </html>

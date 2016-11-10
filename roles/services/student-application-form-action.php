@@ -16,13 +16,12 @@
             $parentEmail = $_POST["parentEmail"];
             $studentSignature = $_POST["studentSignature"];
             $parentSignature = $_POST["parentSignature"];
-            echo $studentFirstName.":".$studentLastName;
         
             //$arr = array($studentFirstName, $studentLastName, $studentEmail);
             //$json = json_encode($arr);
             
             $post_data = array(
-                    'student' => array(
+                    //'student' => array(
                     'studentFirstName' => $studentFirstName,
                     'studentMiddleName' => $studentMiddleName,
                     'studentLastName' => $studentLastName,
@@ -38,10 +37,15 @@
                     'parentEmail' => $parentEmail,
                     'studentSignature' => $studentSignature,
                     'parentSignature' => $parentSignature
-                )
+                //)
             );
-            
-            echo json_encode($post_data);
+        $result ="";
+        foreach ($post_data as $key => $value)
+        {
+            $result .= "$key:$value^";
+        }
+           echo $result; 
+            //echo json_encode($post_data);
             //echo '<pre>'; print_r($json); echo '</pre>';
         ?>
     </body>

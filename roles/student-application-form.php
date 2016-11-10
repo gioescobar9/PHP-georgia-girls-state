@@ -19,7 +19,10 @@
 <body>
 <header>
     <div class="heading">
-        <h1 align="center" class="loginHeader"><img src="images/icon.jpg"><br>The American Legion Auxiliary<br>Georgia Girls State</h1>
+        <div class="heading">
+            <h1 align="center" class="loginHeader"><img src="images/icon.jpg">
+            <a href = "student-interface.php"><span style = "float: left; margin-right: -20%" class="btn btn-info btn-lg">
+                <span class="glyphicon glyphicon-home"><br>Home</span></a><br>The American Legion Auxiliary<br>Georgia Girls State</h1>
     </div>
 </header>
 <div class = "body">
@@ -31,7 +34,9 @@ enforce proper restrictions-->
 <form class="form-horizontal" role="form" action="services/student-application-form-action.php" method="post">
     <div class="form-group">
            <h3>Student Information Form</h3>
+            <div class = "col-md-12">
            <legend>Personal Information</legend>
+        </div>
            <div class="col-md-6">
             <label for = "studentFirstName">First Name:</label>
                <input type="text" class="form-control" name="studentFirstName" maxlength="25" pattern="[a-zA-Z]+" autofocus required><br>
@@ -60,12 +65,12 @@ enforce proper restrictions-->
            </div>
            <div class="col-md-6" align="center">
              <label for = "studentPreferName">Name to display on name tag:</label><br>
-             <input type="text" class="form-control" name="studentPreferName" maxlength="25" pattern="[a-zA-z ]+" required>
+                <input type="text" class="form-control" name="studentPreferName" maxlength="25" pattern="[a-zA-z ]+" required><br>
             </div>
-            <div class="col-md-3"><br><br><br>
-           </div>
-
-            <legend>Contact Information</legend>
+          
+            <div class="col-md-12">
+                <legend>Contact Information</legend>
+            </div>
            <div class="col-md-6">
             <label for = "homePhone">Home Phone:</label>
                 <input type="text" class="form-control" name="homePhone" maxlength="13" placeholder="(555)888-0000"><br>
@@ -90,21 +95,25 @@ enforce proper restrictions-->
             <label for = "parentEmail">Parent Email:</label>
                 <input type="email" class="form-control" name="parentEmail" placeholder="name@email.com" required><br>
         </div>
-        <legend>Authorization</legend>
-        <h5>By signing below I agree that all information provided is correct on behalf of the Student and Parent:</h4>
+        <div class="col-md-12">
+            <legend>Authorization</legend>
+        </div>
+        <div class ="col-md-12">
+            <h5>By signing below I agree that all information provided is correct on behalf of the Student and Parent:</h5><br>
+        </div>
       <div class="signature">
-    <div class="col-md-6">
-    <label for = "studentSignature">Student Signature</label>
-    <input type="text" class="form-control" name="studentSignature" placeholder="Electronic Signature" pattern="[a-zA-Z]+" required><br>
-    </div>
-     <div class="col-md-6">
-    <label for = "parentSignature">Parent Signature</label>
-    <input type="text" class="form-control" name="parentSignature" placeholder="Electronic Signature" pattern="[a-zA-Z]+" required><br>
-    </div>
+        <div class="col-md-6">
+            <label for = "studentSignature">Student Signature</label>
+                <input type="text" class="form-control" name="studentSignature" placeholder="Electronic Signature" pattern="[a-zA-Z]+" required><br>
+        </div>
+        <div class="col-md-6">
+            <label for = "parentSignature">Parent Signature</label>
+                <input type="text" class="form-control" name="parentSignature" placeholder="Electronic Signature" pattern="[a-zA-Z]+" required><br>
+        </div>
     </div>
     <div class ="labelCenter">
-    <label for = "termsAgreement" align="center">By checking the box below as Student and Parent I adknowledge that I agree to the below terms:</label><br>
-        <input type="checkbox" data-group-cls="btn-group-lg" id="termsAgreement" required>
+        <label for = "termsAgreement" align="center">By checking the box below as Student and Parent I adknowledge that I agree to the below terms:</label><br>
+            <input type="checkbox" data-group-cls="btn-group-lg" id="termsAgreement" required>
     </div>
   
     <br><div class="terms">
@@ -124,15 +133,18 @@ enforce proper restrictions-->
     </div>
 </div>
 
-<div class="buttonStudent">
+    <div class="buttonStudent">
 
-    <button type="submit" class="buttonSave" color="white">Save Form</button>
+        <button type="submit" class="buttonSave" color="white" formaction="parent-consent-form.php">Submit/Continue</button>
 
-    <button type="submit" class="buttonNext" color="white" formaction="parentConsentForm.html">Next</button>
-
-</div>
-        </form>
     </div>
+</form>
+    <div class="buttonStudent" style="padding:10px">
+        <a href = "student-interface.php">
+            <button type="submit" class="buttonNext" color="white" onclick="student-interface.php">Cancel</button>
+        </a>
+    </div>
+</div>
 </div>
 
 </div>

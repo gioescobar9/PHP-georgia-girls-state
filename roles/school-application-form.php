@@ -18,8 +18,10 @@
 
 <header>
     <div class="heading">
-        <h1 align="center" class="loginHeader"><img src="images/icon.jpg"><br>The American Legion Auxiliary<br>Georgia Girls State</h1>
-        
+        <div class="heading">
+            <h1 align="center" class="loginHeader"><img src="images/icon.jpg">
+            <a href = "school-interface.php"><span style = "float: left; margin-right: -20%" class="btn btn-info btn-lg">
+                <span class="glyphicon glyphicon-home"><br>Home</span></a><br>The American Legion Auxiliary<br>Georgia Girls State</h1>
     </div>
 </header>
 <!--create a container to wrap the form for easy formatting, class well uses bootsrap for some of CSS. 
@@ -43,11 +45,13 @@ enforce proper restrictions-->
             <label for = "schoolAddress">City,State,Zip: </label>
                 <input type="text" class="form-control" name="schoolAddress" maxlength="25" placeholder="City,State,Zip" required><br>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-12">
             <label for = "schoolPhone"> School Phone Number: </label>
                 <input type="text" class="form-control" name="schoolPhone" maxlength="15" required><br>
         </div>
+        <div class = "col-md-12">
         <legend>Student Information</legend>
+        </div>
         <div class="col-md-6">
             <label for = "studentFirstName">Student's First Name:</label>
                <input type="text" class="form-control" name="studentFirstName" maxlength="25" autofocus><br>
@@ -64,7 +68,9 @@ enforce proper restrictions-->
             <label for = "studentGradDate">Expected Graduation Date:</label>
                <input type="date" class="form-control" name="studentGradDate" required><br>
         </div>
+        <div class = "col-md-12">
         <legend>School Official Information </legend>
+        </div>
         <div class = "col-md-6">
             <label for = "officialFirstName"> First Name: </label>
                 <input type="text" class="form-control" name="officialFirstName" maxlength="25" required><br>
@@ -117,16 +123,5 @@ enforce proper restrictions-->
 </div>
 </div>
 
- <script type="text/javascript">
-        function myFunction() {
-    var x = document.getElementById("myTopnav");
-    if (x.className === "topnav") {
-        x.className += " responsive";
-    } else {
-        x.className = "topnav";
-    }
-}
-
-</script>
 </body>
 </html>

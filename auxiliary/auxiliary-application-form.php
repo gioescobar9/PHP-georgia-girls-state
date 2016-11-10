@@ -41,7 +41,9 @@ enforce proper restrictions-->
 <form class="form-horizontal" role="form" id = "auxiliary-form">
     <div class="form-group">
            <h3>Auxiliary Information Form</h3>
-           <legend>Auxiliary Information</legend>
+            <div class="col-md-12">
+                <legend>Auxiliary Information</legend>
+            </div>
             <div class="col-md-6">
             <label for = "unitNumber">Unit Number:</label>
                 <input type="text" class="form-control" id="unitNumber" maxlength="10" autofocus required><br>
@@ -66,7 +68,9 @@ enforce proper restrictions-->
             <label for = "unitPhone">Phone Number:</label>
                 <input type="text" class="form-control" id="unitPhone" maxlength="15" placeholder="(555)888-0000" required><br>
             </div>
-            <legend>Auxiliary Sponsoring Official Information</legend>
+            <div class="col-md-12">
+                <legend>Auxiliary Sponsoring Official Information</legend>
+            </div>
             <div class="col-md-6">
             <label for = "officialFirstName">First Name:</label>
                 <input type="text" class="form-control" id="officialFirstName" maxlength="25" required><br>
@@ -94,24 +98,7 @@ enforce proper restrictions-->
 </form>
 </div>
 </div> 
-<!--testing purposes <p id="demo">hello</p>-->
-<script type="text/javascript">
-        function myFunction() {
-    var x = document.getElementById("myTopnav");
-    if (x.className === "topnav") {
-        x.className += " responsive";
-    } else {
-        x.className = "topnav";
-    }
-}
-    function testFunction() {
-        var x = document.getElementById("auxiliary-form").elements.length; 
-        document.getElementById("demo").innerHTML = "Found "+x+" elements in the form.";
-        //var inputs = document.getElementById('auxiliary-form').getElementsByTagName('input');
-        //document.getElementById("demo").innerHTML = inputs.toString();
-        
-    }
-    
-    </script>
+
+
 </body>
 </html>

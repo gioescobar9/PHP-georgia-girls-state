@@ -36,7 +36,7 @@ session_start();
         <div class="col-md-12">
         <div class="col-md-12">
             <label for = "password">Password: </label><br>
-                <input  type="text" class="form-control" name="password" maxlength="20" placeholder="Password" required><br>
+                <input  type="password" class="form-control" name="password" maxlength="20" placeholder="Password" required><br>
             <?php
                 if(isset($_SESSION["loggedIn"])){
                     if($_SESSION["loggedIn"]==false )
