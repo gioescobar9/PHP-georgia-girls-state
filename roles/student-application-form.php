@@ -1,4 +1,5 @@
 <?php
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -17,23 +18,12 @@
 
 <body>
 <header>
-<!-- create nav bar design, not complete yet just here for layout image-->
-<nav class="navigation">
-<div class="nav">
-<ul class="topnav" id="myTopnav">
-  <li><a class="active" href="student.html">Student Form</a></li>
-  <li><a href="#info">My Information</a></li>
-  <!--<li><img src="georgiaLogo.jpg" id="logo" style="width:75px;height:75px;" /></li>-->
-  <li><a class="#medicalConsent" href="parentConsentForm.html">Medical Consent Form</a></li>
-  <li><a href="#about">About</a></li>
-  <li class="icon">
-    <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>
-  </li>
-  <div class="logo"></div>
-</ul>
-</div>
-</nav>
-
+    <div class="heading">
+        <div class="heading">
+            <h1 align="center" class="loginHeader"><img src="images/icon.jpg">
+            <a href = "student-interface.php"><span style = "float: left; margin-right: -20%" class="btn btn-info btn-lg">
+                <span class="glyphicon glyphicon-home"><br>Home</span></a><br>The American Legion Auxiliary<br>Georgia Girls State</h1>
+    </div>
 </header>
 <div class = "body">
 <!--create a container to wrap the form for easy formatting, class well uses bootsrap for some of CSS. 
@@ -41,83 +31,89 @@ Divide each field and label using col-md-3/6/12 for size needed. Collect all inf
 enforce proper restrictions-->
 <div class="container">
 <div class="well">
-<form class="form-horizontal" role="form">
+<form class="form-horizontal" role="form" action="services/student-application-form-action.php" method="post">
     <div class="form-group">
            <h3>Student Information Form</h3>
+            <div class = "col-md-12">
            <legend>Personal Information</legend>
+        </div>
            <div class="col-md-6">
             <label for = "studentFirstName">First Name:</label>
-               <input type="text" class="form-control" id="studentFirstName" maxlength="25" pattern="[a-zA-Z]+" autofocus required><br>
+               <input type="text" class="form-control" name="studentFirstName" maxlength="25" pattern="[a-zA-Z]+" autofocus required><br>
            </div>
            <div class="col-md-6">
             <label for = "studentMiddleName">Middle Name:</label>
-               <input type="text" class="form-control" id="studentMiddleName" maxlength="25" pattern="[a-zA-Z]+" ><br>
+               <input type="text" class="form-control" name="studentMiddleName" maxlength="25" pattern="[a-zA-Z]+" ><br>
            </div>
            <div class="col-md-6">
             <label for = "studentLastName">Last Name:</label>
-               <input type="text" class="form-control" id="studentLastName" pattern="[a-zA-Z]+" required><br>
+               <input type="text" class="form-control" name="studentLastName" pattern="[a-zA-Z]+" required><br>
            </div>
            <div class="col-md-6">
             <label for = "studentDOB">Date of Birth:</label>
-                <input type="date" class="form-control" id="studentDOB" placeholder="mm/dd/yyyy" required><br>
+                <input type="date" class="form-control" name="studentDOB" placeholder="mm/dd/yyyy" required><br>
            </div>
               <div class="col-md-6">
                 <label for = "studentStreetAddress"> Street Address:</label>
-                    <input type="text" class="form-control" id="studentStreetAddress" pattern="[a-zA-Z1-9 . ]+" required ><br>
+                    <input type="text" class="form-control" name="studentStreetAddress" pattern="[a-zA-Z1-9 . ]+" required ><br>
               </div>
               <div class="col-md-12">
                 <label for = "studentAddress">City,State,Zip:</label>
-                    <input type="text" class="form-control" id="studentAddress" required placeholder="City,State,Zip"><br>
+                    <input type="text" class="form-control" name="studentAddress" required placeholder="City,State,Zip"><br>
               </div>
            <div class="col-md-3">
            </div>
            <div class="col-md-6" align="center">
              <label for = "studentPreferName">Name to display on name tag:</label><br>
-             <input type="text" class="form-control" id="studentPreferName" maxlength="25" pattern="[a-zA-z ]+" required>
+                <input type="text" class="form-control" name="studentPreferName" maxlength="25" pattern="[a-zA-z ]+" required><br>
             </div>
-            <div class="col-md-3"><br><br><br>
-           </div>
-
-            <legend>Contact Information</legend>
+          
+            <div class="col-md-12">
+                <legend>Contact Information</legend>
+            </div>
            <div class="col-md-6">
             <label for = "homePhone">Home Phone:</label>
-                <input type="text" class="form-control" id="homePhone" maxlength="13" placeholder="(555)888-0000"><br>
+                <input type="text" class="form-control" name="homePhone" maxlength="13" placeholder="(555)888-0000"><br>
            </div>
            <div class="col-md-6">
             <label for = "parentCellPhone">Parent Cell Phone:</label>
-                <input type="text" class="form-control" id="parentCellPhone" maxlength="13" placeholder="(555)888-0000"><br>
+                <input type="text" class="form-control" name="parentCellPhone" maxlength="13" placeholder="(555)888-0000"><br>
            </div>
            <div class="col-md-6">
             <label for = "emergencyPhone">Emergency Contact Number:</label>
-                <input type="text" class="form-control" id="emergencyPhone" maxlength="13" placeholder="(555)888-0000"><br>
+                <input type="text" class="form-control" name="emergencyPhone" maxlength="13" placeholder="(555)888-0000"><br>
            </div>
            <div class="col-md-6">
                <label for = "girlsCell">Girls Cell Phone:(If Available)</label>
-                   <input type="text" class="form-control" id="girlsCell" maxlength="13" placeholder="Optional"><br>
+                   <input type="text" class="form-control" name="girlsCell" maxlength="13" placeholder="Optional"><br>
            </div>
            <div class="col-md-6">
             <label for = "studentEmail">Student Email:</label>
-                <input type="email" class="form-control" id="studentEmail" placeholder="name@email.com" required><br>
+                <input type="email" class="form-control" name="studentEmail" placeholder="name@email.com" required><br>
             </div>
             <div class="col-md-6">
-            <label for = "studentEmail">Parent Email:</label>
-                <input type="email" class="form-control" id="parentEmail" placeholder="name@email.com" required><br>
+            <label for = "parentEmail">Parent Email:</label>
+                <input type="email" class="form-control" name="parentEmail" placeholder="name@email.com" required><br>
         </div>
-        <legend>Authorization</legend>
-        <h5>By signing below I agree that all information provided is correct on behalf of the Student and Parent:</h4>
+        <div class="col-md-12">
+            <legend>Authorization</legend>
+        </div>
+        <div class ="col-md-12">
+            <h5>By signing below I agree that all information provided is correct on behalf of the Student and Parent:</h5><br>
+        </div>
       <div class="signature">
-    <div class="col-md-6">
-    <label for = "studentSignature">Student Signature</label>
-    <input type="text" class="form-control" id="studentSignature" placeholder="Electronic Signature" pattern="[a-zA-Z]+" required><br>
-    </div>
-     <div class="col-md-6">
-    <label for = "parentSignature">Parent Signature</label>
-    <input type="text" class="form-control" id="parentSignature" placeholder="Electronic Signature" pattern="[a-zA-Z]+" required><br>
-    </div>
+        <div class="col-md-6">
+            <label for = "studentSignature">Student Signature</label>
+                <input type="text" class="form-control" name="studentSignature" placeholder="Electronic Signature" pattern="[a-zA-Z]+" required><br>
+        </div>
+        <div class="col-md-6">
+            <label for = "parentSignature">Parent Signature</label>
+                <input type="text" class="form-control" name="parentSignature" placeholder="Electronic Signature" pattern="[a-zA-Z]+" required><br>
+        </div>
     </div>
     <div class ="labelCenter">
-    <label for = "termsAgreement" align="center">By checking the box below as Student and Parent I adknowledge that I agree to the below terms:</label><br>
-        <input type="checkbox" data-group-cls="btn-group-lg" id="termsAgreement" required>
+        <label for = "termsAgreement" align="center">By checking the box below as Student and Parent I adknowledge that I agree to the below terms:</label><br>
+            <input type="checkbox" data-group-cls="btn-group-lg" id="termsAgreement" required>
     </div>
   
     <br><div class="terms">
@@ -137,16 +133,18 @@ enforce proper restrictions-->
     </div>
 </div>
 
-<div class="buttonStudent">
-    <button type="submit" class="buttonSubmit" color="black">Submit Form</button>
+    <div class="buttonStudent">
 
-    <button type="submit" class="buttonSave" color="white">Save Form</button>
+        <button type="submit" class="buttonSave" color="white" formaction="parent-consent-form.php">Submit/Continue</button>
 
-    <button type="submit" class="buttonNext" color="white" formaction="parentConsentForm.html">Next</button>
-
-</div>
-        </form>
     </div>
+</form>
+    <div class="buttonStudent" style="padding:10px">
+        <a href = "student-interface.php">
+            <button type="submit" class="buttonNext" color="white" onclick="student-interface.php">Cancel</button>
+        </a>
+    </div>
+</div>
 </div>
 
 </div>

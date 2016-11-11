@@ -1,4 +1,5 @@
 <?php
+session_start();
 ?>
 <!DOCTYPE html>
 <html>
@@ -21,25 +22,33 @@
 </div>
     </div>
 
-<!--<div ng-app="myApp" ng-controller="myCtrl">-->
 
 <div class="loginContainer">
 <div class="well">
-<form class="form-horizontal" role="form">
+<form class="form-horizontal" role="form" action="services/roles-login-action.php" method = "post">
     <legend>Login</legend>
     <div class="col-md-12">
         <div class="col-md-12">
             <label for = "Username:">Username:</label><br>
-                
-                <input type="text" class="form-control" id="username" maxlength="50"  placeholder="Your Email" required><br>
+
+                <input type="text" class="form-control" name="username" maxlength="50"  placeholder="Your Email" required><br>
+
         </div>
     </div>
         <div class="col-md-12">
         <div class="col-md-12">
             <label for = "password">Password: </label><br>
-                <input  type="text" class="form-control" id="password" maxlength="20" placeholder="Password" required><br>
+                <input  type="password" class="form-control" name="password" maxlength="20" placeholder="Password" required><br>
+            <?php
+                if(isset($_SESSION["loggedIn"])){
+                    if($_SESSION["loggedIn"]==false )
+                        echo "<div class = 'alert alert-danger'>Wrong Username or Password</div> <br>";
+                }
+                session_destroy();
+            ?>
         </div>
         </div>
+     
         <div class="buttonStudent">
          <button type="submit" class="buttonSubmit" color="white">Login</button>
         </div>

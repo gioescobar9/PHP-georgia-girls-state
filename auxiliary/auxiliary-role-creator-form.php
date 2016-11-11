@@ -21,10 +21,10 @@
 <nav class="navigation">
 <div class="nav">
 <ul class="topnav" id="myTopnav">
-  <li><a class="active" href="initiateStudentAccount.html">Initiate Student Account</a></li>
+  <li><a class="active" href="auxiliary-role-creator-form.php">Initiate Student Account</a></li>
   <li><a href="#info">My Students</a></li>
   <!--<li><img src="georgiaLogo.jpg" id="logo" style="width:75px;height:75px;" /></li>-->
-  <li><a class="#auxiliaryInfo" href="AuxiliaryInfo.html">Auxiliary Information Form</a></li>
+  <li><a class="#auxiliaryInfo" href="auxiliary-application-form.php">Auxiliary Information Form</a></li>
   <li><a href="#about">About</a></li>
   <li class="icon">
     <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>
