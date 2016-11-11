@@ -53,7 +53,7 @@ echo "<div class="container">";
 				echo "<th>Options</th>";
 			echo "</tr>";
 		echo "</thead>";
-
+		
 	echo "</table>";
 echo "</div>";	
 }// end of create table function
