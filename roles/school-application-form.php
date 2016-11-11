@@ -8,7 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/additional-methods.min.js"></<script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/form-validation.js"></script>
     <link rel="stylesheet" type="text/css" href="styleSheet.css">
    
 </head>
@@ -38,55 +41,55 @@ Divide each field and label using col-md-3/6/12 for size needed. Collect all inf
 enforce proper restrictions-->
 <div class="container">
 <div class="well">
-<form class="form-horizontal" role="form">
+<form class="form-horizontal" role="form" name="application">
     <div class="form-group">
         <h3>School Information Form</h3>
         <legend>School Details</legend>
         <div class="col-md-12">
             <label for = "schoolName">School Name: </label>
-                <input type="text" class="form-control" id="schoolName" maxlength="50"" pattern="[a-zA-Z]+" required autofocus><br>
+                <input type="text" class="form-control" id="schoolName" name="schoolName" maxlength="50" required autofocus><br>
         </div>
         <div class="col-md-6">
             <label for = "schoolAddressStreet">School Street:</label>
-               <input type="text" class="form-control" id="schoolAddressStreet" maxlength="25" pattern="[a-zA-Z1-9.#-]+" required><br>
+               <input type="text" class="form-control" id="schoolAddressStreet" name="address" maxlength="25" required><br>
         </div>
         <div class="col-md-6">
             <label for = "schoolAddress">City,State,Zip: </label>
-                <input type="text" class="form-control" id="schoolAddress" maxlength="25" pattern="[a-zA-Z1-9-]+" placeholder="City,State,Zip" required><br>
+                <input type="text" class="form-control" id="schoolAddress" name="address" maxlength="25" placeholder="City, State, Zip" required><br>
         </div>
         <div class="col-md-6">
             <label for = "schoolPhone"> School Phone Number: </label>
-                <input type="text" class="form-control" id="schoolPhone" maxlength="15" pattern="[1-9-]+" required><br>
+                <input type="text" class="form-control" id="schoolPhone" name="phoneNumber" maxlength="15" placeholder= "(XXX)XXX-XXXX "required><br>
         </div>
         <legend>Student Information</legend>
         <div class="col-md-6">
             <label for = "studentFirstName">Student's First Name:</label>
-               <input type="text" class="form-control" id="studentFirstName" maxlength="25" pattern="[a-zA-Z]+" autofocus><br>
+               <input type="text" class="form-control" id="studentFirstName" maxlength="25" name="name" autofocus><br>
         </div>
         <div class="col-md-6">
             <label for = "studentLastName">Student's Last Name:</label>
-               <input type="text" class="form-control" id="studentLastName" maxlength="25" pattern="[a-zA-Z]+" required><br>
+               <input type="text" class="form-control" id="studentLastName" maxlength="25" name="name" required><br>
         </div>
         <div class="col-md-6">
             <label for = "studentRank">Class Rank:</label>
-               <input type="text" class="form-control" id="studentLastName" maxlength="3" pattern="[1-9]+" required><br>
+               <input type="text" class="form-control" id="studentLastName" maxlength="3" name="classRank" required><br>
         </div>
         <div class="col-md-6">
             <label for = "studentGradDate">Expected Graduation Date:</label>
-               <input type="date" class="form-control" id="studentGradDate" required><br>
+               <input type="date" class="form-control" id="studentGradDate" name="gradDate" required><br>
         </div>
         <legend>School Official Information </legend>
         <div class = "col-md-6">
             <label for = "officialFirstName"> First Name: </label>
-                <input type="text" class="form-control" id="officialFirstName" maxlength="25" pattern="[a-zA-Z]+" required><br>
+                <input type="text" class="form-control" id="officialFirstName" maxlength="25" name="name" required><br>
         </div>
         <div class="col-md-6">
             <label for = "officialLastName"> Last Name: </label>
-                <input type="text" class="form-control" id="officialLastName" maxlength="25" pattern="[a-zA-Z]+" required><br>
+                <input type="text" class="form-control" id="officialLastName" maxlength="25" name="name" required><br>
         </div>
         <div class="col-md-6">
             <label for = "officialPhone"> Official Phone Number: </label>
-                <input type="text" class="form-control" id="officialPhone" maxlength="15" pattern="[1-9-()]+" placeholder="(888)555-0000"required><br>
+                <input type="text" class="form-control" id="officialPhone" maxlength="15" name="phoneNumber" placeholder="(888)555-0000"required><br>
         </div>
         <div class="col-md-6">
             <label for = "officialEmail"> Official Email: </label>
@@ -97,11 +100,11 @@ enforce proper restrictions-->
         </div>
         <div class="col-md-6">
             <label for = "officialSignature"> Please Sign to Agree to the Following Terms: </label>
-                <input type="text" class="form-control" id="officialSignature" maxlength="15" pattern="[a-zA-Z]+" placeholder="Electronic Signature"required><br>
+                <input type="text" class="form-control" id="officialSignature" maxlength="15" name="Signature" placeholder="Electronic Signature"required><br>
         </div>
         <div class="col-md-6">
             <label for = "signDate">Date:</label>
-                <input type="date" class="form-control" id="signDate" placeholder="mm/dd/yyyy"required><br>
+                <input type="date" class="form-control" id="signDate" name="date" placeholder="mm/dd/yyyy" required><br>
         </div>
         <div class="col-md-12">
         <div class="terms">

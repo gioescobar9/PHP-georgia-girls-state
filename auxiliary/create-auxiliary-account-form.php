@@ -10,7 +10,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/additional-methods.min.js"></<script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/form-validation.js"></script>
     <link rel="stylesheet" type="text/css" href="css/auxiliaryStyleSheet.css">
 </head>
 
@@ -26,15 +29,14 @@
             <legend>Create Auxiliary Account</legend>
             
             <label for = "username:">Username:</label><br>
-            <input type="text" class="form-control" id="username"  
-              placeholder="Unit Number">
+            <input type="text" class="form-control" id="username" name="unitNumber" placeholder="Unit Number" required>
 
             
                  <label for = "password">Password: </label><br>
-                <input  type="password"  id ="password" class="form-control" ><br>
+                <input  type="password"  id ="password" class="form-control" name="password" required><br>
 
                 <label for = "confirm_password">Confirm Password: </label><br>
-                <input type="password" id = "confirm-_password" class="form-control" >
+                <input type="password" id = "confirm-_password" class="form-control" name="password" required>
             <br>
             <p>
                <button type="submit" class="button btn-primary" color="white">Create Account</button>

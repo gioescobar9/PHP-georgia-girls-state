@@ -11,7 +11,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/additional-methods.min.js"></<script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/form-validation.js"></script>
     <link rel="stylesheet" type="text/css" href="styleSheet.css">
 </head>
 
@@ -23,14 +26,14 @@
     </div>
  <div class="form-group">
         <div class="well">
-          <form>
+          <form name="login">
             <legend>Login</legend>
             
             <label class="control-label" for="username">Username:</label><br> 
-            <input type="email" ng-model="theEmail" id="inputEmail" maxlength="20" placeholder="Email" class="form-control"><br>
+            <input type="input" id="username" name="unitNumber" maxlength="20" placeholder="Unit Number" class="form-control" required><br>
         
             <label class="control-label" for="password">Password:</label><br>
-            <input  type="password" ng-model="thePassword" passwordValidate id="inputPassword" maxlength="20" placeholder="Password" class="form-control"><br>
+            <input  type="password" id="password" name="password" maxlength="20" placeholder="Password" class="form-control" required><br>
             
               <div class = "logInButtons">
               <button type="submit" class="button btn-primary" color="white">Submit</button>

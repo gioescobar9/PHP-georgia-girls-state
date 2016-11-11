@@ -10,7 +10,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/additional-methods.min.js"></<script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/form-validation.js"></script>
     <link rel="stylesheet" type="text/css" href="css/rolesStyleSheet.css">
 </head>
 
@@ -21,28 +24,25 @@
 </div>
     </div>
 
-<!--<div ng-app="myApp" ng-controller="myCtrl">-->
-
 <div class="loginContainer">
 <div class="well">
-<form class="form-horizontal" role="form">
+<form class="form-horizontal" role="form" name="login">
     <legend>Login</legend>
     <div class="col-md-12">
         <div class="col-md-12">
             <label for = "Username:">Username:</label><br>
-                hahahahahah
-                <input type="text" class="form-control" id="username" maxlength="50"  placeholder="Your Email" required><br>
+                <input type="text" class="form-control" name="username "id="username" maxlength="50"  placeholder="Your Email" required><br>
         </div>
     </div>
-        <div class="col-md-12">
+    <div class="col-md-12">
         <div class="col-md-12">
             <label for = "password">Password: </label><br>
-                <input  type="text" class="form-control" id="password" maxlength="20" placeholder="Password" required><br>
+                <input type="password" class="form-control" name="password" id="password" maxlength="20" placeholder="Password" required><br>
         </div>
-        </div>
-        <div class="buttonStudent">
-         <button type="submit" class="buttonSubmit" color="white">Login</button>
-        </div>
+    </div>
+    <div class="buttonStudent">
+        <button type="submit" class="buttonSubmit" color="white">Login</button>
+    </div>
 </form>
 </div>
 </div>

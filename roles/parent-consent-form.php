@@ -8,8 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/additional-methods.min.js"></<script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="jquery-1.12.4.min.js"></script>
+    <script src="js/form-validation.js"></script>
     <link rel="stylesheet" type="text/css" href="css/rolesStyleSheet.css">
     
 
@@ -35,37 +38,37 @@
 <body>
 <div class="radioContainer">
     <div class="well">
-        <form class="form-horizontal" role="form">
+        <form class="form-horizontal" role="form" name="application">
             <div class="form-group">
                 <h3>Consent Form</h3>
                     <legend>Parent Information</legend>
                     <div class="col-md-6">
                         <label for = "motherName"> Mother/Guardian Name:</label><br>
-                            <input type="text" class="form-control" id="motherName" maxlength="50" pattern="[a-zA-Z ]+" ><br>
+                            <input type="text" class="form-control" id="motherName" maxlength="50" name="name"><br>
                     </div>
                     <div class="col-md-6">
                         <label for = "motherPhone"> Mother/Guardian Phone:</label><br>
-                            <input type="text" class="form-control" id="motherName" maxlength="20" pattern="[1-9()-]+" placeholder="(555)888-0000"><br>
+                            <input type="text" class="form-control" id="motherName" maxlength="20" name="phoneNumber" placeholder="(555)888-0000"><br>
                     </div>
                     <div class="col-md-6">
                         <label for = "fatherName">Father/Guardian Name:</label><br>
-                            <input type="text" class="form-control" id="fatherName" maxlength="50" pattern="[a-zA-Z ]+" ><br>
+                            <input type="text" class="form-control" id="fatherName" maxlength="50" name="name"><br>
                     </div>
                     <div class="col-md-6">
                         <label for = "fatherPhone">Father/Guardian Phone:</label><br>
-                            <input type="text" class="form-control" id="fatherName" maxlength="20" pattern="[1-9()-]+" placeholder="(555)888-0000"><br>
+                            <input type="text" class="form-control" id="fatherName" maxlength="20" name="phoneNumber" placeholder="(555)888-0000"><br>
                     </div>
                     <div class="col-md-6">
                         <label for = "emergencyName">Emergency Contact Name:</label><br>
-                            <input type="text" class="form-control" id="emergencyName" maxlength="50" pattern="[a-zA-Z ]+" ><br>
+                            <input type="text" class="form-control" id="emergencyName" maxlength="50" name="emergencyName" ><br>
                     </div>
                      <div class="col-md-6">
                         <label for = "emergencyRelationship">Emergency Contact Relationship:</label><br>
-                            <input type="text" class="form-control" id="emergencyRelationship" maxlength="25" pattern="[a-zA-Z ]+" ><br>
+                            <input type="text" class="form-control" id="emergencyRelationship" maxlength="25" name="name" ><br>
                     </div>
                     <div class="col-md-6">
                         <label for = "emergencyPhone"> Emergency Contact Phone:</label><br>
-                            <input type="text" class="form-control" id="emergecncyPhone" maxlength="20" pattern="[1-9()-]+" placeholder="(555)888-0000"><br>
+                            <input type="text" class="form-control" id="emergecncyPhone" maxlength="20" name="phoneNumber" placeholder="(555)888-0000"><br>
                     </div>
                     <legend>Personal Information</legend>
                     <div class="col-md-8">
