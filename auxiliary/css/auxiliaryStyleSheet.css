@@ -16,6 +16,10 @@
      height: 100px;
    }
 
+    /* validation error */
+    form .error {
+        color: #ff0000; 
+    }
 
     /* format the form in here*/
     .container{
@@ -64,6 +68,7 @@
     p{
         text-align: center;
     }
+
     /*general format for button class*/
     .button{
         border: 2px solid dodgerblue;

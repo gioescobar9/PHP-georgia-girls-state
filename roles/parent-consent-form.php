@@ -11,7 +11,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/additional-methods.min.js"></<script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script src="jquery-1.12.4.min.js"></script>
+    <script src="js/form-validation.js"></script>
     <link rel="stylesheet" type="text/css" href="css/rolesStyleSheet.css">
 
 </head>
@@ -25,7 +30,9 @@
 <body>
 <div class="radioContainer">
     <div class="well">
-        <form class="form-horizontal" role="form" action="services/parent-consent-form-action.php" method = "post">
+
+        <form class="form-horizontal"  name = "application" role="form" action="services/parent-consent-form-action.php" method = "post">
+
             <div class="form-group">
                 <h3>Consent Form</h3>
                     <div class="col-md-12">
@@ -33,6 +40,7 @@
                     </div>
                     <div class="col-md-6">
                         <label for = "motherName"> Mother/Guardian Name:</label><br>
+<<<<<<< HEAD
                             <input type="text" class="form-control" name="motherName" maxlength="50"><br>
                     </div>
                     <div class="col-md-6">

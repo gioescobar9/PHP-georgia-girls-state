@@ -9,7 +9,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/additional-methods.min.js"></<script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+     <script src="js/form-validation.js"></script>
     <link rel="stylesheet" type="text/css" href="css/rolesStyleSheet.css">
    
 </head>
@@ -30,6 +33,7 @@ enforce proper restrictions-->
 <div class="container">
 <div class="well">
 <form class="form-horizontal" role="form" action="services/school-application-form-action.php" method="post">
+
     <div class="form-group">
         <h3>School Information Form</h3>
         <legend>School Details</legend>
@@ -47,7 +51,7 @@ enforce proper restrictions-->
         </div>
         <div class="col-md-12">
             <label for = "schoolPhone"> School Phone Number: </label>
-                <input type="text" class="form-control" name="schoolPhone" maxlength="15" required><br>
+                <input type="text" class="form-control" name="schoolPhone" maxlength="15" placeholder= "(XXX)XXX-XXXX" required><br>
         </div>
         <div class = "col-md-12">
         <legend>Student Information</legend>

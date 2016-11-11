@@ -12,7 +12,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/additional-methods.min.js"></<script
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/form-validation.js"></script>
     <link rel="stylesheet" type="text/css" href="css/rolesStyleSheet.css">
 
 </head>
@@ -32,7 +35,9 @@ Divide each field and label using col-md-3/6/12 for size needed. Collect all inf
 enforce proper restrictions-->
 <div class="container">
 <div class="well">
-<form class="form-horizontal" role="form" action="services/student-application-form-action.php" method="post">
+<form class="form-horizontal" name = "application" role="form" action="services/student-application-form-action.php" 
+ method="post">
+
     <div class="form-group">
            <h3>Student Information Form</h3>
             <div class = "col-md-12">
@@ -40,15 +45,15 @@ enforce proper restrictions-->
         </div>
            <div class="col-md-6">
             <label for = "studentFirstName">First Name:</label>
-               <input type="text" class="form-control" name="studentFirstName" maxlength="25" pattern="[a-zA-Z]+" autofocus required><br>
+               <input type="text" class="form-control" name="studentFirstName" maxlength="25"  autofocus required><br>
            </div>
            <div class="col-md-6">
             <label for = "studentMiddleName">Middle Name:</label>
-               <input type="text" class="form-control" name="studentMiddleName" maxlength="25" pattern="[a-zA-Z]+" ><br>
+               <input type="text" class="form-control" name="studentMiddleName" maxlength="25"><br>
            </div>
            <div class="col-md-6">
             <label for = "studentLastName">Last Name:</label>
-               <input type="text" class="form-control" name="studentLastName" pattern="[a-zA-Z]+" required><br>
+               <input type="text" class="form-control" name="studentLastName" required><br>
            </div>
            <div class="col-md-6">
             <label for = "studentDOB">Date of Birth:</label>
@@ -56,11 +61,12 @@ enforce proper restrictions-->
            </div>
               <div class="col-md-6">
                 <label for = "studentStreetAddress"> Street Address:</label>
-                    <input type="text" class="form-control" name="studentStreetAddress" pattern="[a-zA-Z1-9 . ]+" required ><br>
+                    <input type="text" class="form-control" name="studentStreetAddress" required ><br>
               </div>
               <div class="col-md-12">
                 <label for = "studentAddress">City,State,Zip:</label>
-                    <input type="text" class="form-control" name="studentAddress" required placeholder="City,State,Zip"><br>
+                    <input type="text" class="form-control" name="studentAddress" required placeholder="City,State,Zip">
+                    <br>
               </div>
            <div class="col-md-3">
            </div>

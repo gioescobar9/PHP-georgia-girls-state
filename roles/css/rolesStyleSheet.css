@@ -16,7 +16,10 @@
    .loginHeader img{
      height: 100px;
    }
-
+    /* validation error */
+    form .error {
+        color: #ff0000; 
+    }
 
     /* format the form in here*/
     .container{

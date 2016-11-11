@@ -10,7 +10,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/additional-methods.min.js"></<script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/form-validation.js"></script>
     <link rel="stylesheet" type="text/css" href="css/auxiliaryStyleSheet.css">
     
 </head>
@@ -28,7 +31,8 @@ Divide each field and label using col-md-3/6/12 for size needed. Collect all inf
 enforce proper restrictions-->
 <div class="container">
 <div class="well">
-    <form class="form-horizontal" name = "auxiliary_application_form" action = "auxiliaryServices/auxiliary-application.php" method = "post">
+
+    <form class="form-horizontal" name = "application" action = "auxiliaryServices/auxiliary-application.php" method = "post">
         <div class="form-group">
             <h3>Auxiliary Information Form</h3>
             <legend>Auxiliary Information</legend>
@@ -61,11 +65,13 @@ enforce proper restrictions-->
             </div>
             <div class="col-md-6">
             <label for = "officialFirstName">First Name:</label>
+
                 <input type="text" class="form-control" id="officialFirstName" maxlength="25" required><br>
             </div>
             <div class="col-md-6">
             <label for = "officialLastName">Last Name:</label>
                 <input type="text" class="form-control" id="officialLastName" maxlength="25" required><br>
+
             </div>
             <div class="col-md-6">
             <label for = "officialEmail">Official's Email:</label>
@@ -73,7 +79,7 @@ enforce proper restrictions-->
             </div>
             <div class="col-md-6">
             <label for = "officialPhone">Official's Phone:</label>
-                <input type="text" class="form-control" id="officialPhone" maxlength="15" placeholder="(555)888-0000" required><br>
+                <input type="text" class="form-control" id="officialPhone" name="phoneNumber" maxlength="15" placeholder="(555)888-0000" required><br>
             </div>
             <div class="buttonStudent">
             <input type = "submit" class = "buttonSubmit" 
