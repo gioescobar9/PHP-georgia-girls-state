@@ -30,7 +30,7 @@
     <div class="col-md-12">
         <div class="col-md-12">
             <label for = "Username:">Username:</label><br>
-                hahahahahah
+                
                 <input type="text" class="form-control" id="username" maxlength="50"  placeholder="Your Email" required><br>
         </div>
     </div>
