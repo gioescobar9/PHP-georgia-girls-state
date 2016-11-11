@@ -10,8 +10,6 @@ $(function() {
       // on the right side
       username: {
         required: true,
-        // Specify that email should be validated
-        // by the built-in "email" rule
         email: true
       },
       password: {
@@ -49,7 +47,7 @@ $(function() {
       },
       name:
       {
-          pattern: /^[a-zA-Z']+$/
+          pattern: /^[a-z ,.'-]+$/
       },
       address: {
         required: true,
@@ -73,7 +71,7 @@ $(function() {
           pattern: /^[a-zA-Z' ]$/
       }
     },
-    
+
     // Specify validation error messages
     messages: {
       schoolName: {
