@@ -39,15 +39,15 @@ enforce proper restrictions-->
         </div>
            <div class="col-md-6">
             <label for = "studentFirstName">First Name:</label>
-               <input type="text" class="form-control" name="studentFirstName" maxlength="25" pattern="[a-zA-Z]+" autofocus required><br>
+               <input type="text" class="form-control" name="studentFirstName" maxlength="25" autofocus required><br>
            </div>
            <div class="col-md-6">
             <label for = "studentMiddleName">Middle Name:</label>
-               <input type="text" class="form-control" name="studentMiddleName" maxlength="25" pattern="[a-zA-Z]+" ><br>
+               <input type="text" class="form-control" name="studentMiddleName" maxlength="25" ><br>
            </div>
            <div class="col-md-6">
             <label for = "studentLastName">Last Name:</label>
-               <input type="text" class="form-control" name="studentLastName" pattern="[a-zA-Z]+" required><br>
+               <input type="text" class="form-control" name="studentLastName" required><br>
            </div>
            <div class="col-md-6">
             <label for = "studentDOB">Date of Birth:</label>
@@ -55,7 +55,7 @@ enforce proper restrictions-->
            </div>
               <div class="col-md-6">
                 <label for = "studentStreetAddress"> Street Address:</label>
-                    <input type="text" class="form-control" name="studentStreetAddress" pattern="[a-zA-Z1-9 . ]+" required ><br>
+                    <input type="text" class="form-control" name="studentStreetAddress" required ><br>
               </div>
               <div class="col-md-12">
                 <label for = "studentAddress">City,State,Zip:</label>
@@ -65,7 +65,7 @@ enforce proper restrictions-->
            </div>
            <div class="col-md-6" align="center">
              <label for = "studentPreferName">Name to display on name tag:</label><br>
-                <input type="text" class="form-control" name="studentPreferName" maxlength="25" pattern="[a-zA-z ]+" required><br>
+                <input type="text" class="form-control" name="studentPreferName" maxlength="25"  required><br>
             </div>
           
             <div class="col-md-12">
@@ -104,11 +104,11 @@ enforce proper restrictions-->
       <div class="signature">
         <div class="col-md-6">
             <label for = "studentSignature">Student Signature</label>
-                <input type="text" class="form-control" name="studentSignature" placeholder="Electronic Signature" pattern="[a-zA-Z]+" required><br>
+                <input type="text" class="form-control" name="studentSignature" placeholder="Electronic Signature" required><br>
         </div>
         <div class="col-md-6">
             <label for = "parentSignature">Parent Signature</label>
-                <input type="text" class="form-control" name="parentSignature" placeholder="Electronic Signature" pattern="[a-zA-Z]+" required><br>
+                <input type="text" class="form-control" name="parentSignature" placeholder="Electronic Signature" required><br>
         </div>
     </div>
     <div class ="labelCenter">
@@ -135,7 +135,7 @@ enforce proper restrictions-->
 
     <div class="buttonStudent">
 
-        <button type="submit" class="buttonSave" color="white" formaction="parent-consent-form.php">Submit/Continue</button>
+        <button type="submit" class="buttonSave" color="white" formaction="services/student-application-form-action.php">Submit/Continue</button>
 
     </div>
 </form>

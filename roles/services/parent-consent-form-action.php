@@ -1,6 +1,12 @@
 <html>
     <body>
         <?php
+        
+        session_start();
+            require_once 'connectAuxDB.php';
+
+            $auxConnection=connectAuxDB();
+        
             $motherName = $_POST["motherName"];
             $motherPhone = $_POST["motherPhone"];
             $fatherName = $_POST["fatherName"];
@@ -57,12 +63,24 @@
                 'signDate' => $signDate,
               );
                 
-                $result ="";
+                $resultStr ="";
         foreach ($post_data as $key => $value)
         {
-            $result .= "$key:$value^";
+            $resultStr .= "$key:$value^";
         }
-           echo $result;
+           echo $resultStr;
+        
+        echo "your information was submitted, and you will be redirected to the home page";
+            //$query = "INSERT INTO applications(auxInfo, schoolInfo, studentInfo, consentForm, auxiliaryID, schoolID) VALUES ('','','','{$resultStr}','','') WHERE applicationID="1"";
+        
+        $query = "UPDATE applications SET consentForm='{$resultStr}' WHERE applicationID='1'";
+        $result = $auxConnection->query($query);
+            if(!$result) die ("query failed".$auxConnection->error);
+        
+        $redirect = "../student-interface.php";
+        header( "refresh:5;url='$redirect'" );
+        
+        
         ?>
     </body>
 </html>

@@ -1,6 +1,12 @@
 <html>
     <body>
         <?php
+            session_start();
+            require_once 'connectAuxDB.php';
+
+            $auxConnection=connectAuxDB();
+        
+            
             $studentFirstName = $_POST["studentFirstName"];
             $studentMiddleName = $_POST["studentMiddleName"];
             $studentLastName = $_POST["studentLastName"];
@@ -39,14 +45,29 @@
                     'parentSignature' => $parentSignature
                 //)
             );
-        $result ="";
+        $resultStr ="";
         foreach ($post_data as $key => $value)
         {
-            $result .= "$key:$value^";
+            $resultStr .= "$key:$value^";
         }
-           echo $result; 
+           echo $resultStr; 
             //echo json_encode($post_data);
             //echo '<pre>'; print_r($json); echo '</pre>';
+        echo "your information was submitted, and ypu will be redirected to the parent consent form";
+            //$query = "INSERT INTO applications(applicationID, auxInfo, schoolInfo, studentInfo, auxiliaryID, schoolID) VALUES ('','','','{$resultStr}','','')";
+             
+            $query = "UPDATE applications SET studentInfo='{$resultStr}' WHERE applicationID='1'";
+            $result = $auxConnection->query($query);
+            if(!$result) die ("query failed".$auxConnection->error);
+        
+            $redirect="../parent-consent-form.php";
+        
+            //header('locaiton:'$redirect);
+        
+            header( "refresh:5;url='$redirect'" );
+                
         ?>
+        
+        
     </body>
 </html>
