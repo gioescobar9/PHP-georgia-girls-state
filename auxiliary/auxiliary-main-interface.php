@@ -48,7 +48,7 @@ require_once 'auxiliaryServices/auxiliaryCrudTable.php';
     </div>
 
     <div id="menu2" class="tab-pane fade">
-      <h2>My Information</h2>
+      <h2>My Information</h2><a class = "btn"><span class='glyphicon glyphicon-edit'></span>Update Info</a>
       <?php
         echo "<h4>Auxiliary Unit Number</h4>";
           echo "<p>".$_COOKIE["unitNumber"]."</p>";
