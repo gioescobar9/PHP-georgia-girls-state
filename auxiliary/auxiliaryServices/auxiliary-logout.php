@@ -1,7 +1,7 @@
 <?php
 session_start();
 $_SESSION["loggedIn"] = false;
-$_SESSION["loggedOut"] = false;
+$_SESSION["loggedOut"] = true;
 unset($_SESSION["admin"]);
 unset($_SESSION["loggedIn"]);
 

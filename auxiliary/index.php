@@ -47,7 +47,7 @@ session_start();
                 }
                 
                 if(isset($_SESSION["loggedOut"])){
-                  if($_SESSION["loggedOut"] == false)
+                  if($_SESSION["loggedOut"] == true)
                     echo "<div class = 'alert alert-success'>You have logged out successfully</div>";
                 }
                 session_destroy();
