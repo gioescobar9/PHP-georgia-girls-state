@@ -1,6 +1,13 @@
 <html>
     <body>
         <?php
+        
+            session_start();
+            require_once 'connectAuxDB.php';
+
+            $auxConnection=connectAuxDB();
+        
+        
             $schoolName = $_POST["schoolName"];
             $schoolAddressStreet = $_POST["schoolAddressStreet"];
             $schoolAddress = $_POST["schoolAddress"];
@@ -18,7 +25,6 @@
             
         
               $post_data = array(
-                    'school' => array(
                     'schoolname' => $schoolName,
                     'schoolAddressStreet' => $schoolAddressStreet,
                     'schoolAddress' => $schoolAddress,
@@ -33,9 +39,28 @@
                     'officialEmail' => $officialEmail,
                     'officialSignature' => $officialSignature,
                     'signDate' => $signDate,
-                )
             );
-        echo json_encode($post_data);
+        //echo json_encode($post_data);
+        $resultStr ="";
+        foreach ($post_data as $key => $value)
+        {
+            $resultStr .= "$key:$value^";
+        }
+           echo $resultStr;
+            //echo json_encode($post_data);
+            //echo '<pre>'; print_r($json); echo '</pre>';
+            //$query = "INSERT INTO applications(applicationID, auxInfo, schoolInfo, studentInfo, auxiliaryID, schoolID) VALUES ('','','','{$resultStr}','','')";
+             
+            $query = "UPDATE applications SET schoolInfo='{$resultStr}' WHERE applicationID='1'";
+            $result = $auxConnection->query($query);
+            if(!$result) die ("query failed".$auxConnection->error);
+        
+            echo "your information was submitted, and you will be redirected to the home page";
+            $redirect="../school-interface.php";
+        
+            //header('locaiton:'$redirect);
+        
+            header( "refresh:5;url='$redirect'" );
         ?>
     </body>
 </html>

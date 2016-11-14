@@ -40,7 +40,6 @@
                     </div>
                     <div class="col-md-6">
                         <label for = "motherName"> Mother/Guardian Name:</label><br>
-<<<<<<< HEAD
                             <input type="text" class="form-control" name="motherName" maxlength="50"><br>
                     </div>
                     <div class="col-md-6">

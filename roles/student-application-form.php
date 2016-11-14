@@ -45,7 +45,7 @@ enforce proper restrictions-->
         </div>
            <div class="col-md-6">
             <label for = "studentFirstName">First Name:</label>
-               <input type="text" class="form-control" name="studentFirstName" maxlength="25"  autofocus required><br>
+               <input type="text" class="form-control" name="studentFirstName" maxlength="25" autofocus required><br>
            </div>
            <div class="col-md-6">
             <label for = "studentMiddleName">Middle Name:</label>
@@ -72,7 +72,7 @@ enforce proper restrictions-->
            </div>
            <div class="col-md-6" align="center">
              <label for = "studentPreferName">Name to display on name tag:</label><br>
-                <input type="text" class="form-control" name="studentPreferName" maxlength="25" pattern="[a-zA-z ]+" required><br>
+                <input type="text" class="form-control" name="studentPreferName" maxlength="25"  required><br>
             </div>
           
             <div class="col-md-12">
@@ -111,11 +111,11 @@ enforce proper restrictions-->
       <div class="signature">
         <div class="col-md-6">
             <label for = "studentSignature">Student Signature</label>
-                <input type="text" class="form-control" name="studentSignature" placeholder="Electronic Signature" pattern="[a-zA-Z]+" required><br>
+                <input type="text" class="form-control" name="studentSignature" placeholder="Electronic Signature" required><br>
         </div>
         <div class="col-md-6">
             <label for = "parentSignature">Parent Signature</label>
-                <input type="text" class="form-control" name="parentSignature" placeholder="Electronic Signature" pattern="[a-zA-Z]+" required><br>
+                <input type="text" class="form-control" name="parentSignature" placeholder="Electronic Signature" required><br>
         </div>
     </div>
     <div class ="labelCenter">
@@ -142,7 +142,7 @@ enforce proper restrictions-->
 
     <div class="buttonStudent">
 
-        <button type="submit" class="buttonSave" color="white" formaction="parent-consent-form.php">Submit/Continue</button>
+        <button type="submit" class="buttonSave" color="white" formaction="services/student-application-form-action.php">Submit/Continue</button>
 
     </div>
 </form>

@@ -26,23 +26,29 @@
             <div class="col-md-12" style="text-align:center;">
                 <div class="col-md-3">
                 <a href="school-information.php" class="btn btn-info btn-lg">
+                <div class="user">
                 <span class="glyphicon glyphicon-user"><br>School<br>Information</span>
-            </a>
+                    </div>
+            </a><br>
+                    *view or update your school information
                 </div>
                 <div class="col-md-3">
                 <a href="school-application-form.php" class="btn btn-info btn-lg">
                 <span class="glyphicon glyphicon-pencil"><br>New<br>Application</span>
-            </a>
+            </a><br>
+                    *fill out a new application for a student
                 </div>
                 <div class="col-md-3">
                 <a href="school-applications-view.php" class="btn btn-info btn-lg">
                 <span class="glyphicon glyphicon-list-alt"><br>View<br>Applications</span>
-            </a>
+            </a><br>
+                    *view or update current applications
                 </div>
                 <div class="col-md-3">
                 <a href="auxiliary-information.php" class="btn btn-info btn-lg">
                 <span class="glyphicon glyphicon-info-sign"><br>Auxiliary<br>Information</span>
-            </a>
+            </a><br>
+                    *view your sponsoring auxiliary information
                 </div>
             </div>
             </div>
