@@ -57,7 +57,7 @@ if(!$result) die ("query4 failed".$auxConnection->error);
 
 
 // next we create the application and give it empty string values for the info fields
-$query = "INSERT INTO applications(auxInfo, schoolInfo, studentInfo, parentConsentInfo, auxiliaryID, schoolID, complete) VALUES ('', '', '', '', '$auxiliaryID', '$schoolID', 'FALSE');";
+$query = "INSERT INTO applications(auxInfo, auxInfoComplete, schoolInfo, schoolInfoComplete, studentInfo, studentInfoComplete, parentConsentInfo, parentInfoComplete, auxiliaryID, schoolID, complete, paymentStatus) VALUES ('','FALSE', '', 'FALSE', '','FALSE', '', 'FALSE', '$auxiliaryID', '$schoolID', 'FALSE', 'FALSE');";
 $result = $auxConnection->query($query);
 if(!$result) die ("query5 failed".$auxConnection->error);
 

@@ -32,12 +32,12 @@ for($i = 0;$i<$rows;$i++){
  echo "<tr>";
   echo "<td> $appID </td>";
   echo "<td> $studName </td>";
-  echo "<td> $status </td>";
+  echo "<td>$status</td>";
   echo "<td> <a class = 'btn'><span class='glyphicon glyphicon-file'></span>View</a>
   <a class = 'btn'><span class='glyphicon glyphicon-edit'></span>Update</a>
   <a href = 'http://google.com'><span class='glyphicon glyphicon-minus-sign'></span>Delete</a> </td>";
  echo "<tr>";
-}
+}// end of for loop
 
 		echo "</tbody>";
 	echo "</table>";
