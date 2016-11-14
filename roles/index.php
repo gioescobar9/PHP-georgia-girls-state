@@ -55,9 +55,6 @@ session_start();
          <button type="submit" class="buttonSubmit" color="white">Login</button>
         </div>
     </div>
-    <div class="buttonStudent">
-        <button type="submit" class="buttonSubmit" color="white">Login</button>
-    </div>
 </form>
 </div>
 </div>

@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once 'auxiliaryServices/auxiliaryCrudTable.php';
 // the button we make in order to start the applicatoin process wil
 // be wrapped in a form, that way itll send us to a service that will make queries in order to send all info we need to send to the database
 ?>
@@ -43,12 +44,18 @@ session_start();
 
     <div id="menu1" class="tab-pane fade">
       <h2>My Applications</h2>
-      <p>we will create a table here will applications along with an edit and delete button on all of them</p>
+      <?php createCrudTable(); ?>
     </div>
 
     <div id="menu2" class="tab-pane fade">
       <h2>My Information</h2>
-      <p>Here i should be able to view all my personal information along . add  an edit button , that wil take you to an update info page</p>
+      <?php
+        echo "<h4>Auxiliary Unit Number</h4>";
+          echo "<p>".$_COOKIE["unitNumber"]."</p>";
+        echo "<h4>Auxiliary Email</h4>";
+          echo "<p>".$_COOKIE["auxiliaryEmail"]."</p>";
+
+      ?>
     </div>
   </div>
 </div>
