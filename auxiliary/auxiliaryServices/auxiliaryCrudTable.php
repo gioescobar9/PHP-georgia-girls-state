@@ -29,10 +29,14 @@ for($i = 0;$i<$rows;$i++){
  $appID = $record["applicationID"];
  $studName = $record["firstName"]." ".$record["lastName"];
  $status = getStatus($appID);
+ if($status = "Incomplete")
+  $statusRow = "<td class = 'alert alert-warning'>".$status."</td>";
+else
+  $statusRow = "<td class = 'alert alert-success'>".$status."</td>";
  echo "<tr>";
   echo "<td> $appID </td>";
   echo "<td> $studName </td>";
-  echo "<td>$status</td>";
+  echo $statusRow;
   echo "<td> <a class = 'btn'><span class='glyphicon glyphicon-file'></span>View</a>
   <a class = 'btn'><span class='glyphicon glyphicon-edit'></span>Update</a>
   <a href = 'http://google.com'><span class='glyphicon glyphicon-minus-sign'></span>Delete</a> </td>";
