@@ -38,47 +38,48 @@ enforce proper restrictions-->
                 <legend>Auxiliary Information</legend>
                 <div class="col-md-6">
                 <label for = "unitNumber">Unit Number:</label>
-                <input type="text" class="form-control" id="unitNumber"  autofocus required> 
+                <input type="text" class="form-control" id="unitNumber" autofocus name = "unitNumber" required> 
             </div>
             <div class="col-md-6">
                 <label for = "unitLocation">Unit Location:</label>
-                <input type="text" class="form-control" id="unitLocation" maxlength="25" placeholder="Unit County" required><br>
+                <input type="text" class="form-control" id="unitLocation" maxlength="25" placeholder="Unit County" name = "unitCounty" required><br>
             </div>
             <div class="col-md-8">
                 <label for = "unitStreetAddress">Street Address:</label>
-                <input type="text" class="form-control" id="unitStreetAddress" maxlength="30" required><br>
+                <input type="text" class="form-control" id="unitStreetAddress" maxlength="30" name = "unitAddress" required><br>
             </div>
             <div class="col-md-8">
                 <label for = "unitCity">City,State,Zip:</label>
-                <input type="text" class="form-control" id="unitCity" maxlength="30" placeholder="City,State,Zip" required><br>
+                <input type="text" class="form-control" id="unitCity" maxlength="30" placeholder="City,State,Zip" name = "unitCity" required><br>
             </div>
             <div class="col-md-6">
                 <label for = "unitEmail">Email:</label>
-                <input type="text" class="form-control" id="unitEmail" maxlength="50" placeholder="user@gmail.com" required><br>
+                <input type="text" class="form-control" id="unitEmail" maxlength="50" placeholder="user@gmail.com" name = "unitEmail" required><br>
             </div>
             <div class="col-md-6">
                 <label for = "unitPhone">Phone Number:</label>
-                <input type="text" class="form-control" id="unitPhone" maxlength="15" placeholder="(555)888-0000" required><br>
+                <input type="text" class="form-control" id="unitPhone" maxlength="15" placeholder="(555)888-0000" name = "unitPhone" required><br>
             </div>
             <div class="col-md-12">
                 <legend>Auxiliary Sponsoring Official Information</legend>
             </div>
             <div class="col-md-6">
                 <label for = "officialFirstName">First Name:</label>
-                <input type="text" class="form-control" id="officialFirstName" maxlength="25" required><br>
+                <input type="text" class="form-control" id="officialFirstName" maxlength="25" name = "officialFirstName" required><br>
             </div>
             <div class="col-md-6">
                 <label for = "officialLastName">Last Name:</label>
-                <input type="text" class="form-control" id="officialLastName" maxlength="25" required><br>
+                <input type="text" class="form-control" id="officialLastName" maxlength="25" name = "officialLastName" required><br>
 
             </div>
             <div class="col-md-6">
                 <label for = "officialEmail">Official's Email:</label>
-                <input type="text" class="form-control" id="officialEmail" maxlength="25" placeholder="user@gmail.com" required><br>
+                <input type="text" class="form-control" id="officialEmail" maxlength="25" placeholder="user@gmail.com" name = "officialEmail" required><br>
             </div>
             <div class="col-md-6">
                 <label for = "officialPhone">Official's Phone:</label>
-                <input type="text" class="form-control" id="officialPhone" name="phoneNumber" maxlength="15" placeholder="(555)888-0000" required><br>
+                <input type="text" class="form-control" id="officialPhone" name="phoneNumber" maxlength="15" placeholder="(555)888-0000" 
+                name = "officialPhone" required><br>
             </div>
             </div>
 
