@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
-    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/additional-methods.min.js"></<script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/additional-methods.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <script src="jquery-1.12.4.min.js"></script>
@@ -75,7 +75,7 @@
                         <input type="radio" name="answer" id="no" onclick="hideIllness()">No<br><br>
                         <div id="textIllness">
                             Please Explain below:<br>
-                            <textarea name="illnessInput" class="form-control" rows="5" cols="50"></textarea>
+                            <textarea id="illnessInput"class="form-control" rows="5" cols="50"></textarea>
                         </div>
                     </div>
     
@@ -85,7 +85,7 @@
                         <input type="radio" name="answer" id="no" onclick="hideTreatment()">No<br><br>
                         <div id="textTreatment">
                             Please list below:<br>
-                            <textarea name="treatmentInput" class="form-control" rows="5" cols="50"></textarea>
+                            <textarea id="treatmentInput" class="form-control" rows="5" cols="50"></textarea>
                         </div>
                     </div>
                    
@@ -241,74 +241,47 @@
     </div>
 
     <script type="text/javascript">
-   
-
-    /*jQuery used to hide the text boxes initially until yes is selected*/
-    $(document).ready(function(){
-        $("#textIllness").hide();
-    });
+    
+        hideIllness();
 
     /* JS functions used to hide or show the input area once a selection is made*/
         function showIllness() { $("#textIllness").show(); }
         function hideIllness() { $("#textIllness").hide();}
 
-         $(document).ready(function(){
-        $("#textTreatment").hide();
-    });
+      hideTreatment();
         function showTreatment() { $("#textTreatment").show(); }
         function hideTreatment() { $("#textTreatment").hide(); }
 
-        $(document).ready(function(){
-        $("#textAllergies").hide();
-    });
+      hideAllergies();
         function showAllergies() { $("#textAllergies").show(); }
         function hideAllergies() { $("#textAllergies").hide(); }
 
-        $(document).ready(function(){
-        $("#textMeds").hide();
-    });
+     hideMeds();
         function showMeds() { $("#textMeds").show();}
         function hideMeds() { $("#textMeds").hide();}
 
-        $(document).ready(function(){
-        $("#textAccomodations").hide();
-    });
+    hideAccomodations();
         function showAccomodations() { $("#textAccomodations").show(); }
         function hideAccomodations() { $("#textAccomodations").hide(); }
 
-          $(document).ready(function(){
-        $("#textMeds").hide();
-    });
-
-         function showMeds() {  $("#textMeds").show();}
-        function hideMeds() { $("#textMeds").hide(); }
-
-        $(document).ready(function(){
-        $("#textRestrictions").hide();
-    });
+      hideRestrictions();
         function showRestrictions() { $("#textRestrictions").show(); }
         function hideRestrictions() { $("#textRestrictions").hide(); }
 
-        $(document).ready(function(){
-        $("#textConsent").hide();
-    });
+       hideConsent();
         function showConsent() { $("#textConsent").show(); }
         function hideConsent() { $("#textConsent").hide(); }
 
-           $(document).ready(function(){
-        $("#textCondition").hide();
-    });
+     hideCondition();
         function showCondition() { $("#textCondition").show(); }
         function hideCondition() { $("#textCondition").hide(); }
 
-        $(document).ready(function(){
-        $(".insured").hide();
-    });
+       hideInfo();
         function showInfo() {$(".insured").show();}
         function hideInfo() {$(".insured").hide();}
 
-     
-
+        
+   
 </script>
 </div>
 </body>

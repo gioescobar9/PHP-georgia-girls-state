@@ -25,33 +25,34 @@
             <h3>School Task Bar</h3>
             <div class="col-md-12" style="text-align:center;">
                 <div class="col-md-3">
-                <a href="school-information.php" class="btn btn-info btn-lg">
+                <a href="school-information.php" class="btn btn-info btn-lg" data-toggle="tooltip" title="View/Update School Information">
                 <div class="user">
                 <span class="glyphicon glyphicon-user"><br>School<br>Information</span>
-                    </div>
-            </a><br>
-                    *view or update your school information
+                </div>
+            </a>
                 </div>
                 <div class="col-md-3">
-                <a href="school-application-form.php" class="btn btn-info btn-lg">
+                <a href="school-application-form.php" class="btn btn-info btn-lg" data-toggle="tooltip" title="Complete New Application">
                 <span class="glyphicon glyphicon-pencil"><br>New<br>Application</span>
             </a><br>
-                    *fill out a new application for a student
                 </div>
                 <div class="col-md-3">
-                <a href="school-applications-view.php" class="btn btn-info btn-lg">
+                <a href="school-applications-view.php" class="btn btn-info btn-lg" data-toggle="tooltip" title="View/update current applicaitons">
                 <span class="glyphicon glyphicon-list-alt"><br>View<br>Applications</span>
             </a><br>
-                    *view or update current applications
                 </div>
                 <div class="col-md-3">
-                <a href="auxiliary-information.php" class="btn btn-info btn-lg">
+                <a href="auxiliary-information.php" class="btn btn-info btn-lg" data-toggle="tooltip" title="View your Auxiliary Information">
                 <span class="glyphicon glyphicon-info-sign"><br>Auxiliary<br>Information</span>
             </a><br>
-                    *view your sponsoring auxiliary information
                 </div>
             </div>
             </div>
         </div>
     </body>
+<script>
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+          });
+</script>
 </html>

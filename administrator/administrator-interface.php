@@ -25,28 +25,32 @@
             <h3>Administrator Task Bar</h3>
             <div class="col-md-12" style="text-align:center;">
                 <div class="col-md-3">
-                <a href="administrator-profile.php" class="btn btn-info btn-lg">
+                <a href="administrator-profile.php" class="btn btn-info btn-lg" data-toggle="tooltip" title="View/Edit Administrator Profile Information">
                 <span class="glyphicon glyphicon-user"><br>Administrator<br>profile</span>
             </a>
-                    <br>*view/edit administrator profile
                 </div>
                 <div class="col-md-3">
-                <a href="administration-view-applications.php" class="btn btn-info btn-lg">
+                <a href="administration-view-applications.php" class="btn btn-info btn-lg" data-toggle="tooltip" title="View Current Applications and Status">
                 <span class="glyphicon glyphicon-pencil"><br>View<br>Applications</span>
-            </a><br>*view current and in progress applications of school and students
+            </a>
                 </div>
                 <div class="col-md-3">
-                <a href="administrator-student-information-display.php" class="btn btn-info btn-lg">
+                <a href="administrator-student-information-display.php" class="btn btn-info btn-lg" data-toggle="tooltip" title="Individual Student Information">
                 <span class="glyphicon glyphicon-list-alt"><br>View<br>Students</span>
-            </a><br>*view information of students who have applied
+            </a>
                 </div>
                 <div class="col-md-3">
-                <a href="administrator-update-payment.php" class="btn btn-info btn-lg">
+                <a href="administrator-update-payment.php" class="btn btn-info btn-lg" data-toggle="tooltip" title="Update Payment Status">
                 <span class="glyphicon glyphicon-info-sign"><br>Update<br>Payment</span>
-            </a><br>*update payment status of each application
+            </a>
                 </div>
             </div>
             </div>
         </div>
     </body>
+<script>
+$(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+          });
+</script>
 </html>
