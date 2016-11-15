@@ -51,7 +51,9 @@
             //echo '<pre>'; print_r($json); echo '</pre>';
             //$query = "INSERT INTO applications(applicationID, auxInfo, schoolInfo, studentInfo, auxiliaryID, schoolID) VALUES ('','','','{$resultStr}','','')";
              
-            $query = "UPDATE applications SET schoolInfo='{$resultStr}' WHERE applicationID='1'";
+            //$query = "UPDATE applications SET schoolInfo='{$resultStr}' WHERE applicationID='1'";
+            
+             $query = "UPDATE applications SET schoolInfo ='{$resultStr}',schoolInfoComplete='1' WHERE applicationID='1'";
             $result = $auxConnection->query($query);
             if(!$result) die ("query failed".$auxConnection->error);
         

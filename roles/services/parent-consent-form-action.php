@@ -73,7 +73,7 @@
         echo "your information was submitted, and you will be redirected to the home page";
             //$query = "INSERT INTO applications(auxInfo, schoolInfo, studentInfo, consentForm, auxiliaryID, schoolID) VALUES ('','','','{$resultStr}','','') WHERE applicationID="1"";
         
-        $query = "UPDATE applications SET parentConsentInfo='{$resultStr}',parentConsentInfoComplete='true' WHERE applicationID='1'";
+        $query = "UPDATE applications SET parentConsentInfo='{$resultStr}',parentConsentInfoComplete='1' WHERE applicationID='1'";
         $result = $auxConnection->query($query);
             if(!$result) die ("query failed".$auxConnection->error);
         

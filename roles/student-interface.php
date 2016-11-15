@@ -1,5 +1,8 @@
 <?php
-   session_start(); 
+session_start();
+if(!isset($_SESSION["loggedIn"])){
+  header('location: index.php');
+}
 ?>
 
 <html>
@@ -17,7 +20,7 @@
     <body>
         <div class="heading">
             <h1 align="center" class="loginHeader"><img src="images/icon.jpg">
-            <a href = "services/logout.php"><span style = "float: right; margin-left: -20%" class = "btn 
+            <a href = "services/roles-logout.php"><span style = "float: right; margin-left: -20%" class = "btn 
                 btn-primary">logout</span></a><br>The American Legion Auxiliary<br>Georgia Girls State</h1>
         <div class="logoImage"></div>
         </div>
@@ -35,7 +38,7 @@
             </a><br>
                 </div>
                 <div class="col-md-3">
-            <a href="student-application-form.php" class="btn btn-info btn-lg" data-toggle="tooltip" title="View Your Auxiliary Informaiton">
+            <a href="services/auxiliary-information.php" class="btn btn-info btn-lg" data-toggle="tooltip" title="View Your Auxiliary Informaiton">
                 <span class="glyphicon glyphicon-info-sign"><br>Auxiliary<br>Information</span>
             </a><br>
                 </div>
