@@ -1,5 +1,8 @@
 <?php
 session_start();
+if(!isset($_SESSION["loggedIn"])){
+  header('location: index.php');
+}
 require_once 'auxiliaryServices/auxiliaryCrudTable.php';
 // the button we make in order to start the applicatoin process wil
 // be wrapped in a form, that way itll send us to a service that will make queries in order to send all info we need to send to the database
@@ -62,4 +65,3 @@ require_once 'auxiliaryServices/auxiliaryCrudTable.php';
 
 </body>
 </html>
-
