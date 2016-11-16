@@ -43,6 +43,7 @@ else
 if($_SESSION["loggedIn"] == true){
     if($isSchool == true){
         $redirect="../school-interface.php";
+        $_SESSION["schoolLoggedIn"] = true;
         //setcookie("user",'school', time() + 86400, "/");
         closeConnection($auxConnection);  
     }
@@ -51,6 +52,7 @@ if($_SESSION["loggedIn"] == true){
     if($isStudent == true){
 	   $redirect = "../student-interface.php";
 	   closeConnection($auxConnection);
+        $_SESSION["studentLoggedIn"] = true;
        //setcookie("user",'student', time() + 86400, "/");
     }
 }

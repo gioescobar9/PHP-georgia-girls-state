@@ -23,6 +23,7 @@
         </div>
         <div class="container">
             <h3>Administrator Task Bar</h3>
+            <br>
             <div class="col-md-12" style="text-align:center;">
                 <div class="col-md-3">
                 <a href="administrator-profile.php" class="btn btn-info btn-lg" data-toggle="tooltip" title="View/Edit Administrator Profile Information">

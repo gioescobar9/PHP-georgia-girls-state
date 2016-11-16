@@ -6,6 +6,12 @@ session_start();
 if(!isset($_SESSION["loggedIn"])){
   header('location: index.php');
 }
+if (!isset($_SESSION["schoolLoggedIn"])){
+        $variable = "../student-interface.php";
+}
+else if (!isset($_SESSION["studentLoggedIn"])){
+        $variable = "../school-interface.php";
+    }
 
 $query = "SELECT unitNumber,auxEmail FROM auxiliary WHERE auxiliaryID = '1';";
 
@@ -33,9 +39,10 @@ $rows = $result->num_rows;
 
 </head>
 <header>
+   
         <div class="heading">
             <h1 align="center" class="loginHeader"><img src="../images/icon.jpg">
-            <a href = "../student-interface.php"><span style = "float: left; margin-right: -20%" class="btn btn-info btn-lg">
+            <a href = "<?php echo $variable ?>"><span style = "float: left; margin-right: -20%" class="btn btn-info btn-lg">
                 <span class="glyphicon glyphicon-home"><br>Home</span></a><br>The American Legion Auxiliary<br>Georgia Girls State</h1>
         </div>
             <br>

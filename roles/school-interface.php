@@ -3,6 +3,9 @@ session_start();
 if(!isset($_SESSION["loggedIn"])){
   header('location: index.php');
 }
+if(!isset($_SESSION["schoolLoggedIn"])){
+    header('location: index.php');
+}
 ?>
 
 <html>
@@ -26,6 +29,7 @@ if(!isset($_SESSION["loggedIn"])){
         </div>
         <div class="container">
             <h3>School Task Bar</h3>
+            <br>
             <div class="col-md-12" style="text-align:center;">
                 <div class="col-md-3">
                 <a href="school-information.php" class="btn btn-info btn-lg" data-toggle="tooltip" title="View/Update School Information">
