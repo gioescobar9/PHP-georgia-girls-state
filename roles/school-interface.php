@@ -44,7 +44,7 @@ if(!isset($_SESSION["schoolLoggedIn"])){
             </a><br>
                 </div>
                 <div class="col-md-3">
-                <a href="school-applications-view.php" class="btn btn-info btn-lg" data-toggle="tooltip" title="View/update current applicaitons">
+                <a href="services/school-application-view.php" class="btn btn-info btn-lg" data-toggle="tooltip" title="View/update current applicaitons">
                 <span class="glyphicon glyphicon-list-alt"><br>View<br>Applications</span>
             </a><br>
                 </div>

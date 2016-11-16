@@ -48,6 +48,7 @@ $rows = $result->num_rows;
             <br>
 </header>
 </html>
+    <h3>Auxiliary Contact Information</h3>
 <?php
 echo "<div class='container'>";
 	echo "<table class = 'table table-striped'>";
