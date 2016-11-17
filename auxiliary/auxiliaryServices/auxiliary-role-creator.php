@@ -55,16 +55,31 @@ $query = "INSERT INTO student(firstName ,lastName, studentEmail, schoolID, auxil
 $result = $auxConnection->query($query);
 if(!$result) die ("query4 failed".$auxConnection->error);
 
+//we retrieve the studentID in order to tie this student to an application that we are about to create
+$query = "SELECT studentID FROM student WHERE firstName = '$studentFirstName' AND lastName = '$studentLastName' AND studentEmail = '$studentEmail' AND schoolID = '$schoolID';";
+$result = $auxConnection->query($query);
+if(!$result) die("query5 failed".$auxConnection->error);
+$record = $result->fetch_assoc();
+$studentID = $record['studentID'];
+
 
 // next we create the application and give it empty string values for the info fields
-$query = "INSERT INTO applications(auxInfo, auxInfoComplete, schoolInfo, schoolInfoComplete, studentInfo, studentInfoComplete, parentConsentInfo, parentInfoComplete, auxiliaryID, schoolID, complete, paymentStatus) VALUES ('','FALSE', '', 'FALSE', '','FALSE', '', 'FALSE', '$auxiliaryID', '$schoolID', 'FALSE', 'FALSE');";
+$query = "INSERT INTO applications(auxInfo, auxInfoComplete, schoolInfo, schoolInfoComplete, studentInfo, studentInfoComplete, parentConsentInfo, parentConsentInfoComplete, auxiliaryID, schoolID, studentID, complete, paymentStatus) VALUES ('','FALSE', '', 'FALSE', '','FALSE', '', 'FALSE', '$auxiliaryID', '$schoolID', '$studentID','FALSE', 'FALSE');";
 $result = $auxConnection->query($query);
-if(!$result) die ("query5 failed".$auxConnection->error);
+if(!$result) die ("query6 failed".$auxConnection->error);
+
+//next we need to get the application id for the application we just made and send it on over to the next page
+$query = "SELECT applicationID FROM applications WHERE auxiliaryID = '$auxiliaryID' AND schoolID = '$schoolID' AND studentID = '$studentID';";
+$result = $auxConnection->query($query);
+if(!$result) die("query7 failed".$auxConnection->error);
+$record = $result->fetch_assoc();
+$appID = $record['applicationID'];
+
 
 // in the future the email service will go here
 
 
-header('location: ../auxiliary-application-form.php');
+header('location: ../auxiliary-application-form.php?id='.$appID);
 
 
 
