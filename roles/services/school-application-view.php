@@ -3,6 +3,12 @@
         <?php
         
             session_start();
+        if(!isset($_SESSION["loggedIn"])){
+            header('location: index.php');
+        }
+        if(!isset($_SESSION["schoolLoggedIn"])){
+            header('location: index.php');
+        }
             require_once 'connectAuxDB.php';
 
             $auxConnection=connectAuxDB();
@@ -50,7 +56,7 @@
    
                 <div class="heading">
                     <h1 align="center" class="loginHeader"><img src="../images/icon.jpg">
-                        <a href = "<?php echo $variable ?>"><span style = "float: left; margin-right: -20%" class="btn btn-info btn-lg">
+                        <a href = "..//school-interface.php"><span style = "float: left; margin-right: -20%" class="btn btn-info btn-lg">
                             <span class="glyphicon glyphicon-home"><br>Home</span></a><br>The American Legion Auxiliary<br>Georgia Girls State</h1>
                 </div>
             <br>
@@ -59,7 +65,7 @@
                 <h3>My Student Applications</h3>
             
         
-        <table style="width:100%;"><tr style="border:1px solid black; padding:5px;"><th style="border:1px solid black; padding:5px;">Student First Name</th><th style="border:1px solid black; padding:5px;">Student Last Name</th><th style="border:1px solid black;padding:5px;">Student Rank</th><th style="border:1px solid black;padding:5px;">Student Grad Date</th><th style="border:1px solid black;padding:5px;"> Official First Name</th><th style="border:1px solid black;">Official Last Name</th><th style="border:1px solid black;">Official Phone</th><th style="border:1px solid black;padding:10px;">Officail Email</th><th style="border:1px solid black;padding:5px;">Official Signature</th><th style="border:1px solid black;padding:5px;">Date Signed</th></tr></td><br>
+        <table style="width:100%; border: 3px solid black; border-radius:10px;"><tr style="border:1px solid black; padding:5px; border-radius:10px;"><th style="border:1px solid black; padding:5px; border-radius;10px;">Student First Name</th><th style="border:1px solid black; padding:5px;">Student Last Name</th><th style="border:1px solid black;padding:5px;">Student Rank</th><th style="border:1px solid black;padding:5px;">Student Grad Date</th><th style="border:1px solid black;padding:5px;"> Official First Name</th><th style="border:1px solid black;">Official Last Name</th><th style="border:1px solid black;">Official Phone</th><th style="border:1px solid black;padding:10px;">Official Email</th><th style="border:1px solid black;padding:5px;">Official Signature</th><th style="border:1px solid black;padding:5px;">Date Signed</th></tr></td><br>
          </html>
             
         <?php

@@ -2,6 +2,12 @@
     <body>
         <?php
             session_start();
+            if(!isset($_SESSION["loggedIn"])){
+                header('location: index.php');
+            }
+            if(!isset($_SESSION["studentLoggedIn"])){
+                header('location: index.php');
+            }
             require_once 'connectAuxDB.php';
 
             $auxConnection=connectAuxDB();

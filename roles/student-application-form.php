@@ -3,6 +3,9 @@ session_start();
 if(!isset($_SESSION["loggedIn"])){
   header('location: index.php');
 }
+if(!isset($_SESSION["studentLoggedIn"])){
+    header('location: index.php');
+}
 ?>
 
 <!DOCTYPE html>
