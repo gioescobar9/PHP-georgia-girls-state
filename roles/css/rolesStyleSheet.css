@@ -1,4 +1,8 @@
 
+    /*.table{
+        border:2px solid orange;
+    }*/
+
     body{
         background-color: lightgray
     }
@@ -237,6 +241,6 @@
          width: 25%;
         vertical-align: center;
     }
-
+    
 
 
