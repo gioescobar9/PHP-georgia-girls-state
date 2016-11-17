@@ -26,15 +26,15 @@ echo "<div class='container'>";
 for($i = 0;$i<$rows;$i++){
   $result->data_seek($i);
   $record = $result->fetch_array(MYSQLI_ASSOC);
- $appID = $record["applicationID"];
+ $studID = $record["studentID"];
  $studName = $record["firstName"]." ".$record["lastName"];
- $status = getStatus($appID);
+ $status = getStatus($studID);
  if($status = "Incomplete")
   $statusRow = "<td class = 'alert alert-warning'>".$status."</td>";
 else
   $statusRow = "<td class = 'alert alert-success'>".$status."</td>";
  echo "<tr>";
-  echo "<td> $appID </td>";
+  echo "<td> $studID </td>";
   echo "<td> $studName </td>";
   echo $statusRow;
   echo "<td> <a class = 'btn'><span class='glyphicon glyphicon-file'></span>View</a>
@@ -51,9 +51,9 @@ closeConnection($auxConnection);
 }// end of create table function
 
 
-function getStatus($app_ID){
+function getStatus($stud_ID){
   $auxConnection = connectAuxDB();
-  $query = "SELECT complete FROM applications WHERE applicationID = '$app_ID';";
+  $query = "SELECT complete FROM applications WHERE studentID = '$stud_ID';";
   $result = $auxConnection->query($query);
   if(!$result) die("getStatus query failed".$auxConnection->error);
 

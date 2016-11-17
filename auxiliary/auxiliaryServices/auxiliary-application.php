@@ -30,7 +30,7 @@ $toInsert = implode(',',array_map(
 	array_keys($post_data)
 	));
 //send our application data to the database and set its status as complete
-$query = "UPDATE applications SET auxiliaryInfo = '$toInsert', auxInfoComplete = '1' WHERE applicationID = 'appID';";
+$query = "UPDATE applications SET auxInfo = '$toInsert', auxInfoComplete = '1' WHERE applicationID = 'appID';";
 $result = $auxConnection->query($query);
 if(!$result) die("query1 failed".$auxConnection->error);
 
@@ -49,5 +49,7 @@ if($record['auxInfoComplete'] == TRUE && $record['schoolInfoComplete'] == TRUE &
 	if(!$result) die ("query3 failed".$auxConnection->error);
 }
 
+
+header('location: ../auxiliary-main-interface.php');
 
 ?>
