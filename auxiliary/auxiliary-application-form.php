@@ -1,4 +1,12 @@
-<?php 
+<?php
+
+$id = null;
+if(!empty($_GET['id'])){
+    $id = $_REQUEST['id'];
+}
+if($id == null){
+    header("location: ../auxiliary-main-interface.php");
+} 
 
 ?>
 <!DOCTYPE html>
@@ -33,7 +41,11 @@ enforce proper restrictions-->
 <div class="container">
     <div class="well">
 
-        <form class="form-horizontal" name = "application" action = "auxiliaryServices/auxiliary-application.php" method = "post">
+        <form class="form-horizontal" name = "application" 
+        action = 'auxiliaryServices/auxiliary-application.php' method = "post">
+        <!-- here i will create a transparent input to pass along our application id -->
+        <input type = "hidden" name = "appID" id = "appID" value = "<?php echo $id; ?>" />
+
             <div class="form-group">
                 <h3>Auxiliary Information Form</h3>
                 <legend>Auxiliary Information</legend>

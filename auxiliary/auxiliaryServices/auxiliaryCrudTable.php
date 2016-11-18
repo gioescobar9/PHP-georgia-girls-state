@@ -26,20 +26,20 @@ echo "<div class='container'>";
 for($i = 0;$i<$rows;$i++){
   $result->data_seek($i);
   $record = $result->fetch_array(MYSQLI_ASSOC);
- $appID = $record["applicationID"];
+ $studID = $record["studentID"];
  $studName = $record["firstName"]." ".$record["lastName"];
- $status = getStatus($appID);
+ $status = getStatus($studID);
  if($status = "Incomplete")
   $statusRow = "<td class = 'alert alert-warning'>".$status."</td>";
 else
   $statusRow = "<td class = 'alert alert-success'>".$status."</td>";
  echo "<tr>";
-  echo "<td> $appID </td>";
+  echo "<td> $studID </td>";
   echo "<td> $studName </td>";
   echo $statusRow;
   echo "<td> <a class = 'btn'><span class='glyphicon glyphicon-file'></span>View</a>
-  <a class = 'btn'><span class='glyphicon glyphicon-edit'></span>Update</a>
-  <a href = 'http://google.com'><span class='glyphicon glyphicon-minus-sign'></span>Delete</a> </td>";
+  <a class = 'btn' href = 'auxiliaryServices/crud-update.php?id=".$studID."'><span class='glyphicon glyphicon-edit'></span>Update</a>
+  <a class = 'delete' href = 'auxiliaryServices/crud-delete.php?id=".$studID."'><span class='glyphicon glyphicon-minus-sign'></span>Delete</a> </td>";
  echo "<tr>";
 }// end of for loop
 
@@ -47,13 +47,18 @@ else
 	echo "</table>";
 echo "</div>";	
 
+//jqery function to make sure the user wants to delete
+echo "<script>
+$('.delete').click(function(){return confirm('Are you sure you want to delte this application?');});
+</script>";
+
 closeConnection($auxConnection);
 }// end of create table function
 
 
-function getStatus($app_ID){
+function getStatus($stud_ID){
   $auxConnection = connectAuxDB();
-  $query = "SELECT complete FROM applications WHERE applicationID = '$app_ID';";
+  $query = "SELECT complete FROM applications WHERE studentID = '$stud_ID';";
   $result = $auxConnection->query($query);
   if(!$result) die("getStatus query failed".$auxConnection->error);
 
