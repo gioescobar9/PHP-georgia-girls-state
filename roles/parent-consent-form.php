@@ -38,9 +38,9 @@ $studentID = $_COOKIE['studentID'];
 <div class="radioContainer">
     <div class="well">
 
-        <?php 
-    echo "<form class='form-horizontal' role='form' action='services/parent-consent-form-action.php?id=".$studentID."' method='post'>";
-?>
+        
+    <form class="form-horizontal" role="form" action="services/parent-consent-form-action.php" method="post">
+
             <div class="form-group">
                 <h3>Consent Form</h3>
                     <div class="col-md-12">

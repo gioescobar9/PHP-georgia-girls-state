@@ -7,11 +7,10 @@ if(!isset($_SESSION["schoolLoggedIn"])){
     header('location: index.php');
 }
 
-$schoolID = $_COOKIE['schoolID'];
+
 ?>
 
 <html>
-
 <head>
     <title>School Account Information</title>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
@@ -36,6 +35,7 @@ $schoolID = $_COOKIE['schoolID'];
             <h1 align="center" class="loginHeader"><img src="images/icon.jpg">
             <a href = "school-interface.php"><span style = "float: left; margin-right: -20%" class="btn btn-info btn-lg">
                 <span class="glyphicon glyphicon-home"><br>Home</span></a><br>The American Legion Auxiliary<br>Georgia Girls State</h1>
+        </div>
     </div>
 </header>
 <!--create a container to wrap the form for easy formatting, class well uses bootsrap for some of CSS. 
@@ -43,9 +43,8 @@ Divide each field and label using col-md-3/6/12 for size needed. Collect all inf
 enforce proper restrictions-->
 <div class="container">
 <div class="well">
-<?php 
-    echo "<form class='form-horizontal' role='form' action='services/school-application-form-action.php?id=".$schoolID."' method='post'>";
-?>
+
+    <form class="form-horizontal" role="form" action="services/school-application-form-action.php" method="post">
 
     <div class="form-group">
         <h3>School Information Form</h3>

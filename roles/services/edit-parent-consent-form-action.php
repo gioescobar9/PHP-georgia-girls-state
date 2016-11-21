@@ -11,13 +11,7 @@
             }
         
         
-            if(!empty($_GET['id'])){
-                $id = $_REQUEST['id'];
-            }
-        
-            if($id == null){
-                header("location: ../student-interface.php");
-            }
+          $studentID = $_COOKIE["studentID"];
 
             $auxConnection=connectAuxDB();
         
@@ -86,13 +80,13 @@
            
         
         
-        $query = "UPDATE applications SET parentConsentInfo='{$resultStr}',parentConsentInfoComplete='1' WHERE applicationID='$id'";
+        $query = "UPDATE applications SET parentConsentInfo='{$resultStr}',parentConsentInfoComplete='1' WHERE applicationID='$studentID'";
         $result = $auxConnection->query($query);
             if(!$result) die ("query failed".$auxConnection->error);
         
         echo "<script>alert('Your Information has been submitted')</script>";
         $redirect = "../student-interface.php";
-        header( "refresh:1;url='$redirect'" );
+        //header( "refresh:1;url='$redirect'" );
         
         
         ?>

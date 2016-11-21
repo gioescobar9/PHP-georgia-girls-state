@@ -11,17 +11,8 @@
             }
         
         
-            if(!empty($_GET['id'])){
-                $id = $_REQUEST['id'];
-            }
-        
-            if($id == null){
-                header("location: ../student-interface.php");
-            }
-        
-        
             $auxConnection=connectAuxDB();
-            //$schoolID = $_COOKIE['studentID'];
+            $studentID = $_COOKIE['studentID'];
             
             $studentFirstName = $_POST["studentFirstName"];
             $studentMiddleName = $_POST["studentMiddleName"];
@@ -66,7 +57,7 @@
             //echo $resultStr; 
             
              
-            $query = "UPDATE applications SET studentInfo='{$resultStr}', studentInfoComplete='1' WHERE applicationID='$id'";
+            $query = "UPDATE applications SET studentInfo='{$resultStr}', studentInfoComplete='1' WHERE studentID='$studentID'";
             $result = $auxConnection->query($query);
             if(!$result) die ("query failed".$auxConnection->error);
         

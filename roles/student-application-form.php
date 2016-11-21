@@ -10,7 +10,7 @@ if(!isset($_SESSION["studentLoggedIn"])){
 $studentID = $_COOKIE['studentID'];
 ?>
 
-<!DOCTYPE html>
+
 <html>
 <head>
     <title>Student Application</title>
@@ -44,9 +44,8 @@ enforce proper restrictions-->
 <div class="container">
 <div class="well">
 
-          <?php 
-    echo "<form class='form-horizontal' role='form' action='services/student-application-form-action.php?id=".$studentID."' method='post'>";
-?>
+  
+    <form class="form-horizontal" role="form" action="services/student-application-form-action.php" method="post">
 
     <div class="form-group">
            <h3>Student Information Form</h3>
@@ -152,7 +151,7 @@ enforce proper restrictions-->
 
     <div class="buttonStudent">
 
-        <button type="submit" class="buttonSave" color="white" formaction="services/student-application-form-action.php">Submit</button>
+        <button type="submit" class="buttonSave" color="white">Submit</button>
 
     </div>
 </form>

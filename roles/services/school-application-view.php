@@ -13,6 +13,7 @@
         
             $schoolID = $_COOKIE['schoolID'];
             
+            
             $query = "SELECT * FROM student WHERE schoolID= '$schoolID';";
             
             $result = $auxConnection->query($query);

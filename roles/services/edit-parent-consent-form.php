@@ -51,6 +51,12 @@
             
             $item = array_merge($item, $asscStudent);
         }
+        
+        $count2 = count($item);
+        if(!$count2 > 0){
+            $redirect = "../student-interface.php";
+            header('location:'.$redirect);
+        }
         //print_r($item);
 ?>
         
@@ -87,9 +93,8 @@ Divide each field and label using col-md-3/6/12 for size needed. Collect all inf
 enforce proper restrictions-->
 <div class="container">
 <div class="well">
-<?php 
-    echo "<form class='form-horizontal' role='form' action='edit-parent-consent-form-action.php?id=".$studentID."' method='post'>";
-?>
+
+    <form class="form-horizontal" role="form" action="edit-parent-consent-form-action.php" method="post">
     <div class="form-group">
                 <h3>Consent Form</h3>
                     <div class="col-md-12">

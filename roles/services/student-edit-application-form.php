@@ -39,6 +39,7 @@
         $i=1;
         $count=count($studentInfo);
     
+        
         foreach($studentInfo as $values)
         {
             //echo"$count";
@@ -54,6 +55,12 @@
             
             $item = array_merge($item, $asscStudent);
             //echo $item["schoolname"];
+        }
+    
+        $count2 = count($item);
+        if(!$count2 > 0){
+            $redirect = "../student-interface.php";
+            header('location:'.$redirect);
         }
         //print_r($item);
         ?>
@@ -91,9 +98,8 @@ Divide each field and label using col-md-3/6/12 for size needed. Collect all inf
 enforce proper restrictions-->
 <div class="container">
 <div class="well">
-<?php 
-    echo "<form class='form-horizontal' role='form' action='student-edit-application-form-action.php?id=".$studentID."' method='post'>";
-?>
+
+<form class="form-horizontal" role="form" action="student-edit-application-form-action.php" method="post">
     <div class="form-group">
            <h3>Student Information Form</h3>
             <div class = "col-md-12">

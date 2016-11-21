@@ -1,5 +1,3 @@
-<html>
-    <body>
         <?php
         
             session_start();
@@ -12,14 +10,7 @@
             require_once 'connectAuxDB.php';
 
         
-             if(!($_GET['id'])){
-                $id = $_REQUEST['id'];
-            }
-    
-        
-            if($id == null){
-                header("location: ../school-interface.php");
-            }
+            $schoolID = $_COOKIE['schoolID'];
         
         
             $auxConnection=connectAuxDB();
@@ -58,20 +49,31 @@
                     'officialSignature' => $officialSignature,
                     'signDate' => $signDate,
             );
-        //echo json_encode($post_data);
+        
         $resultStr ="";
         foreach ($post_data as $key => $value)
         {
             $resultStr .= "$key:$value^";
         }
            echo $resultStr;
-            //echo json_encode($post_data);
-            //echo '<pre>'; print_r($json); echo '</pre>';
-            //$query = "INSERT INTO applications(applicationID, auxInfo, schoolInfo, studentInfo, auxiliaryID, schoolID) VALUES ('','','','{$resultStr}','','')";
-             
-            //$query = "UPDATE applications SET schoolInfo='{$resultStr}' WHERE applicationID='1'";
+        
             
-             $query = "UPDATE applications SET schoolInfo ='{$resultStr}',schoolInfoComplete='1' WHERE schoolID='$id'";
+             $query2 = "SELECT studentID FROM Student WHERE firstName ='$studentFirstName' AND lastName='$studentLastName' AND schoolID='$schoolID'";
+            
+        /*echo "$studentFirstName";
+        echo "$studentLastName";
+        echo "$schoolID";*/
+        
+            $result2 = $auxConnection->query($query2);
+            if(!$result2) die ("query failed".$auxConnection->error);
+            $result2->data_seek(0);
+            $record2 = $result2->fetch_array(MYSQLI_ASSOC);
+            $studentID = $record2["studentID"];
+            $rows = $result2->num_rows;
+      
+            
+        
+            $query = "UPDATE applications SET schoolInfo ='{$resultStr}',schoolInfoComplete='1' WHERE schoolID='$schoolID' AND studentID='$studentID'";
             $result = $auxConnection->query($query);
             if(!$result) die ("query failed".$auxConnection->error);
         
@@ -81,6 +83,4 @@
             //header('locaiton:'$redirect);
         
             header( "refresh:5;url='$redirect'" );
-        ?>
-    </body>
-</html>
+?>
