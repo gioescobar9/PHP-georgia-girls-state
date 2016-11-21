@@ -11,17 +11,22 @@
 
             $auxConnection=connectAuxDB();
         
-            $schoolID = $_COOKIE['schoolID'];
+            if(!empty($_GET['id'])){
+                $id = $_REQUEST['id'];
+            }
             
-            $query = "SELECT * FROM student WHERE schoolID= '$schoolID';";
+            $query = "SELECT schoolName,schoolEmail FROM school WHERE schoolID= '$id';";
             
             $result = $auxConnection->query($query);
             if(!$result) die("query failed ".$auxConnection->error);
 
             $rows = $result->num_rows;
+
+            $info = mysqli_fetch_assoc($result);
 ?>
 <html>
-     <head>
+    <body>
+<head>
                 <title>Edit Applications</title>
                 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
                 <script src="dist/js/bootstrap-checkbox.min.js" defer></script>
@@ -38,50 +43,44 @@
                 <link rel="stylesheet" type="text/css" href="../css/rolesStyleSheet.css">
 
             </head>
-        <body>
             <header>
    
                 <div class="heading">
                     <h1 align="center" class="loginHeader"><img src="../images/icon.jpg">
                         <a href = "..//school-interface.php"><span style = "float: left; margin-right: -20%" class="btn btn-info btn-lg">
-                            <span class="glyphicon glyphicon-home"><br>Home</span></a><br>The American Legion Auxiliary<br>Georgia Girls State</h1></a>
+                            <span class="glyphicon glyphicon-home"><br>Home</span></a><br>The American Legion Auxiliary<br>Georgia Girls State</h1>
                 </div>
             <br>
             </header>
-        <h3>View/Update Applications</h3>
-        <?php
-echo "<div class='container'>";
-	echo "<table class = 'table table-striped'>";
-        echo "<legend>School Applications</legend>";  
-		echo "<thead>";
-			echo "<tr>";
-				echo "<th>ID</th>";
-				echo "<th>Student Name</th>";
-				//echo "<th>Status</th>";
-				echo "<th>Options</th>";
-			echo "</tr>";
-        
-		echo "</thead>";
-    echo "<tbody>";
-for($i = 0;$i<$rows;$i++){
-  $result->data_seek($i);
-  $record = $result->fetch_array(MYSQLI_ASSOC);
- $studentID = $record["studentID"];
- $studentName = $record["firstName"]." ".$record["lastName"];
- 
- echo "<tr>";
-  echo "<td> $studentID </td>";
-  echo "<td> $studentName </td>";
-  //echo $statusRow;
-  echo "<td> 
-  <a class = 'btn' href = 'school-edit-application.php?id=".$studentID."'><span class='glyphicon glyphicon-edit'></span>Update</a>
-  </td>";
- echo "</tr>";
-}// end of for loop
+            <div class="container">
+                <div class="well">
+                    <h3>Update Information</h3>
+                    
+                    <?php 
+    echo "<form class='form-horizontal' role='form' action='school-edit-information-action.php?id=".$id."' method='post'>";
+?>
 
-		echo "</tbody>";
-	echo "</table>";
-echo "</div>"; 
-?>    
+                        <div class="form-group">
+                            
+                          <div class="col-md-6">
+                            <label for = "schoolName">School Name: </label>
+                                <input type="text" class="form-control" name="schoolName" maxlength="50" required autofocus value="<?php echo $info["schoolName"];?>">
+                              <br>
+                        </div>
+                        <div class="col-md-6">
+                            <label for = "schoolEmail">School Email Address:</label>
+                                <input type="text" class="form-control" name="schoolEmail" maxlength="50" required value="<?php echo $info["schoolEmail"];?>"><br>
+                        </div>
+                            
+                        </div>
+                         <div class="buttonStudent">
+
+                            <button type="submit" class="buttonSave" color="white">Submit</button>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        
     </body>
 </html>

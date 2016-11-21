@@ -12,8 +12,9 @@ if (!isset($_SESSION["schoolLoggedIn"])){
 else if (!isset($_SESSION["studentLoggedIn"])){
         $variable = "../school-interface.php";
     }
+$studentID = $_COOKIE['studentID'];
 
-$query = "SELECT unitNumber,auxEmail FROM auxiliary WHERE auxiliaryID = '1';";
+$query = "SELECT firstName,lastName,studentEmail FROM student WHERE studentID = '$studentID';";
 
 $result = $auxConnection->query($query);
 if(!$result) die("query failed ".$auxConnection->error);
@@ -22,7 +23,7 @@ $rows = $result->num_rows;
 ?>
 <html>
 <head>
-    <title>Parent Consent Form</title>
+    <title>My Information</title>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <script src="dist/js/bootstrap-checkbox.min.js" defer></script>
     <meta charset="utf-8">
@@ -48,15 +49,15 @@ $rows = $result->num_rows;
             <br>
 </header>
 
-    <h3>Auxiliary Contact Information</h3>
+    <h3>My Information</h3>
     </html>
 <?php
 echo "<div class='container'>";
-	echo "<table class = 'table table-striped'>";
+	echo "<table class = 'table'>";
 		echo "<thead>";
 			echo "<tr>";
-				echo "<th style='text-align:center;'>Auxiliary Unit Number</th>";
-				echo "<th style='text-align:center;'>Auxiliary Email Address</th>";
+				echo "<th style='text-align:center;'>Name</th>";
+				echo "<th style='text-align:center;'>Email</th>";
 			echo "</tr>";
 		echo "</thead>";
     echo "<tbody>";
@@ -64,11 +65,11 @@ echo "<div class='container'>";
 for($i = 0;$i<$rows;$i++){
     $result->data_seek($i);
     $record = $result->fetch_array(MYSQLI_ASSOC);
-    $unitNumber = $record["unitNumber"];
-    $unitEmail = $record["auxEmail"];
+    $studentName = $record["firstName"]." ".$record["lastName"];
+    $studentEmail = $record["studentEmail"];
     echo "<tr>";
-        echo "<td style='text-align:center; background-color:lightgray;'> $unitNumber </td>";
-        echo "<td style='text-align:center; background-color:lightgray;'> $unitEmail </td>";
+        echo "<td style='text-align:center; background-color:lightgray;'> $studentName </td>";
+        echo "<td style='text-align:center; background-color:lightgray;'> $studentEmail </td>";
     echo"</tr>";
  }
 

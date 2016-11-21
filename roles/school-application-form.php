@@ -3,10 +3,15 @@ session_start();
 if(!isset($_SESSION["loggedIn"])){
   header('location: index.php');
 }
+if(!isset($_SESSION["schoolLoggedIn"])){
+    header('location: index.php');
+}
+
+$schoolID = $_COOKIE['schoolID'];
 ?>
-<!DOCTYPE html>
+
 <html>
-<!--test comment git add . , git commit, git push-->
+
 <head>
     <title>School Account Information</title>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
@@ -38,7 +43,9 @@ Divide each field and label using col-md-3/6/12 for size needed. Collect all inf
 enforce proper restrictions-->
 <div class="container">
 <div class="well">
-<form class="form-horizontal" role="form" action="services/school-application-form-action.php" method="post">
+<?php 
+    echo "<form class='form-horizontal' role='form' action='services/school-application-form-action.php?id=".$schoolID."' method='post'>";
+?>
 
     <div class="form-group">
         <h3>School Information Form</h3>
@@ -57,7 +64,7 @@ enforce proper restrictions-->
         </div>
         <div class="col-md-12">
             <label for = "schoolPhone"> School Phone Number: </label>
-                <input type="text" class="form-control" name="schoolPhone" maxlength="15" placeholder= "(XXX)XXX-XXXX" required><br>
+                <input type="text" class="form-control" name="schoolPhone" maxlength="15" placeholder= "((555)888-0000" required><br>
         </div>
         <div class = "col-md-12">
         <legend>Student Information</legend>
@@ -82,11 +89,11 @@ enforce proper restrictions-->
         <legend>School Official Information </legend>
         </div>
         <div class = "col-md-6">
-            <label for = "officialFirstName"> First Name: </label>
+            <label for = "officialFirstName">Official's First Name: </label>
                 <input type="text" class="form-control" name="officialFirstName" maxlength="25" required><br>
         </div>
         <div class="col-md-6">
-            <label for = "officialLastName"> Last Name: </label>
+            <label for = "officialLastName">Official's Last Name: </label>
                 <input type="text" class="form-control" name="officialLastName" maxlength="25" required><br>
         </div>
         <div class="col-md-6">
@@ -125,7 +132,7 @@ enforce proper restrictions-->
         <div class="buttonStudent">
             <button type="submit" class="buttonSubmit" color="black">Submit Form</button>
 
-            <button type="submit" class="buttonSave" color="white">Save Form</button>
+            
     </div>
     
 </form>

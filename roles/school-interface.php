@@ -23,18 +23,19 @@ if(!isset($_SESSION["schoolLoggedIn"])){
     <body>
          <div class="heading">
             <h1 align="center" class="loginHeader"><img src="images/icon.jpg">
-            <a href = "services/roles-logout.php"><span style = "float: right; margin-left: -20%" class = "btn 
+            <a href = "services/roles-logout.php"><span style = "float: right; margin-left: -20%; font-size:20px;" class = "btn 
                 btn-primary">logout</span></a><br>The American Legion Auxiliary<br>Georgia Girls State</h1>
         <div class="logoImage"></div>
         </div>
         <div class="container">
             <h3>School Task Bar</h3>
             <br>
-            <div class="col-md-12" style="text-align:center;">
+            <div class="col-md-2"></div>
+            <div class="col-md-10" style="text-align:center;">
                 <div class="col-md-3">
-                <a href="school-information.php" class="btn btn-info btn-lg" data-toggle="tooltip" title="View/Update School Information">
+                <a href="services/school-information.php" class="btn btn-info btn-lg" data-toggle="tooltip" title="View/Update School Information">
                 <div class="user">
-                <span class="glyphicon glyphicon-user"><br>School<br>Information</span>
+                <span class="glyphicon glyphicon-user"><br>View/Update<br>Information</span>
                 </div>
             </a>
                 </div>
@@ -44,14 +45,14 @@ if(!isset($_SESSION["schoolLoggedIn"])){
             </a><br>
                 </div>
                 <div class="col-md-3">
-                <a href="services/school-application-view.php" class="btn btn-info btn-lg" data-toggle="tooltip" title="View/update current applicaitons">
-                <span class="glyphicon glyphicon-list-alt"><br>View<br>Applications</span>
+                <a href="services/school-application-view.php" class="btn btn-info btn-lg" data-toggle="tooltip" title="View/update current applications">
+                <span class="glyphicon glyphicon-list-alt"><br>View/Edit<br>Applications</span>
             </a><br>
                 </div>
-                <div class="col-md-3">
+                <!--<div class="col-md-3">
                 <a href="services/auxiliary-information.php" class="btn btn-info btn-lg" data-toggle="tooltip" title="View your Auxiliary Information">
                 <span class="glyphicon glyphicon-info-sign"><br>Auxiliary<br>Information</span>
-            </a><br>
+            </a><br>-->
                 </div>
             </div>
             </div>

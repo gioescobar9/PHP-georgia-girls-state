@@ -28,9 +28,9 @@ else{
 if($missmatch == false){
         if($isStudent == true)
     $query = "SELECT * FROM student WHERE studentEmail='$username' AND password='$password';";
-else if($isSchool == true)
+else if($isSchool == true){
     $query = "SELECT * FROM school WHERE schoolEmail='$username' AND password='$password';";
-
+}
 $result = $auxConnection->query($query);
 if(!$result) die ("query failed".$auxConnection->error);
 
@@ -42,18 +42,26 @@ else
 //need to check if cookie name is school or student on the aux-information page
 if($_SESSION["loggedIn"] == true){
     if($isSchool == true){
+        $record = $result->fetch_assoc();
         $redirect="../school-interface.php";
         $_SESSION["schoolLoggedIn"] = true;
-        //setcookie("user",'school', time() + 86400, "/");
+        setcookie("schoolID",$record['schoolID'], time() + 86400, "/");
+        /*$query2 = "SELECT schoolID FROM student WHERE studentID="$record['schoolID']"";
+        $result2 = $auxConnection->query($query2);
+        if(!$result2) die ("query failed".$auxConnection->error);
+        $record2 = $result->fetch_assoc();
+        setcookie("studentID", $record['schoolID'], time(), 86400, "/");*/
         closeConnection($auxConnection);  
     }
 }
 if($_SESSION["loggedIn"] == true){
     if($isStudent == true){
+        $record = $result->fetch_assoc();
 	   $redirect = "../student-interface.php";
 	   closeConnection($auxConnection);
         $_SESSION["studentLoggedIn"] = true;
-       //setcookie("user",'student', time() + 86400, "/");
+       setcookie("studentID",$record['studentID'], time() + 86400, "/");
+        closeConnection($auxConnection);
     }
 }
 else{

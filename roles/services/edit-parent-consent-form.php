@@ -1,17 +1,63 @@
 <?php
-session_start();
-if(!isset($_SESSION["loggedIn"])){
-  header('location: index.php');
-}
-if(!isset($_SESSION["studentLoggedIn"])){
-    header('location: index.php');
-}
-$studentID = $_COOKIE['studentID'];
-?>
+        
+            session_start();
+        if(!isset($_SESSION["loggedIn"])){
+            header('location: index.php');
+        }
+        if(!isset($_SESSION["studentLoggedIn"])){
+            header('location: index.php');
+        }
+            require_once 'connectAuxDB.php';
 
+            $auxConnection=connectAuxDB();
+
+            $studentID = $_COOKIE['studentID'];
+        
+            $query = "SELECT parentConsentInfo FROM applications WHERE studentID='$studentID'";
+            
+            $result = $auxConnection->query($query);
+            if(!$result) die ("query failed".$auxConnection->error);
+        
+            $rows = $result->num_rows;
+            
+        $info = mysqli_fetch_assoc($result); 
+        //print_r ($info);
+        
+        
+        foreach($info as $x => $x_value) {
+            //echo "Key=" . $x . ", Value=" . $x_value;
+            //echo "<br>";
+        }
+        
+        //echo "$x_value";
+        
+        $studentInfo = explode("^",$x_value);
+        //print_r($studentInfo);
+        $stringInfo = "";
+        $item = array();
+        $asscStudent = array();
+        $i=1;
+        $count=count($studentInfo);
+    
+        foreach($studentInfo as $values)
+        {
+            $stringInfo = $values;
+            if($i < $count)
+            {
+                $newStringInfo = explode(":",$stringInfo);
+                $asscStudent=array("$newStringInfo[0]"=>"$newStringInfo[1]");
+            }
+            $i++;
+            
+            $item = array_merge($item, $asscStudent);
+        }
+        //print_r($item);
+?>
+        
+        
 <html>
 <head>
-    <title>Parent Consent Form</title>
+    <title>Edit Consent Form</title>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <script src="dist/js/bootstrap-checkbox.min.js" defer></script>
     <meta charset="utf-8">
@@ -21,58 +67,61 @@ $studentID = $_COOKIE['studentID'];
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/additional-methods.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-    <script src="jquery-1.12.4.min.js"></script>
     <script src="js/form-validation.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/rolesStyleSheet.css">
+    <link rel="stylesheet" type="text/css" href="../css/rolesStyleSheet.css">
 
 </head>
+
+<body>
 <header>
     <div class="heading">
-            <h1 align="center" class="loginHeader"><img src="images/icon.jpg">
-            <a href = "student-interface.php"><span style = "float: left; margin-right: -20%" class="btn btn-info btn-lg">
+        <div class="heading">
+            <h1 align="center" class="loginHeader"><img src="../images/icon.jpg">
+            <a href = "../student-interface.php"><span style = "float: left; margin-right: -20%" class="btn btn-info btn-lg">
                 <span class="glyphicon glyphicon-home"><br>Home</span></a><br>The American Legion Auxiliary<br>Georgia Girls State</h1>
     </div>
 </header>
-<body>
-<div class="radioContainer">
-    <div class="well">
-
-        <?php 
-    echo "<form class='form-horizontal' role='form' action='services/parent-consent-form-action.php?id=".$studentID."' method='post'>";
+<div class="body">
+<!--create a container to wrap the form for easy formatting, class well uses bootsrap for some of CSS. 
+Divide each field and label using col-md-3/6/12 for size needed. Collect all information in the form and 
+enforce proper restrictions-->
+<div class="container">
+<div class="well">
+<?php 
+    echo "<form class='form-horizontal' role='form' action='edit-parent-consent-form-action.php?id=".$studentID."' method='post'>";
 ?>
-            <div class="form-group">
+    <div class="form-group">
                 <h3>Consent Form</h3>
                     <div class="col-md-12">
                         <legend>Parent Information</legend>
                     </div>
                     <div class="col-md-6">
                         <label for = "motherName"> Mother/Guardian Name:</label><br>
-                            <input type="text" class="form-control" name="motherName" maxlength="50"><br>
+                            <input type="text" class="form-control" name="motherName" maxlength="50" value="<?php echo $item["motherName"];?>"><br>
                     </div>
                     <div class="col-md-6">
                         <label for = "motherPhone"> Mother/Guardian Phone:</label><br>
-                            <input type="text" class="form-control" name="motherPhone" maxlength="20"placeholder="(555)888-0000"><br>
+                            <input type="text" class="form-control" name="motherPhone" maxlength="20"placeholder="(555)888-0000" value="<?php echo $item["motherPhone"];?>"><br>
                     </div>
                     <div class="col-md-6">
                         <label for = "fatherName">Father/Guardian Name:</label><br>
-                            <input type="text" class="form-control" name="fatherName" maxlength="50"><br>
+                            <input type="text" class="form-control" name="fatherName" maxlength="50" value="<?php echo $item["fatherName"];?>"><br>
                     </div>
                     <div class="col-md-6">
                         <label for = "fatherPhone">Father/Guardian Phone:</label><br>
-                            <input type="text" class="form-control" name="fatherPhone" maxlength="20"placeholder="(555)888-0000"><br>
+                            <input type="text" class="form-control" name="fatherPhone" maxlength="20"placeholder="(555)888-0000" value="<?php echo $item["fatherPhone"];?>"><br>
                     </div>
                     <div class="col-md-6">
                         <label for = "emergencyName">Emergency Contact Name:</label><br>
-                            <input type="text" class="form-control" name="emergencyName" maxlength="50"><br>
+                            <input type="text" class="form-control" name="emergencyName" maxlength="50" value="<?php echo $item["emergencyName"];?>"><br>
                     </div>
                      <div class="col-md-6">
                         <label for = "emergencyRelationship">Emergency Contact Relationship:</label><br>
-                            <input type="text" class="form-control" name="emergencyRelationship" maxlength="25"><br>
+                            <input type="text" class="form-control" name="emergencyRelationship" maxlength="25" value="<?php echo $item["emergencyRelationship"];?>"><br>
                     </div>
                     <div class="col-md-6">
                         <label for = "emergencyPhone"> Emergency Contact Phone:</label><br>
-                            <input type="text" class="form-control" name="emergencyPhone" maxlength="20"placeholder="(555)888-0000"><br>
+                            <input type="text" class="form-control" name="emergencyPhone" maxlength="20"placeholder="(555)888-0000" value="<?php echo $item["emergencyPhone"];?>"><br>
                     </div>
                     <div class="col-md-12">
                         <legend>Personal Information</legend>
@@ -93,7 +142,7 @@ $studentID = $_COOKIE['studentID'];
                         <input type="radio" name="answer" id="no" onclick="hideTreatment()">No<br><br>
                         <div id="textTreatment">
                             Please list below:<br>
-                            <textarea name="treatmentInput" class="form-control" rows="5" cols="50"></textarea>
+                            <textarea name="treatmentInput" class="form-control" rows="5" cols="50" value="<?php echo $item["treatmentInput"];?>"></textarea>
                         </div>
                     </div>
                    
@@ -105,7 +154,7 @@ $studentID = $_COOKIE['studentID'];
                         <input type="radio" name="answer" id="no" onclick="hideAllergies()">No<br><br>
                         <div id="textAllergies">
                             Please list below:<br>
-                            <textarea name="allergiesInput" class="form-control" rows="5" cols="50"></textarea>
+                            <textarea name="allergiesInput" class="form-control" rows="5" cols="50" value="<?php echo $item["allergiesInput"];?>"></textarea>
                         </div>
                     </div>
 
@@ -115,7 +164,7 @@ $studentID = $_COOKIE['studentID'];
                         <input type="radio" name="answer" id="no" onclick="hideMeds()">No<br><br>
                         <div id="textMeds">
                             Please list below:<br>
-                            <textarea name="medsInput" class="form-control" rows="5" cols="50" placeholder="med1,med2,med3"></textarea>
+                            <textarea name="medsInput" class="form-control" rows="5" cols="50" placeholder="med1,med2,med3" value="<?php echo $item["medsInput"];?>"></textarea>
                         </div>
                     </div>
                     
@@ -125,7 +174,7 @@ $studentID = $_COOKIE['studentID'];
                         <input type="radio" name="answer" id="no" onclick="hideAccomodations()">No<br><br>
                         <div id="textAccomodations">
                             Please Explain below:<br>
-                            <textarea name="accomodationsInput" class="form-control" rows="5" cols="50"></textarea>
+                            <textarea name="accomodationsInput" class="form-control" rows="5" cols="50" value="<?php echo $item["accomodationsInput"];?>"></textarea>
                         </div>
                     </div>
 
@@ -135,18 +184,18 @@ $studentID = $_COOKIE['studentID'];
                         <input type="radio" name="answer" id="no" onclick="hideRestrictions()">No<br><br>
                         <div id="textRestrictions">
                             Please Explain below:<br>
-                            <textarea name="restrictionsInput" class="form-control" rows="5" cols="50"></textarea>
+                            <textarea name="restrictionsInput" class="form-control" rows="5" cols="50" value="<?php echo $item["restrictionsIpnut"];?>"></textarea>
                         </div>
                     </div>
 
                     <div class="col-md-6">
                         <label for = "physicianName">Physician's Name: </label>
-                            <input type="text" class="form-control" name="physicianName" maxlength="50"required><br>
+                            <input type="text" class="form-control" name="physicianName" maxlength="50"required value="<?php echo $item["physicianName"];?>"><br>
                     </div>
 
                     <div class="col-md-6">
                         <label for = "physicianPhoneNumber">Phone Number: </label>
-                            <input type="text" class="form-control" name="physicianPhoneNumber" maxlength="50"required placeholder="(555)888-0000"><br>
+                            <input type="text" class="form-control" name="physicianPhoneNumber" maxlength="50"required placeholder="(555)888-0000" value="<?php echo $item["physicianPhoneNumber"];?>"><br>
                     </div>
                     <div class="col-md-12">
                         <legend>Insurance Provider Information</legend>
@@ -159,24 +208,24 @@ $studentID = $_COOKIE['studentID'];
                     <div class="insured">
                     <div class="col-md-12">
                         <label for = "insuranceCompany" >Insurance Company:</label>
-                            <input type="text" class="form-control" name="insuranceCompany" maxlength="50"><br>
+                            <input type="text" class="form-control" name="insuranceCompany" maxlength="50" value="<?php echo $item["insuranceCompany"];?>"><br>
                     </div>
                     <div class="col-md-6">
                         <label for = "insuranceGroup" >Group Name:</label>
-                            <input type="text" class="form-control" name="insuranceGroup" maxlength="50"><br>
+                            <input type="text" class="form-control" name="insuranceGroup" maxlength="50" value="<?php echo $item["insuranceGroup"];?>"><br>
                     </div>
                     <div class="col-md-6">
                         <label for = "insuranceGroupNumber" >Group Number:</label>
-                            <input type="text" class="form-control" name="insuranceGroupNumber" maxlength="50"><br>
+                            <input type="text" class="form-control" name="insuranceGroupNumber" maxlength="50" value="<?php echo $item["insuranceGroupNumber"];?>"><br>
                     </div>
                     <div class="col-md-6">
                         <label for = "insuranceAddressStreet" >Insurance Street Address:</label>
-                            <input type="text" class="form-control" name="insuranceAddressStreet" maxlength="50" ><br>
+                            <input type="text" class="form-control" name="insuranceAddressStreet" maxlength="50" value="<?php echo $item["insuranceAddressStreet"];?>"><br>
                     </div>
 
                     <div class="col-md-6">
                         <label for = "insuranceAddress" >Insurance City,State,Zip:</label>
-                    <input type="text" class="form-control" name="insuranceAddress" maxlength="50" placeholder="City,State,Zip"><br>
+                    <input type="text" class="form-control" name="insuranceAddress" maxlength="50" placeholder="City,State,Zip" value="<?php echo $item["insuranceAddress"];?>"><br>
                     </div>
 
                     </div>
@@ -185,7 +234,7 @@ $studentID = $_COOKIE['studentID'];
                     </div>
                     <div class="col-md-6">
                         <label for = "childsName" >As parent or Guardian of:</label>
-                            <input type="text" class="form-control" name="childsName" maxlength="50"required><br>
+                            <input type="text" class="form-control" name="childsName" maxlength="50"required value="<?php echo $item["childsName"];?>"><br>
                     </div>
                     <div class="col-md-12">
                     <div class="terms">
@@ -197,7 +246,7 @@ $studentID = $_COOKIE['studentID'];
                             We hereby release and discharge THE AMERICAN LEGION AUXILIARY, DEPARTMENT OF GEORGIA, INC., its Officers, Agents, 
                             Instructors and Employees, from all claims, demands, damages, suits, actions or causes of action which we may, can 
                             or shall have by any reason of illness, injury or accident incurred or suffered by
-<div class="col-md-8"><input type="text" class="form-control" name="enterChildsName" maxlength="50"placeholder="Daughter's Name"required></div><br><br><br>
+<div class="col-md-8"><input type="text" class="form-control" name="enterChildsName" maxlength="50"placeholder="Daughter's Name" required value="<?php echo $item["enterChildsName"];?>"></div><br><br><br>
                             while in attendance at said Girls State, no matter how caused or occasioned.
 
 	                            
@@ -215,7 +264,7 @@ $studentID = $_COOKIE['studentID'];
                         <input type="radio" name="answer" id="no" onclick="hideConsent()">No<br><br>
                         <div id="textConsent">
                             If you have any restrictions please list them:<br>
-                            <textarea name="consentInput" class="form-control" rows="5" cols="50"></textarea>
+                            <textarea name="consentInput" class="form-control" rows="5" cols="50" value="<?php echo $item["consentInput"];?>"></textarea>
                         </div>
                     </div>
 
@@ -225,7 +274,7 @@ $studentID = $_COOKIE['studentID'];
                         <input type="radio" name="answer" id="no" onclick="hideCondition()">No<br><br>
                         <div id="textCondition">
                             If yes, please explain:<br>
-                            <textarea name="conditionInput" class="form-control" rows="5" cols="50"></textarea>
+                            <textarea name="conditionInput" class="form-control" rows="5" cols="50" value="<?php echo $item["conditionInput"];?>"></textarea>
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -292,3 +341,4 @@ $studentID = $_COOKIE['studentID'];
 </div>
 </body>
 </html>
+    

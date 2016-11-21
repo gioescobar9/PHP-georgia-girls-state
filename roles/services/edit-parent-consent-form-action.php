@@ -1,23 +1,23 @@
-<html>
-    <body>
-        <?php
-        
-        session_start();
-        if(!isset($_SESSION["loggedIn"])){
-            header('location: index.php');
-        }
-        if(!isset($_SESSION["studentLoggedIn"])){
-            header('location: index.php');
-        }
-        
-        if(!empty($_GET['id'])){
-                $id = $_REQUEST['id'];
-        }
-        
-        if($id == null){
-                header("location: ../student-interface.php");
-        }
+<?php
+            session_start();
             require_once 'connectAuxDB.php';
+        
+            if(!isset($_SESSION["loggedIn"])){
+                header('location: index.php');
+            }
+        
+            if(!isset($_SESSION["studentLoggedIn"])){
+                header('location: index.php');
+            }
+        
+        
+            if(!empty($_GET['id'])){
+                $id = $_REQUEST['id'];
+            }
+        
+            if($id == null){
+                header("location: ../student-interface.php");
+            }
 
             $auxConnection=connectAuxDB();
         
@@ -77,24 +77,22 @@
                 'signDate' => $signDate,
               );
                 
-                $resultStr ="";
+        $resultStr ="";
+
         foreach ($post_data as $key => $value)
         {
             $resultStr .= "$key:$value^";
         }
-           echo $resultStr;
-        
-        echo "your information was submitted, and you will be redirected to the home page";
+           
         
         
         $query = "UPDATE applications SET parentConsentInfo='{$resultStr}',parentConsentInfoComplete='1' WHERE applicationID='$id'";
         $result = $auxConnection->query($query);
             if(!$result) die ("query failed".$auxConnection->error);
         
+        echo "<script>alert('Your Information has been submitted')</script>";
         $redirect = "../student-interface.php";
-        header( "refresh:5;url='$redirect'" );
+        header( "refresh:1;url='$redirect'" );
         
         
         ?>
-    </body>
-</html>

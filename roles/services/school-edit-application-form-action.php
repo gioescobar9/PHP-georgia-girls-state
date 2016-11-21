@@ -1,21 +1,20 @@
-<html>
-    <body>
-        <?php
+<?php
         
             session_start();
+            require_once 'connectAuxDB.php';
+        
             if(!isset($_SESSION["loggedIn"])){
                 header('location: index.php');
             }
+        
             if(!isset($_SESSION["schoolLoggedIn"])){
                 header('location: index.php');
             }
-            require_once 'connectAuxDB.php';
-
         
-             if(!($_GET['id'])){
+        
+            if(!empty($_GET['id'])){
                 $id = $_REQUEST['id'];
             }
-    
         
             if($id == null){
                 header("location: ../school-interface.php");
@@ -23,7 +22,7 @@
         
         
             $auxConnection=connectAuxDB();
-            
+            //$schoolID = $_COOKIE['schoolID'];
         
         
             $schoolName = $_POST["schoolName"];
@@ -64,23 +63,17 @@
         {
             $resultStr .= "$key:$value^";
         }
-           echo $resultStr;
-            //echo json_encode($post_data);
-            //echo '<pre>'; print_r($json); echo '</pre>';
-            //$query = "INSERT INTO applications(applicationID, auxInfo, schoolInfo, studentInfo, auxiliaryID, schoolID) VALUES ('','','','{$resultStr}','','')";
-             
-            //$query = "UPDATE applications SET schoolInfo='{$resultStr}' WHERE applicationID='1'";
+           
             
-             $query = "UPDATE applications SET schoolInfo ='{$resultStr}',schoolInfoComplete='1' WHERE schoolID='$id'";
+            $query = "UPDATE applications SET schoolInfo ='{$resultStr}',schoolInfoComplete='1' WHERE studentID='$id'";
             $result = $auxConnection->query($query);
             if(!$result) die ("query failed".$auxConnection->error);
         
-            echo "your information was submitted, and you will be redirected to the home page";
+            echo "<script>alert('Your Information has been submitted')</script>";
             $redirect="../school-interface.php";
         
-            //header('locaiton:'$redirect);
+            //header('location:'.$redirect);
         
-            header( "refresh:5;url='$redirect'" );
-        ?>
-    </body>
-</html>
+            header( "refresh:1;url='$redirect'" );
+?>
+ 

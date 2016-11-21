@@ -23,7 +23,7 @@ if(!isset($_SESSION["studentLoggedIn"])){
     <body>
         <div class="heading">
             <h1 align="center" class="loginHeader"><img src="images/icon.jpg">
-            <a href = "services/roles-logout.php"><span style = "float: right; margin-left: -20%" class = "btn 
+            <a href = "services/roles-logout.php"><span style = "float: right; margin-left: -20%; font-size:20px;" class = "btn 
                 btn-primary">logout</span></a><br>The American Legion Auxiliary<br>Georgia Girls State</h1>
         <div class="logoImage"></div>
         </div>
@@ -33,23 +33,26 @@ if(!isset($_SESSION["studentLoggedIn"])){
             <div class="col-md-12" style="text-align:center;">
                 <div class="col-md-3">
                 <a href="student-application-form.php" class="btn btn-info btn-lg" data-toggle="tooltip" title="New Student Application">
-                <span class="glyphicon glyphicon-user"><br>New<br>Application</span>
+                <span class="glyphicon glyphicon-user"><br>Begin<br>New-Application</span>
             </a><br>
                 </div>
                 <div class="col-md-3">
-            <a href="student-application-form.php" class="btn btn-info btn-lg" data-toggle="tooltip" title="Edit Previous Application">
-                <span class="glyphicon glyphicon-pencil"><br>Edit<br>Application</span>
+            <a href="services/student-select-edit.php" class="btn btn-info btn-lg" data-toggle="tooltip" title="Edit Previous Application or Consent Form">
+                <span class="glyphicon glyphicon-pencil"><br>Edit<br>Application/Consent<span>
             </a><br>
                 </div>
                 <div class="col-md-3">
-            <a href="services/auxiliary-information.php" class="btn btn-info btn-lg" data-toggle="tooltip" title="View Your Auxiliary Informaiton">
-                <span class="glyphicon glyphicon-info-sign"><br>Auxiliary<br>Information</span>
-            </a><br>
+                    <a href="parent-consent-form.php" class="btn btn-info btn-lg" data-toggle="tooltip" title="Complete Parent Consent Form">
+                <span class="glyphicon glyphicon-file"><br>Complete<br>Consent-Form</span>
+            </a>
+            <br>
                 </div>
+                
                 <div class="col-md-3">
-                <a href="parent-consent-form.php" class="btn btn-info btn-lg" data-toggle="tooltip" title="Complete Parent Consent Form">
-                <span class="glyphicon glyphicon-file"><br>Consent<br>Form</span>
-            </a><br>
+                    <a href="services/student-information.php" class="btn btn-info btn-lg" data-toggle="tooltip" title="View Your Personal Informaiton">
+                <span class="glyphicon glyphicon-info-sign"><View><br>My-Information<br>&nbsp;</span>
+            </a>
+                <br>
             </div>
             </div>
         </div>

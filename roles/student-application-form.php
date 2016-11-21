@@ -6,6 +6,8 @@ if(!isset($_SESSION["loggedIn"])){
 if(!isset($_SESSION["studentLoggedIn"])){
     header('location: index.php');
 }
+
+$studentID = $_COOKIE['studentID'];
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +33,7 @@ if(!isset($_SESSION["studentLoggedIn"])){
     <div class="heading">
         <div class="heading">
             <h1 align="center" class="loginHeader"><img src="images/icon.jpg">
-            <a href = "student-interface.php"><span style = "float: left; margin-right: -20%" class="btn btn-info btn-lg">
+                 <a href = "../student-interface.php"><span style = "float: left; margin-right: -20%" class="btn btn-info btn-lg">
                 <span class="glyphicon glyphicon-home"><br>Home</span></a><br>The American Legion Auxiliary<br>Georgia Girls State</h1>
     </div>
 </header>
@@ -41,8 +43,10 @@ Divide each field and label using col-md-3/6/12 for size needed. Collect all inf
 enforce proper restrictions-->
 <div class="container">
 <div class="well">
-<form class="form-horizontal" name = "application" role="form" action="services/student-application-form-action.php" 
- method="post">
+
+          <?php 
+    echo "<form class='form-horizontal' role='form' action='services/student-application-form-action.php?id=".$studentID."' method='post'>";
+?>
 
     <div class="form-group">
            <h3>Student Information Form</h3>
@@ -97,11 +101,11 @@ enforce proper restrictions-->
                 <input type="text" class="form-control" name="emergencyPhone" maxlength="13" placeholder="(555)888-0000"><br>
            </div>
            <div class="col-md-6">
-               <label for = "girlsCell">Girls Cell Phone:(If Available)</label>
+               <label for = "girlsCell">Girl's Cell Phone:(If Available)</label>
                    <input type="text" class="form-control" name="girlsCell" maxlength="13" placeholder="Optional"><br>
            </div>
            <div class="col-md-6">
-            <label for = "studentEmail">Student Email:</label>
+            <label for = "studentEmail">Girl's Email:</label>
                 <input type="email" class="form-control" name="studentEmail" placeholder="name@email.com" required><br>
             </div>
             <div class="col-md-6">
@@ -148,15 +152,11 @@ enforce proper restrictions-->
 
     <div class="buttonStudent">
 
-        <button type="submit" class="buttonSave" color="white" formaction="services/student-application-form-action.php">Submit/Continue</button>
+        <button type="submit" class="buttonSave" color="white" formaction="services/student-application-form-action.php">Submit</button>
 
     </div>
 </form>
-    <div class="buttonStudent" style="padding:10px">
-        <a href = "student-interface.php">
-            <button type="submit" class="buttonNext" color="white" onclick="student-interface.php">Cancel</button>
-        </a>
-    </div>
+    
 </div>
 </div>
 
