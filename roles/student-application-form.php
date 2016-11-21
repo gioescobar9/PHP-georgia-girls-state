@@ -7,7 +7,7 @@ if(!isset($_SESSION["studentLoggedIn"])){
     header('location: index.php');
 }
 
-$studentID = $_COOKIE['studentID'];
+//$studentID = $_COOKIE['studentID'];
 ?>
 
 

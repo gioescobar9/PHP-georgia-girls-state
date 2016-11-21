@@ -29,7 +29,7 @@ for($i = 0;$i<$rows;$i++){
  $studID = $record["studentID"];
  $studName = $record["firstName"]." ".$record["lastName"];
  $status = getStatus($studID);
- if($status = "Incomplete")
+ if($status == "Incomplete")
   $statusRow = "<td class = 'alert alert-warning'>".$status."</td>";
 else
   $statusRow = "<td class = 'alert alert-success'>".$status."</td>";

@@ -58,7 +58,7 @@ echo "<div class='container'>";
 			echo "<tr>";
 				echo "<th>ID</th>";
 				echo "<th>Student Name</th>";
-				//echo "<th>Status</th>";
+				echo "<th>Status</th>";
 				echo "<th>Options</th>";
 			echo "</tr>";
         
@@ -69,20 +69,49 @@ for($i = 0;$i<$rows;$i++){
   $record = $result->fetch_array(MYSQLI_ASSOC);
  $studentID = $record["studentID"];
  $studentName = $record["firstName"]." ".$record["lastName"];
+ $status = getStatus($studentID);
+
+    echo"$status";
+ if($status == "Incomplete")
+  $statusRow = "<td class = 'alert alert-warning'>".$status."</td>";
+else
+  $statusRow = "<td class = 'alert alert-success'>".$status."</td>";
  
  echo "<tr>";
-  echo "<td> $studentID </td>";
-  echo "<td> $studentName </td>";
-  //echo $statusRow;
+  echo "<td>".$studentID."</td>";
+  echo "<td>".$studentName."</td>";
+  echo "<td>".$statusRow."</td>";
   echo "<td> 
   <a class = 'btn' href = 'school-edit-application.php?id=".$studentID."'><span class='glyphicon glyphicon-edit'></span>Update</a>
   </td>";
+  echo "<td><a class = 'btn' href = 'school-application-form.php?id=".$studentID."'><span class='glyphicon glyphicon-pencil'></span>New Application for Student</a></td>";
  echo "</tr>";
 }// end of for loop
 
 		echo "</tbody>";
 	echo "</table>";
 echo "</div>"; 
+            
+function getStatus($studID){
+  $auxConnection = connectAuxDB();
+  $query = "SELECT studentInfoComplete FROM applications WHERE studentID = '$studID';";
+  $result = $auxConnection->query($query);
+  if(!$result) die("getStatus query failed".$auxConnection->error);
+
+  if($result->num_rows > 0){
+    $row = $result->fetch_assoc();
+    if($row["studentInfoComplete"] == 0 )
+      $toReturn = "Incomplete";
+    else
+      $toReturn = "Complete";
+  }
+  else
+    $toReturn = "0 results";
+
+closeConnection($auxConnection);
+return $toReturn; 
+
+}
 ?>    
     </body>
 </html>

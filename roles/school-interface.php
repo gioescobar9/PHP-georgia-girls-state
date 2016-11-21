@@ -30,22 +30,23 @@ if(!isset($_SESSION["schoolLoggedIn"])){
         <div class="container">
             <h3>School Task Bar</h3>
             <br>
-            <div class="col-md-2"></div>
-            <div class="col-md-10" style="text-align:center;">
-                <div class="col-md-3">
+            <div class="col-md-3"></div>
+            <div class="col-md-8" style="text-align:center;">
+                <div class="col-md-4">
                 <a href="services/school-information.php" class="btn btn-info btn-lg" data-toggle="tooltip" title="View/Update School Information">
                 <div class="user">
-                <span class="glyphicon glyphicon-user"><br>View/Update<br>Information</span>
+                <span class="glyphicon glyphicon-user"><br>School<br>Information</span>
                 </div>
             </a>
                 </div>
+                <!--
                 <div class="col-md-3">
                 <a href="school-application-form.php" class="btn btn-info btn-lg" data-toggle="tooltip" title="Complete New Application">
                 <span class="glyphicon glyphicon-pencil"><br>New<br>Application</span>
             </a><br>
-                </div>
-                <div class="col-md-3">
-                <a href="services/school-application-view.php" class="btn btn-info btn-lg" data-toggle="tooltip" title="View/update current applications">
+                </div>-->
+                <div class="col-md-4">
+                <a href="services/school-application-view.php" class="btn btn-info btn-lg" data-toggle="tooltip" title="View/update new and previous applications">
                 <span class="glyphicon glyphicon-list-alt"><br>View/Edit<br>Applications</span>
             </a><br>
                 </div>
