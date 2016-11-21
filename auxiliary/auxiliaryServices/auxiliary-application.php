@@ -4,17 +4,24 @@ require_once 'auxiliaryConnectDB.php';
 //this is not working
 
 $auxConnection = connectAuxDB();
-$appID = $_POST["appID"];
+
+if(isset($_POST['studID'])
+	$studID
+	$appID = $_POST["appID"];
+
 $post_data = array(
 	'unitNumber' => $_POST['unitNumber'],
 	'unitCounty' => $_POST['unitCounty'],
 	'unitAddress' => $_POST['unitAddress'],
 	'unitCity' => $_POST['unitCity'],
+	'unitState' => $_POST['unitState'],
+	'unitZip' => $_POST['unitZip'],
 	'unitEmail' => $_POST['unitEmail'],
 	'unitPhone' => $_POST['unitPhone'], 
 	'officialFirstName' => $_POST['officialFirstName'],
 	'officialLastName' => $_POST['officialLastName'],
-	'officialEmail' => $_POST['officialEmail']
+	'officialEmail' => $_POST['officialEmail'],
+	'officialPhone' => $_POST['officialPhone']
 );
 
 //convert the post_data associative array into a string in order to send it to the database

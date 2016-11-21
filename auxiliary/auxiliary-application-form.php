@@ -57,13 +57,21 @@ enforce proper restrictions-->
                 <label for = "unitLocation">Unit Location:</label>
                 <input type="text" class="form-control" id="unitLocation" maxlength="25" placeholder="Unit County" name = "unitCounty" required><br>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <label for = "unitStreetAddress">Street Address:</label>
                 <input type="text" class="form-control" id="unitStreetAddress" maxlength="30" name = "unitAddress" required><br>
             </div>
-            <div class="col-md-8">
-                <label for = "unitCity">City,State,Zip:</label>
-                <input type="text" class="form-control" id="unitCity" maxlength="30" placeholder="City,State,Zip" name = "unitCity" required><br>
+            <div class="col-md-4">
+                <label for = "unitCity">City:</label>
+                <input type="text" class="form-control" id="unitCity" maxlength="30" placeholder="City" name = "unitCity" required><br>
+            </div>
+            <div class="col-md-4">
+                <label for = "unitState">State:</label>
+                <input type="text" class="form-control" id="unitState" maxlength="30" placeholder="Georgia" name = "unitState" required><br>
+            </div>
+            <div class="col-md-4">
+                <label for = "unitZip">ZipCode:</label>
+                <input type="text" class="form-control" id="unitZip" maxlength="30" placeholder="" name = "unitZip" required><br>
             </div>
             <div class="col-md-6">
                 <label for = "unitEmail">Email:</label>
