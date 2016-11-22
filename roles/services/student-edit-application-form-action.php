@@ -1,17 +1,15 @@
 <?php 
-    session_start();
+            session_start();
+            require_once "php-functions.php";
             require_once 'connectAuxDB.php';
-        
-            if(!isset($_SESSION["loggedIn"])){
-                header('location: index.php');
-            }
-        
-            if(!isset($_SESSION["studentLoggedIn"])){
-                header('location: index.php');
-            }
+
+            studentLoggedin();
+
+            $auxConnection=connectAuxDB();
         
         
             $auxConnection=connectAuxDB();
+            //get the studentID of the student that is logged in
             $studentID = $_COOKIE['studentID'];
             
             $studentFirstName = $_POST["studentFirstName"];
@@ -30,7 +28,7 @@
             $studentSignature = $_POST["studentSignature"];
             $parentSignature = $_POST["parentSignature"];
         
-            
+            //place all the form input into an assc array    
             $post_data = array(
                     'studentFirstName' => $studentFirstName,
                     'studentMiddleName' => $studentMiddleName,
@@ -50,11 +48,12 @@
                 );
 
             $resultStr ="";
+
+            //place all values from the assc array into a string so we can insert into the application table
             foreach ($post_data as $key => $value)
             {
                 $resultStr .= "$key:$value^";
-            }
-            //echo $resultStr; 
+            } 
             
              
             $query = "UPDATE applications SET studentInfo='{$resultStr}', studentInfoComplete='1' WHERE studentID='$studentID'";
@@ -63,7 +62,7 @@
         
             $redirect="../student-interface.php";
         
-            //header('locaiton:'$redirect);
+            //redirect the user to the home page
             echo "<script>alert('Your Information has been submitted')</script>";
             header( "refresh:1;url='$redirect'" );
                 

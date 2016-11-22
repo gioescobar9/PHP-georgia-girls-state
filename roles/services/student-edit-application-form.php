@@ -1,36 +1,34 @@
  <?php
         
             session_start();
-        if(!isset($_SESSION["loggedIn"])){
-            header('location: index.php');
-        }
-        if(!isset($_SESSION["studentLoggedIn"])){
-            header('location: index.php');
-        }
+            require_once "php-functions.php";
             require_once 'connectAuxDB.php';
 
-            $auxConnection=connectAuxDB();
+            studentLoggedin();
 
+
+            $auxConnection=connectAuxDB();
+            //get the studentID of student logged in
             $studentID = $_COOKIE['studentID'];
-        
+            //query the applications table to get their application
             $query = "SELECT studentInfo FROM applications WHERE studentID='$studentID'";
             
             $result = $auxConnection->query($query);
             if(!$result) die ("query failed".$auxConnection->error);
         
             $rows = $result->num_rows;
-            
+        //place the result into assc array 
         $info = mysqli_fetch_assoc($result); 
         //print_r ($info);
         
-        
+        //get the value of the assc array which is the student application
         foreach($info as $x => $x_value) {
             //echo "Key=" . $x . ", Value=" . $x_value;
             //echo "<br>";
         }
         
-        //echo "$x_value";
         
+        //split the string based on the '^' delimeter
         $studentInfo = explode("^",$x_value);
         //print_r($studentInfo);
         $stringInfo = "";
@@ -39,33 +37,30 @@
         $i=1;
         $count=count($studentInfo);
     
-        
+        //loop through the studentinfo array and place the key:values into an assc array    
         foreach($studentInfo as $values)
         {
-            //echo"$count";
             $stringInfo = $values;
             if($i < $count)
             {
-                //echo"$i";
-                //echo"$stringInfo";
                 $newStringInfo = explode(":",$stringInfo);
                 $asscStudent=array("$newStringInfo[0]"=>"$newStringInfo[1]");
             }
             $i++;
             
             $item = array_merge($item, $asscStudent);
-            //echo $item["schoolname"];
         }
     
         $count2 = count($item);
+        //check to see if studentinfo is empty
         if(!$count2 > 0){
             $redirect = "../student-interface.php";
             header('location:'.$redirect);
         }
-        //print_r($item);
+        
         ?>
         
-        
+//display form and fill in the previous application information     
 <html>
 <head>
     <title>Edit Student Application</title>

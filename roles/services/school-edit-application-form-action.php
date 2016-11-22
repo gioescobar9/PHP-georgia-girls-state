@@ -2,16 +2,11 @@
         
             session_start();
             require_once 'connectAuxDB.php';
-        
-            if(!isset($_SESSION["loggedIn"])){
-                header('location: index.php');
-            }
-        
-            if(!isset($_SESSION["schoolLoggedIn"])){
-                header('location: index.php');
-            }
+            require_once 'php-functions.php';
+            schoolLoggedIn();
         
         
+            //retrieve the studentID from the url using GET
             if(!empty($_GET['id'])){
                 $id = $_REQUEST['id'];
             }
@@ -24,7 +19,7 @@
             $auxConnection=connectAuxDB();
             //$schoolID = $_COOKIE['schoolID'];
         
-        
+            //retrieve form values
             $schoolName = $_POST["schoolName"];
             $schoolAddressStreet = $_POST["schoolAddressStreet"];
             $schoolAddress = $_POST["schoolAddress"];
@@ -40,8 +35,8 @@
             $officialSignature = $_POST["officialSignature"];
             $signDate = $_POST["signDate"];
             
-        
-              $post_data = array(
+            //place the form values into an assc array
+            $post_data = array(
                     'schoolname' => $schoolName,
                     'schoolAddressStreet' => $schoolAddressStreet,
                     'schoolAddress' => $schoolAddress,
@@ -57,23 +52,22 @@
                     'officialSignature' => $officialSignature,
                     'signDate' => $signDate,
             );
-        //echo json_encode($post_data);
+        
         $resultStr ="";
+        //create a string from the assc array to enter into the db
         foreach ($post_data as $key => $value)
         {
             $resultStr .= "$key:$value^";
         }
            
-            
+            //update the applications table witht the new string
             $query = "UPDATE applications SET schoolInfo ='{$resultStr}',schoolInfoComplete='1' WHERE studentID='$id'";
             $result = $auxConnection->query($query);
             if(!$result) die ("query failed".$auxConnection->error);
         
             echo "<script>alert('Your Information has been submitted')</script>";
             $redirect="../school-interface.php";
-        
-            //header('location:'.$redirect);
-        
+            //redirect the user to the home page
             header( "refresh:1;url='$redirect'" );
 ?>
  

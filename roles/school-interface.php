@@ -1,11 +1,7 @@
 <?php
 session_start();
-if(!isset($_SESSION["loggedIn"])){
-  header('location: index.php');
-}
-if(!isset($_SESSION["schoolLoggedIn"])){
-    header('location: index.php');
-}
+require_once "services/php-functions.php";
+schoolLoggedIn();
 ?>
 
 <html>

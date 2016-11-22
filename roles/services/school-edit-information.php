@@ -1,20 +1,15 @@
 <?php
         
             session_start();
-        if(!isset($_SESSION["loggedIn"])){
-            header('location: index.php');
-        }
-        if(!isset($_SESSION["schoolLoggedIn"])){
-            header('location: index.php');
-        }
+            require_once 'php-functions.php';
+            schoolLoggedIn();
             require_once 'connectAuxDB.php';
 
             $auxConnection=connectAuxDB();
         
-            if(!empty($_GET['id'])){
-                $id = $_REQUEST['id'];
-            }
+            $schoolID = $_COOKIE["schoolID"];
             
+            //retrieve school info from the school table and allow email and name to be updated
             $query = "SELECT schoolName,schoolEmail FROM school WHERE schoolID= '$id';";
             
             $result = $auxConnection->query($query);
@@ -26,7 +21,7 @@
 ?>
 <html>
     <body>
-<head>
+        <head>
                 <title>Edit Applications</title>
                 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
                 <script src="dist/js/bootstrap-checkbox.min.js" defer></script>
@@ -42,12 +37,12 @@
                 <script src="js/form-validation.js"></script>
                 <link rel="stylesheet" type="text/css" href="../css/rolesStyleSheet.css">
 
-            </head>
+        </head>
             <header>
    
                 <div class="heading">
                     <h1 align="center" class="loginHeader"><img src="../images/icon.jpg">
-                        <a href = "..//school-interface.php"><span style = "float: left; margin-right: -20%" class="btn btn-info btn-lg">
+                        <a href = "../school-interface.php"><span style = "float: left; margin-right: -20%" class="btn btn-info btn-lg">
                             <span class="glyphicon glyphicon-home"><br>Home</span></a><br>The American Legion Auxiliary<br>Georgia Girls State</h1>
                 </div>
             <br>
@@ -56,10 +51,9 @@
                 <div class="well">
                     <h3>Update Information</h3>
                     
-                    <?php 
-    echo "<form class='form-horizontal' role='form' action='school-edit-information-action.php?id=".$id."' method='post'>";
-?>
-
+                     
+                
+                    <form class="form-horizontal" role="form" action="school-edit-information-action.php" method="post"></form>
                         <div class="form-group">
                             
                           <div class="col-md-6">

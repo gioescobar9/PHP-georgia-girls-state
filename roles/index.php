@@ -1,7 +1,8 @@
 <?php
 session_start();
+//this form is the login form which forwards the input tp an action form to interpret the input
 ?>
-<!DOCTYPE html>
+
 <html>
 <head>
     <title>Login</title>

@@ -1,13 +1,8 @@
 <?php
 session_start();
-if(!isset($_SESSION["loggedIn"])){
-  header('location: index.php');
-}
-if(!isset($_SESSION["studentLoggedIn"])){
-    header('location: index.php');
-}
-
-//$studentID = $_COOKIE['studentID'];
+require_once "php-functions.php";
+$auxConnection=connectAuxDB();
+studentLoggedin();
 ?>
 
 
@@ -33,7 +28,7 @@ if(!isset($_SESSION["studentLoggedIn"])){
     <div class="heading">
         <div class="heading">
             <h1 align="center" class="loginHeader"><img src="images/icon.jpg">
-                 <a href = "../student-interface.php"><span style = "float: left; margin-right: -20%" class="btn btn-info btn-lg">
+                 <a href = "student-interface.php"><span style = "float: left; margin-right: -20%" class="btn btn-info btn-lg">
                 <span class="glyphicon glyphicon-home"><br>Home</span></a><br>The American Legion Auxiliary<br>Georgia Girls State</h1>
     </div>
 </header>

@@ -1,11 +1,12 @@
 <?php
-session_start();
-if(!isset($_SESSION["loggedIn"])){
-  header('location: index.php');
-}
-if(!isset($_SESSION["studentLoggedIn"])){
-    header('location: index.php');
-}
+
+            session_start();
+            require_once "php-functions.php";
+            require_once 'connectAuxDB.php';
+
+            studentLoggedin();
+
+            $auxConnection=connectAuxDB();
 ?>
 
 <html>

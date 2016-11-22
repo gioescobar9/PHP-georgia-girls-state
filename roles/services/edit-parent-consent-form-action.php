@@ -1,20 +1,18 @@
 <?php
             session_start();
+            require_once "php-functions.php";
             require_once 'connectAuxDB.php';
-        
-            if(!isset($_SESSION["loggedIn"])){
-                header('location: index.php');
-            }
-        
-            if(!isset($_SESSION["studentLoggedIn"])){
-                header('location: index.php');
-            }
-        
-        
-          $studentID = $_COOKIE["studentID"];
+
+            studentLoggedin();
 
             $auxConnection=connectAuxDB();
         
+        
+            $studentID = $_COOKIE["studentID"];
+
+            $auxConnection=connectAuxDB();
+            
+            //retrieve all values of form input
             $motherName = $_POST["motherName"];
             $motherPhone = $_POST["motherPhone"];
             $fatherName = $_POST["fatherName"];
@@ -42,6 +40,8 @@
             $parentSignature = $_POST["parentSignature"];
             $signDate = $_POST["signDate"];
         
+
+            //place all the values of the form into an associative array
             $post_data = array(
                 'motherName' => $motherName,
                 'motherPhone' => $motherPhone,
@@ -72,21 +72,24 @@
               );
                 
         $resultStr ="";
-
+    
+        //turn the associative array into a string so we can enter it into the database
         foreach ($post_data as $key => $value)
         {
             $resultStr .= "$key:$value^";
         }
            
         
-        
+        //make the query to update information
         $query = "UPDATE applications SET parentConsentInfo='{$resultStr}',parentConsentInfoComplete='1' WHERE applicationID='$studentID'";
         $result = $auxConnection->query($query);
             if(!$result) die ("query failed".$auxConnection->error);
         
         echo "<script>alert('Your Information has been submitted')</script>";
+        
+        //redirect the page back home
         $redirect = "../student-interface.php";
-        //header( "refresh:1;url='$redirect'" );
+        header( "refresh:1;url='$redirect'" );
         
         
         ?>

@@ -4,16 +4,16 @@ require_once 'connectAuxDB.php';
 
 $auxConnection=connectAuxDB();
 
+//retrieve the username and password from the user logging in
 $username = $_POST["username"];
 $password = $_POST["password"];
 
-$studentPassword = 'stu';
-$schoolPassword = 'sch';
-
+//currently no one is logged in
 $isStudent = false;
 $isSchool = false;
 $missmatch = false;
 
+///check to see if a school or student is logging in based off of the first characters
 if (preg_match('/Stu/',$password)){
     $isStudent = true;
 }
@@ -25,6 +25,7 @@ else{
     $_SESSION["loggedIn"] = false;
 }
 
+//query based off of the login type
 if($missmatch == false){
         if($isStudent == true)
     $query = "SELECT * FROM student WHERE studentEmail='$username' AND password='$password';";
@@ -40,17 +41,13 @@ else
     $_SESSION["loggedIn"] = false;
 
 //need to check if cookie name is school or student on the aux-information page
+//determine if the person is a student or school
 if($_SESSION["loggedIn"] == true){
     if($isSchool == true){
         $record = $result->fetch_assoc();
         $redirect="../school-interface.php";
         $_SESSION["schoolLoggedIn"] = true;
         setcookie("schoolID",$record['schoolID'], time() + 86400, "/");
-        /*$query2 = "SELECT schoolID FROM student WHERE studentID="$record['schoolID']"";
-        $result2 = $auxConnection->query($query2);
-        if(!$result2) die ("query failed".$auxConnection->error);
-        $record2 = $result->fetch_assoc();
-        setcookie("studentID", $record['schoolID'], time(), 86400, "/");*/
         closeConnection($auxConnection);  
     }
 }

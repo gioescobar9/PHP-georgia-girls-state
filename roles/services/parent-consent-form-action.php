@@ -1,20 +1,19 @@
-<html>
-    <body>
         <?php
         
-        session_start();
-        if(!isset($_SESSION["loggedIn"])){
-            header('location: index.php');
-        }
-        if(!isset($_SESSION["studentLoggedIn"])){
-            header('location: index.php');
-        }
-        
-        $studentID = $_COOKIE['studentID'];
+            session_start();
+            require_once "php-functions.php";
             require_once 'connectAuxDB.php';
+
+            studentLoggedin();
 
             $auxConnection=connectAuxDB();
         
+            $studentID = $_COOKIE['studentID'];
+        
+
+            $auxConnection=connectAuxDB();
+        
+            //retrieve all values of form input
             $motherName = $_POST["motherName"];
             $motherPhone = $_POST["motherPhone"];
             $fatherName = $_POST["fatherName"];
@@ -42,6 +41,7 @@
             $parentSignature = $_POST["parentSignature"];
             $signDate = $_POST["signDate"];
         
+            //place all values into an associative array
             $post_data = array(
                 'motherName' => $motherName,
                 'motherPhone' => $motherPhone,
@@ -71,7 +71,8 @@
                 'signDate' => $signDate,
               );
                 
-                $resultStr ="";
+        $resultStr ="";
+        //place the values of the array into a string so we enter it in the database
         foreach ($post_data as $key => $value)
         {
             $resultStr .= "$key:$value^";
@@ -80,12 +81,14 @@
         
      
         
-        
+        //make the query to update applications table of database
         $query = "UPDATE applications SET parentConsentInfo='{$resultStr}',parentConsentInfoComplete='1' WHERE studentID='$studentID'";
         $result = $auxConnection->query($query);
             if(!$result) die ("query failed".$auxConnection->error);
         
         echo "<script>alert('Your Information has been submitted')</script>";
+
+        //redirect the page to home page
         $redirect = "../student-interface.php";
         header( "refresh:1;url='$redirect'" );
         

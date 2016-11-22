@@ -1,12 +1,14 @@
 <?php
 session_start();
-if(!isset($_SESSION["loggedIn"])){
-  header('location: index.php');
+require_once 'php-functions.php';
+schoolLoggedIn();
+$id = null;
+if(!empty($_GET['id'])){
+    $id = $_REQUEST['id'];
 }
-if(!isset($_SESSION["schoolLoggedIn"])){
-    header('location: index.php');
+if($id == null){
+    header("location: ../school-interface.php");
 }
-
 
 ?>
 
@@ -44,8 +46,10 @@ enforce proper restrictions-->
 <div class="container">
 <div class="well">
 
-    <form class="form-horizontal" role="form" action="services/school-application-form-action.php" method="post">
-
+    <!--<form class="form-horizontal" role="form" action="services/school-application-form-action.php" method="post">-->
+        <?php
+        echo "<form class = 'form-horizontal' action='services/school-application-form-action.php?id=".$id"' method='post'>"
+            ?>
     <div class="form-group">
         <h3>School Information Form</h3>
         <legend>School Details</legend>

@@ -1,18 +1,17 @@
 <?php
         
             session_start();
-        if(!isset($_SESSION["loggedIn"])){
-            header('location: index.php');
-        }
-        if(!isset($_SESSION["studentLoggedIn"])){
-            header('location: index.php');
-        }
+            require_once "php-functions.php";
             require_once 'connectAuxDB.php';
+
+            studentLoggedin();
 
             $auxConnection=connectAuxDB();
 
+            //retrieve the studentID for use in query
             $studentID = $_COOKIE['studentID'];
         
+            //query the database based on studentID
             $query = "SELECT parentConsentInfo FROM applications WHERE studentID='$studentID'";
             
             $result = $auxConnection->query($query);
@@ -20,25 +19,25 @@
         
             $rows = $result->num_rows;
             
-        $info = mysqli_fetch_assoc($result); 
-        //print_r ($info);
+            //the query will result in an associative array with the value being the string we inserted into the table
+            $info = mysqli_fetch_assoc($result); 
         
+            //need to find a better way to get the value of the assc array
+            foreach($info as $x => $x_value) {
+                //echo "Key=" . $x . ", Value=" . $x_value;
+                //echo "<br>";
+            }
         
-        foreach($info as $x => $x_value) {
-            //echo "Key=" . $x . ", Value=" . $x_value;
-            //echo "<br>";
-        }
+       
+            //split the string on our chosen delimiter of '^'
+            $studentInfo = explode("^",$x_value);
+            $stringInfo = "";
+            $item = array();
+            $asscStudent = array();
+            $i=1;
+            $count=count($studentInfo);
         
-        //echo "$x_value";
-        
-        $studentInfo = explode("^",$x_value);
-        //print_r($studentInfo);
-        $stringInfo = "";
-        $item = array();
-        $asscStudent = array();
-        $i=1;
-        $count=count($studentInfo);
-    
+        //create an associative array which we will use to autofill the form
         foreach($studentInfo as $values)
         {
             $stringInfo = $values;
@@ -53,6 +52,8 @@
         }
         
         $count2 = count($item);
+
+        //check for an empty string here
         if(!$count2 > 0){
             $redirect = "../student-interface.php";
             header('location:'.$redirect);
@@ -62,22 +63,20 @@
         
         
 <html>
-<head>
-    <title>Edit Consent Form</title>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-    <script src="dist/js/bootstrap-checkbox.min.js" defer></script>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
-    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/additional-methods.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="js/form-validation.js"></script>
-    <link rel="stylesheet" type="text/css" href="../css/rolesStyleSheet.css">
-
-</head>
-
+    <head>
+        <title>Edit Consent Form</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+        <script src="dist/js/bootstrap-checkbox.min.js" defer></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
+        <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/additional-methods.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="js/form-validation.js"></script>
+        <link rel="stylesheet" type="text/css" href="../css/rolesStyleSheet.css">
+    </head>
 <body>
 <header>
     <div class="heading">
@@ -92,10 +91,9 @@
 Divide each field and label using col-md-3/6/12 for size needed. Collect all information in the form and 
 enforce proper restrictions-->
 <div class="container">
-<div class="well">
-
+    <div class="well">
     <form class="form-horizontal" role="form" action="edit-parent-consent-form-action.php" method="post">
-    <div class="form-group">
+        <div class="form-group">
                 <h3>Consent Form</h3>
                     <div class="col-md-12">
                         <legend>Parent Information</legend>
@@ -300,11 +298,10 @@ enforce proper restrictions-->
         </form>
     </div>
 
-    <script type="text/javascript">
-    
-        hideIllness();
-
     /* JS functions used to hide or show the input area once a selection is made*/
+    <script type="text/javascript">
+        
+        hideIllness();
         function showIllness() { $("#textIllness").show(); }
         function hideIllness() { $("#textIllness").hide();}
 

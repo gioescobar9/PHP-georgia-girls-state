@@ -1,17 +1,16 @@
 <?php
         
             session_start();
-        if(!isset($_SESSION["loggedIn"])){
-            header('location: index.php');
-        }
-        if(!isset($_SESSION["schoolLoggedIn"])){
-            header('location: index.php');
-        }
+            require_once 'php-functions.php';
+            schoolLoggedIn();
             require_once 'connectAuxDB.php';
+
+            //get the schoolID for the query
             $schoolID = $_COOKIE['schoolID'];
 
             $auxConnection=connectAuxDB();
         
+            //get the schools info from the school table of the db
             $query = "SELECT schoolName,schoolEmail FROM school WHERE schoolID='$schoolID'";
             
             $result = $auxConnection->query($query);
@@ -20,7 +19,7 @@
             $rows = $result->num_rows;
         
         ?>
-<html></html>
+<html>
     <head>
         <title>School Information</title>
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
@@ -35,7 +34,7 @@
     <body>
          <div class="heading">
                     <h1 align="center" class="loginHeader"><img src="../images/icon.jpg">
-                        <a href = "..//school-interface.php"><span style = "float: left; margin-right: -20%" class="btn btn-info btn-lg">
+                        <a href = "../school-interface.php"><span style = "float: left; margin-right: -20%" class="btn btn-info btn-lg">
                             <span class="glyphicon glyphicon-home"><br>Home</span></a><br>The American Legion Auxiliary<br>Georgia Girls State</h1></a>
                 </div>
         <div class="container">
@@ -50,11 +49,10 @@
 			echo "</tr>";
 		echo "</thead>";
     echo "<tbody>";
-    
+//create a table containing the school information with the option to update  
 for($i = 0;$i<$rows;$i++){
     $result->data_seek($i);
     $record = $result->fetch_array(MYSQLI_ASSOC);
-    
     $schoolName = $record["schoolName"];
     $schoolEmail = $record["schoolEmail"];
     

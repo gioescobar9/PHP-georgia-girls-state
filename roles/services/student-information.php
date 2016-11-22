@@ -2,24 +2,19 @@
 session_start();
             require_once 'connectAuxDB.php';
 
+            require_once "php-functions.php";
+            require_once 'connectAuxDB.php';
             $auxConnection=connectAuxDB();
-if(!isset($_SESSION["loggedIn"])){
-  header('location: index.php');
-}
-if (!isset($_SESSION["schoolLoggedIn"])){
-        $variable = "../student-interface.php";
-}
-else if (!isset($_SESSION["studentLoggedIn"])){
-        $variable = "../school-interface.php";
-    }
-$studentID = $_COOKIE['studentID'];
+            studentLoggedin();
+            //get the studentID of the student that is logged in
+            $studentID = $_COOKIE['studentID'];
+            //query the student table to get the students information
+            $query = "SELECT firstName,lastName,studentEmail FROM student WHERE studentID = '$studentID';";
 
-$query = "SELECT firstName,lastName,studentEmail FROM student WHERE studentID = '$studentID';";
+            $result = $auxConnection->query($query);
+            if(!$result) die("query failed ".$auxConnection->error);
 
-$result = $auxConnection->query($query);
-if(!$result) die("query failed ".$auxConnection->error);
-
-$rows = $result->num_rows;
+            $rows = $result->num_rows;
 ?>
 <html>
 <head>
@@ -43,7 +38,7 @@ $rows = $result->num_rows;
    
         <div class="heading">
             <h1 align="center" class="loginHeader"><img src="../images/icon.jpg">
-            <a href = "<?php echo $variable ?>"><span style = "float: left; margin-right: -20%" class="btn btn-info btn-lg">
+            <a href = "../student-interface.php"><span style = "float: left; margin-right: -20%" class="btn btn-info btn-lg">
                 <span class="glyphicon glyphicon-home"><br>Home</span></a><br>The American Legion Auxiliary<br>Georgia Girls State</h1>
         </div>
             <br>
@@ -61,7 +56,7 @@ echo "<div class='container'>";
 			echo "</tr>";
 		echo "</thead>";
     echo "<tbody>";
-    
+//echo a table that contains the students information  
 for($i = 0;$i<$rows;$i++){
     $result->data_seek($i);
     $record = $result->fetch_array(MYSQLI_ASSOC);

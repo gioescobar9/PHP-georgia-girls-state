@@ -1,12 +1,9 @@
 <?php
 session_start();
-if(!isset($_SESSION["loggedIn"])){
-  header('location: index.php');
-}
-if(!isset($_SESSION["studentLoggedIn"])){
-    header('location: index.php');
-}
-$studentID = $_COOKIE['studentID'];
+require_once "php-functions.php";
+$auxConnection=connectAuxDB();
+studentLoggedin();
+//this form is used to capture the values of the parent consent form
 ?>
 
 <html>

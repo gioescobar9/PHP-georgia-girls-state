@@ -1,11 +1,9 @@
 <?php
 session_start();
-if(!isset($_SESSION["loggedIn"])){
-  header('location: index.php');
-}
-if(!isset($_SESSION["studentLoggedIn"])){
-    header('location: index.php');
-}
+require_once "services/php-functions.php";
+
+studentLoggedin();
+
 ?>
 
 <html>
@@ -30,25 +28,16 @@ if(!isset($_SESSION["studentLoggedIn"])){
         <div class="container">
             <h3>Student Task Bar</h3>
             <br>
-            <div class="col-md-12" style="text-align:center;">
-                <div class="col-md-3">
-                <a href="student-application-form.php" class="btn btn-info btn-lg" data-toggle="tooltip" title="New Student Application">
-                <span class="glyphicon glyphicon-user"><br>Begin<br>New-Application</span>
-            </a><br>
-                </div>
-                <div class="col-md-3">
-            <a href="services/student-select-edit.php" class="btn btn-info btn-lg" data-toggle="tooltip" title="Edit Previous Application or Consent Form">
-                <span class="glyphicon glyphicon-pencil"><br>Edit<br>Application/Consent<span>
-            </a><br>
-                </div>
-                <div class="col-md-3">
-                    <a href="parent-consent-form.php" class="btn btn-info btn-lg" data-toggle="tooltip" title="Complete Parent Consent Form">
-                <span class="glyphicon glyphicon-file"><br>Complete<br>Consent-Form</span>
+            <div class="col-md-2"></div>
+            <div class="col-md-10" style="text-align:center;">
+                <div class="col-md-5">
+                    <a href="services/student-application-status.php" class="btn btn-info btn-lg" data-toggle="tooltip" title="View Application Status">
+                <span class="glyphicon glyphicon-file"><br>View<br>Application-Status</span>
             </a>
             <br>
                 </div>
                 
-                <div class="col-md-3">
+                <div class="col-md-5">
                     <a href="services/student-information.php" class="btn btn-info btn-lg" data-toggle="tooltip" title="View Your Personal Informaiton">
                 <span class="glyphicon glyphicon-info-sign"><View><br>My-Information<br>&nbsp;</span>
             </a>

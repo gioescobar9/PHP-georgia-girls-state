@@ -1,24 +1,23 @@
 <?php
         
             session_start();
-        if(!isset($_SESSION["loggedIn"])){
-            header('location: index.php');
-        }
-        if(!isset($_SESSION["schoolLoggedIn"])){
-            header('location: index.php');
-        }
+
+            require_once 'php-functions.php';
+            schoolLoggedIn();
+
             require_once 'connectAuxDB.php';
 
             $auxConnection=connectAuxDB();
-        $id = null;
-if(!empty($_GET['id'])){
-    $id = $_REQUEST['id'];
-}
-if($id == null){
-    header("location: ../school-interface.php");
-}
-            //$studentID = $_COOKIE['studentID'];
-        
+            //retrieve studentID from url using GET
+            $id = null;
+            if(!empty($_GET['id'])){
+                $id = $_REQUEST['id'];
+            }
+            if($id == null){
+                header("location: ../school-interface.php");
+            }
+            
+            //get the information about the schools application for the specified student
             $query = "SELECT schoolInfo FROM applications WHERE studentID='$id'";
             
             $result = $auxConnection->query($query);
@@ -26,17 +25,19 @@ if($id == null){
         
             $rows = $result->num_rows;
             
-        $info = mysqli_fetch_assoc($result); 
-        //print_r ($info);
+            //the returned query is an assc array with the string of info of the school application
+            $info = mysqli_fetch_assoc($result); 
         
-
-        foreach($info as $x => $x_value) {
-            //echo "Key=" . $x . ", Value=" . $x_value;
-            //echo "<br>";
-        }
+            //seperate the assc array into key value and retrieve the value
+            foreach($info as $x => $x_value) {
+                //echo "Key=" . $x . ", Value=" . $x_value;
+                //echo "<br>";
+            }
         
-        //echo "$x_value";
+            //used in testing
+            //echo "$x_value";
         
+        //split the string based on the '^' delimeter which we chose
         $studentInfo = explode("^",$x_value);
         //print_r($studentInfo);
         $stringInfo = "";
@@ -45,6 +46,7 @@ if($id == null){
         $i=1;
         $count=count($studentInfo);
     
+        //create an assc array from the exploded string
         foreach($studentInfo as $values)
         {
             //echo"$count";
@@ -57,10 +59,10 @@ if($id == null){
                 $asscStudent=array("$newStringInfo[0]"=>"$newStringInfo[1]");
             }
             $i++;
-            
             $item = array_merge($item, $asscStudent);
-            //echo $item["schoolname"];
         }
+    
+        //used in testing
         //print_r($item);
         ?>
         <html>
@@ -81,44 +83,49 @@ if($id == null){
                 <link rel="stylesheet" type="text/css" href="../css/rolesStyleSheet.css">
 
             </head>
-            <header>
             <body>
+            <header>
                 <div class="heading">
                     <h1 align="center" class="loginHeader"><img src="../images/icon.jpg">
-                        <a href = "..//school-interface.php"><span style = "float: left; margin-right: -20%" class="btn btn-info btn-lg">
+                        <a href = "../school-interface.php"><span style = "float: left; margin-right: -20%" class="btn btn-info btn-lg">
                             <span class="glyphicon glyphicon-home"><br>Home</span></a><br>The American Legion Auxiliary<br>Georgia Girls State</h1></a>
                 </div>
             <br>
             </header>
             
-                <h3>Edit Application</h3>
-        <div class="container">
-<div class="well">
-    <?php
-echo "<form class='form-horizontal' role='form' action='school-edit-application-form-action.php?id=".$id."' method='post'>"
+            <h3>Edit Application</h3>
+            <div class="container">
+                <div class="well">
+<?php
+                    echo "<form class='form-horizontal' role='form' action='school-edit-application-form-action.php?id=".$id."' method='post'>"
 ?>
-    <div class="form-group">
-        <h3>School Information Form</h3>
-        <legend>School Details</legend>
-        <div class="col-md-12">
-            <label for = "schoolName">School Name: </label>
-                <input type="text" class="form-control" name="schoolName" maxlength="50" required autofocus value="<?php echo $item["schoolname"];?>"><br>
-        </div>
-        <div class="col-md-6">
-            <label for = "schoolAddressStreet">School Street:</label>
-               <input type="text" class="form-control" name="schoolAddressStreet" maxlength="25" required value="<?php echo $item["schoolAddressStreet"];?>"><br>
-        </div>
-        <div class="col-md-6">
-            <label for = "schoolAddress">City,State,Zip: </label>
-                <input type="text" class="form-control" name="schoolAddress" maxlength="25" placeholder="City,State,Zip" required value="<?php echo $item["schoolAddress"];?>"><br>
-        </div>
+            <div class="form-group">
+            <h3>School Information Form</h3>
+             <legend>School Details</legend>
+                <div class="col-md-12">
+                    <label for = "schoolName">School Name: </label>
+                        <input type="text" class="form-control" name="schoolName" maxlength="50" required autofocus value="<?php echo $item["schoolname"];?>"><br>
+                </div>
+                
+                <div class="col-md-6">
+                    <label for = "schoolAddressStreet">School Street:</label>
+                        <input type="text" class="form-control" name="schoolAddressStreet" maxlength="25" required value="<?php echo $item["schoolAddressStreet"];?>"><br>
+                </div>
+                
+                <div class="col-md-6">
+                    <label for = "schoolAddress">City,State,Zip: </label>
+                        <input type="text" class="form-control" name="schoolAddress" maxlength="25" placeholder="City,State,Zip" required value="<?php echo $item["schoolAddress"];?>"><br>
+                </div>
+                
         <div class="col-md-12">
             <label for = "schoolPhone"> School Phone Number: </label>
                 <input type="text" class="form-control" name="schoolPhone" maxlength="15" placeholder= "(XXX)XXX-XXXX" required value="<?php echo $item["schoolPhone"];?>"><br>
         </div>
+                
         <div class = "col-md-12">
-        <legend>Student Information</legend>
+            <legend>Student Information</legend>
         </div>
+                
         <div class="col-md-6">
             <label for = "studentFirstName">Student's First Name:</label>
                <input type="text" class="form-control" name="studentFirstName" maxlength="25" autofocus value="<?php echo $item["studentFirstName"];?>"><br>
@@ -127,40 +134,50 @@ echo "<form class='form-horizontal' role='form' action='school-edit-application-
             <label for = "studentLastName">Student's Last Name:</label>
                <input type="input" class="form-control" name="studentLastName" maxlength="25" required value="<?php echo $item["studentLastName"];?>"><br>
         </div>
+                
         <div class="col-md-6">
             <label for = "studentRank">Class Rank:</label>
                <input type="text" class="form-control" name="studentRank" maxlength="3" required value="<?php echo $item["studentRank"];?>"><br>
         </div>
+                
         <div class="col-md-6">
             <label for = "studentGradDate">Expected Graduation Date:</label>
                <input type="date" class="form-control" name="studentGradDate" required value="<?php echo $item["studentGradDate"];?>"><br>
         </div>
+                
         <div class = "col-md-12">
         <legend>School Official Information </legend>
         </div>
+                
         <div class = "col-md-6">
             <label for = "officialFirstName"> First Name: </label>
                 <input type="text" class="form-control" name="officialFirstName" maxlength="25" required value="<?php echo $item["officialFirstName"];?>"><br>
         </div>
+                
         <div class="col-md-6">
             <label for = "officialLastName"> Last Name: </label>
                 <input type="text" class="form-control" name="officialLastName" maxlength="25" required value="<?php echo $item["officialLastName"];?>"><br>
         </div>
+                
         <div class="col-md-6">
             <label for = "officialPhone"> Official Phone Number: </label>
                 <input type="text" class="form-control" name="officialPhone" maxlength="15" placeholder="(888)555-0000"required value="<?php echo $item["officialPhone"];?>"><br>
         </div>
+                
         <div class="col-md-6">
             <label for = "officialEmail"> Official Email: </label>
                 <input type="email" class="form-control" name="officialEmail" maxlength="50"  required value="<?php echo $item["officialEmail"];?>"><br>
         </div>
+                
         <div class="col-12-md">
         <legend>Authorization</legend>
         </div>
+                
         <div class="col-md-6">
             <label for = "officialSignature"> Please Sign to Agree to the Updated Information: </label>
                 <input type="text" class="form-control" name="officialSignature" maxlength="15" placeholder="Electronic Signature"required><br>
         </div>
+                
         <div class="col-md-6">
             <label for = "signDate">Date:</label>
                 <input type="date" class="form-control" name="signDate" placeholder="mm/dd/yyyy"required><br>
@@ -170,9 +187,9 @@ echo "<form class='form-horizontal' role='form' action='school-edit-application-
     <div class="buttonStudent">
             <button type="submit" class="buttonSubmit" color="black">Update Information</button>
     </div>
-    </form>
-            </div>
-        </div>
+    <?php echo "</form>"?>
+    </div>
+    </div>
  
     </body>
 </html>
