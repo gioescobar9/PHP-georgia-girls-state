@@ -99,7 +99,7 @@ enforce proper restrictions-->
             </div>
             <div class="col-md-6">
                 <label for = "officialPhone">Official's Phone:</label>
-                <input type="text" class="form-control" id="officialPhone" name="phoneNumber" maxlength="15" placeholder="(555)888-0000" 
+                <input type="text" class="form-control" id="officialPhone" maxlength="15" placeholder="(555)888-0000" 
                 name = "officialPhone" required><br>
             </div>
             </div>
