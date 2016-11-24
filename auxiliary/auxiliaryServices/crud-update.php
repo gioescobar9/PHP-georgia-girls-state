@@ -11,7 +11,7 @@ if($id == null){
     header("location: ../auxiliary-main-interface.php");
 }
 
-$auxConnection= ConnectAuxDB();
+$auxConnection= connectAuxDB();
 echo $id;
 
 $query = "SELECT auxInfo, auxInfoComplete FROM applications WHERE studentID = '$id';";
