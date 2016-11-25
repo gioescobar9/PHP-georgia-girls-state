@@ -37,7 +37,7 @@ else
   echo "<td> $studID </td>";
   echo "<td> $studName </td>";
   echo $statusRow;
-  echo "<td> <a class = 'btn'><span class='glyphicon glyphicon-file'></span>View</a>
+  echo "<td> <a class = 'btn' href = 'auxiliaryServices/crud-view.php?id=".$studID."'><span class='glyphicon glyphicon-file'></span>View</a>
   <a class = 'btn' href = 'auxiliaryServices/crud-update.php?id=".$studID."'><span class='glyphicon glyphicon-edit'></span>Update</a>
   <a class = 'delete' href = 'auxiliaryServices/crud-delete.php?id=".$studID."'><span class='glyphicon glyphicon-minus-sign'></span>Delete</a> </td>";
  echo "</tr>";

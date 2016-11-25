@@ -12,7 +12,6 @@ if($id == null){
 }
 
 $auxConnection= connectAuxDB();
-echo $id;
 
 $query = "SELECT auxInfo, auxInfoComplete FROM applications WHERE studentID = '$id';";
 $result = $auxConnection->query($query);
@@ -47,7 +46,7 @@ if($result->num_rows > 0){
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/additional-methods.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="js/form-validation.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/auxiliaryStyleSheet.css">
+    <link rel="stylesheet" type="text/css" href="../css/auxiliaryStyleSheet.css">
     
 </head>
 
@@ -55,7 +54,7 @@ if($result->num_rows > 0){
 
 <header>
     <div class="heading">
-        <h1 class="loginHeader"><img src="images/icon.jpg" alt = "logo">  
+        <h1 class="loginHeader"><img src="../images/icon.jpg" alt = "logo">  
         <br>The American Legion Auxiliary<br>Georgia Girls State</h1>
     </div>
 </header>
