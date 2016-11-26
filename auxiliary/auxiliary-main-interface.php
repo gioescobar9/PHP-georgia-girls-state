@@ -22,7 +22,7 @@ require_once 'auxiliaryServices/auxiliaryCrudTable.php';
 </head>
 
 <body>
-
+ 
     <div class="heading">
 <h1 align="center" class="loginHeader"><img src="images/icon.jpg"> 
 <a href = "auxiliaryServices/auxiliary-logout.php"><span style = "float: right; margin-left: -20%" class = "btn btn-primary">logout</span></a> 
@@ -51,7 +51,7 @@ require_once 'auxiliaryServices/auxiliaryCrudTable.php';
     </div>
 
     <div id="menu2" class="tab-pane fade">
-      <h2>My Information</h2><a class = "btn"><span class='glyphicon glyphicon-edit'></span>Update Info</a>
+      <h2>My Information</h2><a class = "btn" href = "auxiliaryServices/update-aux-profile.php"><span class='glyphicon glyphicon-edit'></span>Update Info</a>
       <?php
         echo "<h4>Auxiliary Unit Number</h4>";
           echo "<p>".$_COOKIE["unitNumber"]."</p>";
