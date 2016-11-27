@@ -7,7 +7,7 @@ function studentLoggedIn(){
     if(!isset($_SESSION["studentLoggedIn"])){
             header('location: index.php');
         }
-    
+     
 }
 
 function schoolLoggedIn(){
