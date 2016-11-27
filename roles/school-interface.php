@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once "services/php-functions.php";
+
 schoolLoggedIn();
 //provide an interface for the school when they log in
 ?>

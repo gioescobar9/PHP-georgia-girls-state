@@ -485,7 +485,7 @@ if($result->num_rows > 0){
                         <input type="radio" name="answer" id="no" onclick="hideIllness()">No<br><br>
                         <div id="textIllness">
                             Please Explain below:<br>
-                            <textarea name="illnessInput"class="form-control" rows="5" cols="50" value="<?php echo isset($parentConsentInfo['illnessInput'])? $parentConsentInfo['illnessInput']: '';?>" disabled ></textarea>
+                            <textarea name="illnessInput"class="form-control" rows="5" cols="50" disabled> <?php echo isset($parentConsentInfo['illnessInput'])? $parentConsentInfo['illnessInput']: '';?>  ></textarea>
                         </div>
                     </div>
     
@@ -495,7 +495,7 @@ if($result->num_rows > 0){
                         <input type="radio" name="answer" id="no" onclick="hideTreatment()">No<br><br>
                         <div id="textTreatment">
                             Please list below:<br>
-                            <textarea name="treatmentInput" class="form-control" rows="5" cols="50" value="<?php echo isset($parentConsentInfo['treatmentInput'])? $parentConsentInfo['treatmentInput']: '';?>" disabled></textarea>
+                            <textarea name="treatmentInput" class="form-control" rows="5" cols="50" disabled> <?php echo isset($parentConsentInfo['treatmentInput'])? $parentConsentInfo['treatmentInput']: '';?></textarea>
                         </div>
                     </div>
                    
@@ -506,7 +506,7 @@ if($result->num_rows > 0){
                         <input type="radio" name="answer" id="no" onclick="hideAllergies()">No<br><br>
                         <div id="textAllergies">
                             Please list below:<br>
-                            <textarea name="allergiesInput" class="form-control" rows="5" cols="50" value="<?php echo isset($parentConsentInfo['allergiesInput'])? $parentConsentInfo['allergiesInput']: '';?>" disabled></textarea>
+                            <textarea name="allergiesInput" class="form-control" rows="5" cols="50" disabled><?php echo isset($parentConsentInfo['allergiesInput'])? $parentConsentInfo['allergiesInput']: '';?></textarea>
                         </div>
                     </div>
 
@@ -516,7 +516,7 @@ if($result->num_rows > 0){
                         <input type="radio" name="answer" id="no" onclick="hideMeds()">No<br><br>
                         <div id="textMeds">
                             Please list below:<br>
-                            <textarea name="medsInput" class="form-control" rows="5" cols="50" placeholder="med1,med2,med3" value="<?php echo isset($parentConsentInfo['medsInput'])? $parentConsentInfo['medsInput']: '';?>" disabled></textarea>
+                            <textarea name="medsInput" class="form-control" rows="5" cols="50" placeholder="med1,med2,med3" disabled> <?php echo isset($parentConsentInfo['medsInput'])? $parentConsentInfo['medsInput']: '';?></textarea>
                         </div>
                     </div>
                     
@@ -526,7 +526,7 @@ if($result->num_rows > 0){
                         <input type="radio" name="answer" id="no" onclick="hideAccomodations()">No<br><br>
                         <div id="textAccomodations">
                             Please Explain below:<br>
-                            <textarea name="accomodationsInput" class="form-control" rows="5" cols="50" value="<?php echo isset($parentConsentInfo['accomodationsInput'])? $parentConsentInfo['accomodationsInput']: '';?>" disabled></textarea>
+                            <textarea name="accomodationsInput" class="form-control" rows="5" cols="50" disabled> <?php echo isset($parentConsentInfo['accomodationsInput'])? $parentConsentInfo['accomodationsInput']: '';?></textarea>
                         </div>
                     </div>
 
@@ -536,7 +536,7 @@ if($result->num_rows > 0){
                         <input type="radio" name="answer" id="no" onclick="hideRestrictions()">No<br><br>
                         <div id="textRestrictions">
                             Please Explain below:<br>
-                            <textarea name="restrictionsInput" class="form-control" rows="5" cols="50" value="<?php echo isset($parentConsentInfo['restrictionsInput'])? $parentConsentInfo['restrictionsInput']: '';?>" disabled></textarea>
+                            <textarea name="restrictionsInput" class="form-control" rows="5" cols="50" disabled><?php echo isset($parentConsentInfo['restrictionsInput'])? $parentConsentInfo['restrictionsInput']: '';?></textarea>
                         </div>
                     </div>
 
@@ -616,7 +616,7 @@ if($result->num_rows > 0){
                         <input type="radio" name="answer" id="no" onclick="hideConsent()">No<br><br>
                         <div id="textConsent">
                             If you have any restrictions please list them:<br>
-                            <textarea name="consentInput" class="form-control" rows="5" cols="50" value="<?php echo isset($parentConsentInfo['consentInput'])? $parentConsentInfo['consentInput']: '';?>" disabled></textarea>
+                            <textarea name="consentInput" class="form-control" rows="5" cols="50" disabled><?php echo isset($parentConsentInfo['consentInput'])? $parentConsentInfo['consentInput']: '';?></textarea>
                         </div>
                     </div>
 
@@ -626,7 +626,7 @@ if($result->num_rows > 0){
                         <input type="radio" name="answer" id="no" onclick="hideCondition()">No<br><br>
                         <div id="textCondition">
                             If yes, please explain:<br>
-                            <textarea name="conditionInput" class="form-control" rows="5" cols="50" value="<?php echo isset($parentConsentInfo['conditionInput'])? $parentConsentInfo['conditionInput']: '';?>" disabled></textarea>
+                            <textarea name="conditionInput" class="form-control" rows="5" cols="50" disabled><?php echo isset($parentConsentInfo['conditionInput'])? $parentConsentInfo['conditionInput']: '';?></textarea>
                         </div>
                     </div>
                     <div class="col-md-6">

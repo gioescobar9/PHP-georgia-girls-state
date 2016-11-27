@@ -135,7 +135,7 @@ enforce proper restrictions-->
                         <input type="radio" name="answer" id="no" onclick="hideIllness()">No<br><br>
                         <div id="textIllness">
                             Please Explain below:<br>
-                            <textarea name="illnessInput"class="form-control" rows="5" cols="50" value="<?php echo $item["illnessInput"];?>"></textarea>
+                            <textarea name="illnessInput"class="form-control" rows="5" cols="50"><?php echo $item["illnessInput"];?></textarea>
                         </div>
                     </div>
     
@@ -145,7 +145,7 @@ enforce proper restrictions-->
                         <input type="radio" name="answer" id="no" onclick="hideTreatment()">No<br><br>
                         <div id="textTreatment">
                             Please list below:<br>
-                            <textarea name="treatmentInput" class="form-control" rows="5" cols="50" value="<?php echo $item["treatmentInput"];?>"></textarea>
+                            <textarea name="treatmentInput" class="form-control" rows="5" cols="50"><?php echo $item["treatmentInput"];?></textarea>
                         </div>
                     </div>
                    
@@ -157,7 +157,7 @@ enforce proper restrictions-->
                         <input type="radio" name="answer" id="no" onclick="hideAllergies()">No<br><br>
                         <div id="textAllergies">
                             Please list below:<br>
-                            <textarea name="allergiesInput" class="form-control" rows="5" cols="50" value="<?php echo $item["allergiesInput"];?>"></textarea>
+                            <textarea name="allergiesInput" class="form-control" rows="5" cols="50"><?php echo $item["allergiesInput"];?></textarea>
                         </div>
                     </div>
 
@@ -167,7 +167,7 @@ enforce proper restrictions-->
                         <input type="radio" name="answer" id="no" onclick="hideMeds()">No<br><br>
                         <div id="textMeds">
                             Please list below:<br>
-                            <textarea name="medsInput" class="form-control" rows="5" cols="50" placeholder="med1,med2,med3" value="<?php echo $item["medsInput"];?>"></textarea>
+                            <textarea name="medsInput" class="form-control" rows="5" cols="50" placeholder="med1,med2,med3"><?php echo $item["medsInput"];?></textarea>
                         </div>
                     </div>
                     
@@ -177,7 +177,7 @@ enforce proper restrictions-->
                         <input type="radio" name="answer" id="no" onclick="hideAccomodations()">No<br><br>
                         <div id="textAccomodations">
                             Please Explain below:<br>
-                            <textarea name="accomodationsInput" class="form-control" rows="5" cols="50" value="<?php echo $item["accomodationsInput"];?>"></textarea>
+                            <textarea name="accomodationsInput" class="form-control" rows="5" cols="50"><?php echo $item["accomodationsInput"];?></textarea>
                         </div>
                     </div>
 
@@ -187,7 +187,7 @@ enforce proper restrictions-->
                         <input type="radio" name="answer" id="no" onclick="hideRestrictions()">No<br><br>
                         <div id="textRestrictions">
                             Please Explain below:<br>
-                            <textarea name="restrictionsInput" class="form-control" rows="5" cols="50" value="<?php echo $item["restrictionsInput"];?>"></textarea>
+                            <textarea name="restrictionsInput" class="form-control" rows="5" cols="50"> <?php echo $item["restrictionsInput"];?></textarea>
                         </div>
                     </div>
 
@@ -267,7 +267,7 @@ enforce proper restrictions-->
                         <input type="radio" name="answer" id="no" onclick="hideConsent()">No<br><br>
                         <div id="textConsent">
                             If you have any restrictions please list them:<br>
-                            <textarea name="consentInput" class="form-control" rows="5" cols="50" value="<?php echo $item["consentInput"];?>"></textarea>
+                            <textarea name="consentInput" class="form-control" rows="5" cols="50"> <?php echo $item["consentInput"];?></textarea>
                         </div>
                     </div>
 
@@ -277,7 +277,7 @@ enforce proper restrictions-->
                         <input type="radio" name="answer" id="no" onclick="hideCondition()">No<br><br>
                         <div id="textCondition">
                             If yes, please explain:<br>
-                            <textarea name="conditionInput" class="form-control" rows="5" cols="50" value="<?php echo $item["conditionInput"];?>"></textarea>
+                            <textarea name="conditionInput" class="form-control" rows="5" cols="50"> <?php echo $item["conditionInput"];?></textarea>
                         </div>
                     </div>
                     <div class="col-md-6">
