@@ -491,7 +491,7 @@ if($result->num_rows > 0){
                         <input type="radio" name="answer" id="no" onclick="hideIllness()">No<br><br>
                         <div id="textIllness">
                             Please Explain below:<br>
-                            <textarea name="illnessInput"class="form-control" rows="5" cols="50" disabled> <?php echo isset($parentConsentInfo['illnessInput'])? $parentConsentInfo['illnessInput']: '';?>  ></textarea>
+                            <textarea name="illnessInput"class="form-control" rows="5" cols="50" disabled> <?php echo isset($parentConsentInfo['illnessInput'])? $parentConsentInfo['illnessInput']: '';?></textarea>
                         </div>
                     </div>
     
@@ -503,22 +503,14 @@ if($result->num_rows > 0){
                             Please list below:<br>
                             <textarea name="treatmentInput" class="form-control" rows="5" cols="50" disabled> <?php echo isset($parentConsentInfo['treatmentInput'])? $parentConsentInfo['treatmentInput']: '';?></textarea>
                         </div>
-                    </div>
-                   <?php
-                    echo $parentConsentInfo['allergiesInput'];
-                   ?>
-                    
+            </div>
                     <div class="col-md-8">
                     <label> Does your child have any allergies?</label><br>
                         <input type="radio" name="answer" id="yes" onclick="showAllergies()">Yes
                         <input type="radio" name="answer" id="no" onclick="hideAllergies()">No<br><br>
                         <div id="textAllergies">
                             Please list below:<br>
-<<<<<<< HEAD
                             <textarea name="allergiesInput" class="form-control" rows="5" cols="50" disabled><?php echo isset($parentConsentInfo['allergiesInput'])? $parentConsentInfo['allergiesInput']: '';?></textarea>
-=======
-                            <textarea name="allergiesInput" class="form-control" rows="5" cols="50" placeholder="<?php echo isset($parentConsentInfo['allergiesInput'])? $parentConsentInfo['allergiesInput']: '';?>" disabled></textarea>
->>>>>>> 20c78b59cb31a4435187c09338f6cd0f7ff41152
                         </div>
                     </div>
 

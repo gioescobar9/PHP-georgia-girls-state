@@ -26,7 +26,7 @@ session_start();
       </div>
     </div>
 
-
+<div class = "loginContainer">
  <div class="form-group">
         <div class="well">
 
@@ -62,7 +62,6 @@ session_start();
           </form>
       </div>
     </div>
-</div>
 </div>
 </body>
 </html>
