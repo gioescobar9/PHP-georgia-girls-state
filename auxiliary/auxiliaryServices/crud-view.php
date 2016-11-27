@@ -64,7 +64,7 @@ if($result->num_rows > 0){
 				$asscSchool = array("$newStringInfo[0]"=>"$newStringInfo[1]");
 			}
 			$i++;
-			$schoolInfo = array_merge($item, $asscSchool);
+			$schoolInfo = array_merge($schoolInfo, $asscSchool);
 		}
 
 	}
@@ -77,7 +77,9 @@ $result = $auxConnection->query($query);
 if(!$result) die ("query3 failed".$auxConnection->error);
 if($result->num_rows > 0){
 	$record = $result->fetch_assoc();
-	$studentInfoString = $record['studentInfo'];
+
+    $studentInfoString = $record['studentInfo'];
+
 	if($record['studentInfoComplete'] == 1)
 		$studentInfoStatus = true;
 	else 
@@ -85,7 +87,7 @@ if($result->num_rows > 0){
 
 	if($studentInfoStatus == true){
 		// make associative array
-		$partial = explode("^",$schoolInfoString);
+		$partial = explode("^",$studentInfoString);
 		$stringInfo = "";
 		$studentInfo = array();
 		$asscStudent = array();
@@ -99,8 +101,9 @@ if($result->num_rows > 0){
 				$asscStudent = array("$newStringInfo[0]"=>"$newStringInfo[1]");
 			}
 			$i++;
-			$studentInfo = array_merge($item, $asscSchool);
+			$studentInfo = array_merge($studentInfo, $asscStudent);
 		}
+        
 	}
 
 }// end of retreiving student info: $studentInfo and $studentInfoStatus
@@ -112,6 +115,7 @@ if(!$result) die("query4 failed".$auxConnection->error);
 if($result->num_rows > 0){
 	$record = $result->fetch_assoc();
 	$parentConsentInfoString = $record['parentConsentInfo'];
+
 	if($record['parentConsentInfoComplete'] == 1)
 		$parentConsentInfoStatus = true;
 	else
@@ -133,8 +137,9 @@ if($result->num_rows > 0){
 				$asscParent = array("$newStringInfo[0]"=>"$newStringInfo[1]");
 			}
 			$i++;
-			$parentConsentInfo = array_merge($item, $asscParent);
+			$parentConsentInfo = array_merge($parentConsentInfo, $asscParent);
 		}
+        print_r($parentConsentInfo);
 	}
 }// end of retreiving parent consent info
 
@@ -499,7 +504,9 @@ if($result->num_rows > 0){
                             <textarea name="treatmentInput" class="form-control" rows="5" cols="50" value="<?php echo isset($parentConsentInfo['treatmentInput'])? $parentConsentInfo['treatmentInput']: '';?>" disabled></textarea>
                         </div>
                     </div>
-                   
+                   <?php
+                    echo $parentConsentInfo['allergiesInput'];
+                   ?>
                     
                     <div class="col-md-8">
                     <label> Does your child have any allergies?</label><br>
@@ -507,7 +514,7 @@ if($result->num_rows > 0){
                         <input type="radio" name="answer" id="no" onclick="hideAllergies()">No<br><br>
                         <div id="textAllergies">
                             Please list below:<br>
-                            <textarea name="allergiesInput" class="form-control" rows="5" cols="50" value="<?php echo isset($parentConsentInfo['allergiesInput'])? $parentConsentInfo['allergiesInput']: '';?>" disabled></textarea>
+                            <textarea name="allergiesInput" class="form-control" rows="5" cols="50" placeholder="<?php echo isset($parentConsentInfo['allergiesInput'])? $parentConsentInfo['allergiesInput']: '';?>" disabled></textarea>
                         </div>
                     </div>
 
@@ -644,48 +651,6 @@ if($result->num_rows > 0){
         </form>
     </div>
 
-    <!-- JS functions used to hide or show the input area once a selection is made -->
-    <script type="text/javascript">
-        
-        hideIllness();
-        function showIllness() { $("#textIllness").show(); }
-        function hideIllness() { $("#textIllness").hide();}
-
-      hideTreatment();
-        function showTreatment() { $("#textTreatment").show(); }
-        function hideTreatment() { $("#textTreatment").hide(); }
-
-      hideAllergies();
-        function showAllergies() { $("#textAllergies").show(); }
-        function hideAllergies() { $("#textAllergies").hide(); }
-
-     hideMeds();
-        function showMeds() { $("#textMeds").show();}
-        function hideMeds() { $("#textMeds").hide();}
-
-    hideAccomodations();
-        function showAccomodations() { $("#textAccomodations").show(); }
-        function hideAccomodations() { $("#textAccomodations").hide(); }
-
-      hideRestrictions();
-        function showRestrictions() { $("#textRestrictions").show(); }
-        function hideRestrictions() { $("#textRestrictions").hide(); }
-
-       hideConsent();
-        function showConsent() { $("#textConsent").show(); }
-        function hideConsent() { $("#textConsent").hide(); }
-
-     hideCondition();
-        function showCondition() { $("#textCondition").show(); }
-        function hideCondition() { $("#textCondition").hide(); }
-
-       hideInfo();
-        function showInfo() {$(".insured").show();}
-        function hideInfo() {$(".insured").hide();}
-
-        
-   
-</script>
 </div>
   </div>
 </div>
