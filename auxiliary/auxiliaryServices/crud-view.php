@@ -326,7 +326,7 @@ if($result->num_rows > 0){
         <div class="col-12-md">
         <legend>Authorization</legend>
         </div>
-                
+            <div class = "signature">
         <div class="col-md-6">
             <label for = "officialSignature"> Please Sign to Agree to the Updated Information: </label>
                 <input type="text" class="form-control" name="officialSignature" maxlength="15" placeholder="Electronic Signature"required><br>
@@ -336,12 +336,13 @@ if($result->num_rows > 0){
             <label for = "signDate">Date:</label>
                 <input type="date" class="form-control" name="signDate" placeholder="mm/dd/yyyy"required><br>
         </div>
+            </div>
     </div>
     </form>
     </div>
     </div>
 
-  </div>
+  </div> <!-- tab-pane -->
 
   <div id="student" class="tab-pane fade">
     <h3>Student Application</h3>
@@ -638,16 +639,12 @@ if($result->num_rows > 0){
                             <input type="date" class="form-control" name="signDate" placeholder="mm/dd/yyyy"required><br>
                     </div>
 
-                    <div class="buttonStudent">
-
-                     <button type="submit" class="buttonSubmit" color="black">Submit Form</button>
-
-                    </div>
+            
             </div>
         </form>
     </div>
 
-    /* JS functions used to hide or show the input area once a selection is made*/
+    <!-- JS functions used to hide or show the input area once a selection is made -->
     <script type="text/javascript">
         
         hideIllness();
