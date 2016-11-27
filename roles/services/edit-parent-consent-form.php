@@ -135,7 +135,7 @@ enforce proper restrictions-->
                         <input type="radio" name="answer" id="no" onclick="hideIllness()">No<br><br>
                         <div id="textIllness">
                             Please Explain below:<br>
-                            <textarea name="illnessInput"class="form-control" rows="5" cols="50"></textarea>
+                            <textarea name="illnessInput"class="form-control" rows="5" cols="50" value="<?php echo $item["illnessInput"];?>"></textarea>
                         </div>
                     </div>
     
@@ -187,7 +187,7 @@ enforce proper restrictions-->
                         <input type="radio" name="answer" id="no" onclick="hideRestrictions()">No<br><br>
                         <div id="textRestrictions">
                             Please Explain below:<br>
-                            <textarea name="restrictionsInput" class="form-control" rows="5" cols="50" value="<?php echo $item["restrictionsIpnut"];?>"></textarea>
+                            <textarea name="restrictionsInput" class="form-control" rows="5" cols="50" value="<?php echo $item["restrictionsInput"];?>"></textarea>
                         </div>
                     </div>
 
