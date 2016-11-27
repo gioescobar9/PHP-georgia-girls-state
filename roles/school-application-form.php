@@ -2,6 +2,7 @@
 session_start();
 require_once 'php-functions.php';
 schoolLoggedIn();
+//get the studentID using GET
 $id = null;
 if(!empty($_GET['id'])){
     $id = $_REQUEST['id'];

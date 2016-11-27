@@ -60,7 +60,7 @@
             $resultStr .= "$key:$value^";
         }
            
-            //update the applications table witht the new string
+            //update the applications table with the new string
             $query = "UPDATE applications SET schoolInfo ='{$resultStr}',schoolInfoComplete='1' WHERE studentID='$id'";
             $result = $auxConnection->query($query);
             if(!$result) die ("query failed".$auxConnection->error);

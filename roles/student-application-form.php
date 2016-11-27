@@ -3,7 +3,9 @@ session_start();
 require_once "php-functions.php";
 $auxConnection=connectAuxDB();
 studentLoggedin();
+//the students application form
 ?>
+
 
 
 <html>
