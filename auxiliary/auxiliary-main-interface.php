@@ -25,7 +25,7 @@ require_once 'auxiliaryServices/auxiliaryCrudTable.php';
  
     <div class="heading">
 <h1 align="center" class="loginHeader"><img src="images/icon.jpg"> 
-<a href = "auxiliaryServices/auxiliary-logout.php"><span style = "float: right; margin-left: -20%" class = "btn btn-primary">logout</span></a> 
+<a href = "auxiliaryServices/auxiliary-logout.php"><span style = "float: right; margin-left: -20%; font-size:20px;" class = "btn btn-primary">logout</span></a> 
 <br>The American Legion Auxiliary<br>Georgia Girls State</h1>
 	</div>
 
@@ -36,29 +36,48 @@ require_once 'auxiliaryServices/auxiliaryCrudTable.php';
     <li><a data-toggle="pill" href="#menu1">My Applications</a></li>
     <li><a data-toggle="pill" href="#menu2">My Information</a></li>
   </ul>
-  
+    
   <div class="tab-content">
 
     <div id="home" class="tab-pane fade in active">
-      <h2>Start A New Application</h2>
+      <h2 style='text-align:center;'>Start A New Application</h2>
       <p>Here you may Initiate a new Application for a student, provided that you have both the student and schools information. After initiating the application, both the student and the school will recive e-mails with links to the application. </p> <br>
       <a href = "auxiliary-role-creator-form.php"><button>Click here to start a new Application</button></a>
     </div>
 
     <div id="menu1" class="tab-pane fade">
-      <h2>My Applications</h2>
+      <h2 style ='text-align:center;'>My Applications</h2>
       <?php createCrudTable(); ?>
     </div>
 
     <div id="menu2" class="tab-pane fade">
-      <h2>My Information</h2><a class = "btn" href = "auxiliaryServices/update-aux-profile.php"><span class='glyphicon glyphicon-edit'></span>Update Info</a>
-      <?php
-        echo "<h4>Auxiliary Unit Number</h4>";
-          echo "<p>".$_COOKIE["unitNumber"]."</p>";
-        echo "<h4>Auxiliary Email</h4>";
-          echo "<p>".$_COOKIE["auxiliaryEmail"]."</p>";
+      <h2 style = 'text-align:center;'>My Information</h2>
+        <?php
+echo "<div class='container'>";
+	echo "<table class = 'table'>";
+		echo "<thead>";
+			echo "<tr>";
+				echo "<th style='text-align:center;'>Auxiliary Unit Number</th>";
+				echo "<th style='text-align:center;'>Auxiliary Email</th>";
+                echo "<th style='text-align:center;'>Action</th>";
+			echo "</tr>";
+		echo "</thead>";
+    echo "<tbody>";
+//echo a table that contains the students information  
 
-      ?>
+    $unitNumber = $_COOKIE["unitNumber"];
+    $auxiliaryEmail = $_COOKIE["auxiliaryEmail"];
+    echo "<tr>";
+        echo "<td style='text-align:center; background-color:lightgray;'> $unitNumber </td>";
+        echo "<td style='text-align:center; background-color:lightgray;'> $auxiliaryEmail </td>";
+        echo "<td style ='text-align:center; backgorunf-color: lightgray;'><a class = 'btn' href = 'auxiliaryServices/update-aux-profile.php'><span class='glyphicon glyphicon-edit'></span>Update Info</a></td>";
+    echo"</tr>";
+ 
+
+    echo "</tbody>";
+echo "</table>";
+echo "</div>";
+ ?>
     </div>
   </div>
 </div>

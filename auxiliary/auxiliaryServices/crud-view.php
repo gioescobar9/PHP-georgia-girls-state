@@ -258,9 +258,9 @@ if($result->num_rows > 0){
     <h3>School Application</h3>
       <div class="container">
             <div class="well">
-          	<form>
+          	<form class="form-horizontal" role = "form" action = 'school-edit-application-form-action.php' method = "post">
             <div class="form-group">
-             <legend>School Details</legend>
+            <div class = "col-md-12"><legend>School Details</legend></div>
                 <div class="col-md-12">
                     <label for = "schoolName">School Name: </label>
                         <input type="text" class="form-control" name="schoolName" maxlength="50" required autofocus value="<?php echo isset($schoolInfo['schoolname']) ? $schoolInfo['schoolname']: '';?>" disabled><br>
@@ -328,9 +328,10 @@ if($result->num_rows > 0){
                 <input type="email" class="form-control" name="officialEmail" maxlength="50"  required value="<?php echo isset($schoolInfo['officialEmail']) ? $schoolInfo['officialEmail']: '';?>" disabled><br>
         </div>
                 
-        <div class="col-12-md">
+        <!--<div class="col-12-md">
         <legend>Authorization</legend>
-        </div>
+        </div>-->
+        <div class ="col-12-md">
             <div class = "signature">
         <div class="col-md-6">
             <label for = "officialSignature"> Please Sign to Agree to the Updated Information: </label>
@@ -342,6 +343,7 @@ if($result->num_rows > 0){
                 <input type="date" class="form-control" name="signDate" placeholder="mm/dd/yyyy"required><br>
         </div>
             </div>
+                </div>
     </div>
     </form>
     </div>

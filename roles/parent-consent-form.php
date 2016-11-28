@@ -1,11 +1,7 @@
 <?php
 session_start();
 require_once "services/php-functions.php";
-<<<<<<< HEAD
 require_once "services/connectAuxDB.php";
-=======
-require_once 'services/connectAuxDB.php';
->>>>>>> 20c78b59cb31a4435187c09338f6cd0f7ff41152
 $auxConnection=connectAuxDB();
 studentLoggedin();
 //this form is used to capture the values of the parent consent form
