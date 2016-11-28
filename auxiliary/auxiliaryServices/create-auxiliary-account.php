@@ -29,6 +29,8 @@ $result = $auxConnection->query($query);
 if(!$result) die ("query failed".$auxConnection->error);
 
 echo<<<_END
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,6 +49,8 @@ echo<<<_END
 <br>
 <button class = 'btn btn-success'><a href = '../index.php'>Login</a>
 </button>
+</body>
+</html>
 
 
 
