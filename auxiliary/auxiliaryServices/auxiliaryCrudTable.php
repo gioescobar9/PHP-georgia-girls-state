@@ -49,7 +49,7 @@ echo "</div>";
 
 //jqery function to make sure the user wants to delete
 echo "<script>
-$('.delete').click(function(){return confirm('Are you sure you want to delte this application?');});
+$('.delete').click(function(){return confirm('Are you sure you want to delete this application?');});
 </script>";
 
 closeConnection($auxConnection);
@@ -58,6 +58,21 @@ closeConnection($auxConnection);
 
 function getStatus($stud_ID){
   $auxConnection = connectAuxDB();
+
+  $query = "SELECT auxInfoComplete,schoolInfoComplete, studentInfoComplete, parentConsentInfoComplete FROM applications WHERE studentID = '$stud_ID';";
+$result = $auxConnection->query($query);
+  if(!$result) die ("query3 failed".$auxConnection->error);
+
+  if($result->num_rows > 0){
+    $record = $result->fetch_assoc();
+    if($record['auxInfoComplete'] == TRUE && $record['schoolInfoComplete'] == TRUE && $record['studentInfoComplete'] == TRUE && $record['parentConsentInfoComplete'] == TRUE){
+    $query = "UPDATE applications SET complete = '1' WHERE studentID = '$stud_ID';";
+    $result = $auxConnection->query($query);
+    if(!$result) die ("query4 failed".$auxConnection->error);
+    }
+
+  }
+
   $query = "SELECT complete FROM applications WHERE studentID = '$stud_ID';";
   $result = $auxConnection->query($query);
   if(!$result) die("getStatus query failed".$auxConnection->error);

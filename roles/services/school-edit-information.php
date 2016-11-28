@@ -10,7 +10,7 @@
             $schoolID = $_COOKIE["schoolID"];
             
             //retrieve school info from the school table and allow email and name to be updated
-            $query = "SELECT schoolName,schoolEmail FROM school WHERE schoolID= '$id';";
+            $query = "SELECT schoolName,schoolEmail FROM school WHERE schoolID= '$schoolID';";
             
             $result = $auxConnection->query($query);
             if(!$result) die("query failed ".$auxConnection->error);

@@ -139,7 +139,7 @@ if($result->num_rows > 0){
 			$i++;
 			$parentConsentInfo = array_merge($parentConsentInfo, $asscParent);
 		}
-        print_r($parentConsentInfo);
+        
 	}
 }// end of retreiving parent consent info
 
@@ -335,12 +335,12 @@ if($result->num_rows > 0){
             <div class = "signature">
         <div class="col-md-6">
             <label for = "officialSignature"> Please Sign to Agree to the Updated Information: </label>
-                <input type="text" class="form-control" name="officialSignature" maxlength="15" placeholder="Electronic Signature"required><br>
+                <input type="text" class="form-control" name="officialSignature" maxlength="15" placeholder="Electronic Signature" value="<?php echo isset($schoolInfo['officialSignature']) ? $schoolInfo['officialSignature']: '';?>" disabled><br>
         </div>
                 
         <div class="col-md-6">
             <label for = "signDate">Date:</label>
-                <input type="date" class="form-control" name="signDate" placeholder="mm/dd/yyyy"required><br>
+                <input type="date" class="form-control" name="signDate" placeholder="mm/dd/yyyy" value="<?php echo isset($schoolInfo['signDate']) ? $schoolInfo['signDate']: '';?>" disabled><br>
         </div>
             </div>
                 </div>
@@ -429,11 +429,11 @@ if($result->num_rows > 0){
       <div class="signature">
         <div class="col-md-6">
             <label for = "studentSignature">Student Signature</label>
-                <input type="text" class="form-control" name="studentSignature" placeholder="Electronic Signature" required ><br>
+                <input type="text" class="form-control" name="studentSignature" placeholder="Electronic Signature" value="<?php echo isset($studentInfo['studentSignature'])? $studentInfo['studentSignature']: '';?>" disabled ><br>
         </div>
         <div class="col-md-6">
             <label for = "parentSignature">Parent Signature</label>
-                <input type="text" class="form-control" name="parentSignature" placeholder="Electronic Signature" required><br>
+                <input type="text" class="form-control" name="parentSignature" placeholder="Electronic Signature" value="<?php echo isset($studentInfo['parentSignature'])? $studentInfo['parentSignature']: '';?>" disabled><br>
         </div>
     </div>
  
@@ -637,11 +637,11 @@ if($result->num_rows > 0){
                     </div>
                     <div class="col-md-6">
                         <label for = "parentSignature"> Parent/Guardian Signature:</label><br>
-                            <input type="text" class="form-control" name="parentSignature" maxlength="50" required><br>
+                            <input type="text" class="form-control" name="parentSignature" maxlength="50" value="<?php echo isset($parentConsentInfo['parentSignature'])? $parentConsentInfo['parentSignature']: '';?>" disabled><br>
                     </div>
                     <div class="col-md-6">
                         <label for = "signDate">Today's Date:</label>
-                            <input type="date" class="form-control" name="signDate" placeholder="mm/dd/yyyy"required><br>
+                            <input type="date" class="form-control" name="signDate" placeholder="mm/dd/yyyy" value="<?php echo isset($parentConsentInfo['signDate'])? $parentConsentInfo['signDate']: '';?>" disabled><br>
                     </div>
 
             

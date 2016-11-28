@@ -2,7 +2,7 @@
 session_start();
             require_once 'connectAuxDB.php';
 
-            require_once "php-functions.php";
+            require_once 'php-functions.php';
             require_once 'connectAuxDB.php';
             $auxConnection=connectAuxDB();
             studentLoggedin();

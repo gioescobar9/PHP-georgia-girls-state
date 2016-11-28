@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'php-functions.php';
+require_once 'services/php-functions.php';
 schoolLoggedIn();
 //get the studentID using GET
 $id = null;
@@ -49,7 +49,7 @@ enforce proper restrictions-->
 
     <!--<form class="form-horizontal" role="form" action="services/school-application-form-action.php" method="post">-->
         <?php
-        echo "<form class = 'form-horizontal' action='services/school-application-form-action.php?id=".$id"' method='post'>"
+        echo "<form class = 'form-horizontal' action='services/school-application-form-action.php?id=".$id."' method='post'>"
             ?>
     <div class="form-group">
         <h3>School Information Form</h3>
