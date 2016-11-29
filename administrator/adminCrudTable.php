@@ -48,8 +48,8 @@ echo "<tr>";
   echo $statusRow;
   echo $paymentStatusRow;
   echo "<td> <a class = 'btn' href = 'admin-crud-view.php?id=".$studID."'><span class='glyphicon glyphicon-file'></span>View</a>
-  <a class = 'btn' href = 'auxiliaryServices/crud-update.php?id=".$studID."'><span class='glyphicon glyphicon-usd'></span>Mark As Paid</a>
-  <a class = 'delete' href = 'auxiliaryServices/crud-delete.php?id=".$studID."'><span class='glyphicon glyphicon-minus-sign'></span>Delete</a> </td>";
+  <a class = 'btn' href = 'admin-crud-updatePayment.php?id=".$studID."'><span class='glyphicon glyphicon-usd'></span>Mark As Paid</a>
+  <a class = 'delete' href = 'admin-crud-delete.php?id=".$studID."'><span class='glyphicon glyphicon-minus-sign'></span>Delete</a> </td>";
  echo "</tr>";
 
 }// end of for loop
@@ -64,7 +64,8 @@ $('.delete').click(function(){return confirm('Are you sure you want to delte thi
 
 closeConnection($auxConnection);
 
-}
+}// end of create table func
+
 ?>
 
   

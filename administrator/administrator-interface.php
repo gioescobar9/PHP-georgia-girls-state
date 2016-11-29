@@ -29,7 +29,7 @@ require_once 'AdminCrudTable.php';
             <h3>Student Application Status</h3>         
                 <?php createAdminCrudTable(); ?>
           <h3>Application Reset</h3>
-        <div class = "alert alert-warning" style = "text-align: center;"><span style = "color: crimson; font-size: 1.3em;">Warning!: Reseting will delete all existing application information. This should only be used when starting a new Applicant Year</span> <div style = "text-align: center;"><a class = "btn reset alert alert-danger">RESET</a></div></div>
+        <div class = "alert alert-warning" style = "text-align: center;"><span style = "color: crimson; font-size: 1.3em;">Warning!: Reseting will delete all existing application information. This should only be used when starting a new Applicant Year</span> <div style = "text-align: center;"><a class = "btn reset alert alert-danger" href = "admin-reset.php">RESET</a></div></div>
 
         <h3>Applicant Group Creator</h3>
         <?php createSortTable(); ?>
