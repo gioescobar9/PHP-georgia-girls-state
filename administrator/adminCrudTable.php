@@ -17,6 +17,7 @@ function createAdminCrudTable(){
 			echo "<tr>";
 				echo "<th>ID</th>";
 				echo "<th>Student Name</th>";
+				echo "<th>Student Email</th>";
 				echo "<th>Application Status</th>";
 				echo "<th>Payment Status</th>";
 				echo "<th>Options</th>";
@@ -27,9 +28,10 @@ for($i = 0;$i<$rows;$i++){
 $result->data_seek($i);
 $record = $result->fetch_array(MYSQLI_ASSOC);
 $studID = $record["studentID"];
- $studName = $record["lastName"]." ".$record["firstName"];
- $appStatus = getStatus($studID);
- if($appStatus == "Incomplete")
+$studName = $record["lastName"]." ".$record["firstName"];
+$studEmail = $record["studentEmail"];
+$appStatus = getStatus($studID);
+if($appStatus == "Incomplete")
   $statusRow = "<td class = 'alert alert-warning'>".$appStatus."</td>";
 else
   $statusRow = "<td class = 'alert alert-success'>".$appStatus."</td>";
@@ -42,9 +44,10 @@ else
 echo "<tr>";
   echo "<td> $studID </td>";
   echo "<td> $studName </td>";
+  echo "<td> $studEmail</td>";
   echo $statusRow;
   echo $paymentStatusRow;
-  echo "<td> <a class = 'btn' href = 'auxiliaryServices/crud-view.php?id=".$studID."'><span class='glyphicon glyphicon-file'></span>View</a>
+  echo "<td> <a class = 'btn' href = 'admin-crud-view.php?id=".$studID."'><span class='glyphicon glyphicon-file'></span>View</a>
   <a class = 'btn' href = 'auxiliaryServices/crud-update.php?id=".$studID."'><span class='glyphicon glyphicon-usd'></span>Mark As Paid</a>
   <a class = 'delete' href = 'auxiliaryServices/crud-delete.php?id=".$studID."'><span class='glyphicon glyphicon-minus-sign'></span>Delete</a> </td>";
  echo "</tr>";
