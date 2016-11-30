@@ -30,6 +30,13 @@ schoolLoggedIn();
             <br>
             <div class="col-md-3"></div>
             <div class="col-md-8" style="text-align:center;">
+
+                <div class="col-md-4">
+                <a href="services/school-application-view.php" class="btn btn-info btn-lg" data-toggle="tooltip" title="View/update new and previous applications">
+                <span class="glyphicon glyphicon-list-alt"><br>View/Edit<br>Applications</span>
+            </a><br>
+                </div>
+
                 <div class="col-md-4">
                 <a href="services/school-information.php" class="btn btn-info btn-lg" data-toggle="tooltip" title="View/Update School Information">
                 <div class="user">
@@ -37,21 +44,7 @@ schoolLoggedIn();
                 </div>
             </a>
                 </div>
-                <!--
-                <div class="col-md-3">
-                <a href="school-application-form.php" class="btn btn-info btn-lg" data-toggle="tooltip" title="Complete New Application">
-                <span class="glyphicon glyphicon-pencil"><br>New<br>Application</span>
-            </a><br>
-                </div>-->
-                <div class="col-md-4">
-                <a href="services/school-application-view.php" class="btn btn-info btn-lg" data-toggle="tooltip" title="View/update new and previous applications">
-                <span class="glyphicon glyphicon-list-alt"><br>View/Edit<br>Applications</span>
-            </a><br>
-                </div>
-                <!--<div class="col-md-3">
-                <a href="services/auxiliary-information.php" class="btn btn-info btn-lg" data-toggle="tooltip" title="View your Auxiliary Information">
-                <span class="glyphicon glyphicon-info-sign"><br>Auxiliary<br>Information</span>
-            </a><br>-->
+                
                 </div>
             </div>
             </div>

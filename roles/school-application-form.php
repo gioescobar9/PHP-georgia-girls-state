@@ -1,11 +1,8 @@
 <?php
 session_start();
-<<<<<<< HEAD
-require_once "services/php-functions.php";
+
 require_once "services/connectAuxDB.php";
-=======
 require_once 'services/php-functions.php';
->>>>>>> 736465d463bb446b419b8980039ba3ce9af7475c
 schoolLoggedIn();
 //get the studentID using GET
 $id = null;
@@ -75,7 +72,7 @@ enforce proper restrictions-->
         </div>
         <div class="col-md-12">
             <label for = "schoolPhone"> School Phone Number: </label>
-                <input type="text" class="form-control" name="schoolPhone" maxlength="15" placeholder= "((555)888-0000" required><br>
+                <input type="text" class="form-control" name="schoolPhone" maxlength="15" placeholder= "(555)888-0000" required><br>
         </div>
         <div class = "col-md-12">
         <legend>Student Information</legend>

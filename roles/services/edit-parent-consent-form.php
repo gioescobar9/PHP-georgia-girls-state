@@ -298,48 +298,8 @@ enforce proper restrictions-->
         </form>
     </div>
 
-    /* JS functions used to hide or show the input area once a selection is made*/
-    <script type="text/javascript">
-        
-        hideIllness();
-        function showIllness() { $("#textIllness").show(); }
-        function hideIllness() { $("#textIllness").hide();}
+    
 
-      hideTreatment();
-        function showTreatment() { $("#textTreatment").show(); }
-        function hideTreatment() { $("#textTreatment").hide(); }
-
-      hideAllergies();
-        function showAllergies() { $("#textAllergies").show(); }
-        function hideAllergies() { $("#textAllergies").hide(); }
-
-     hideMeds();
-        function showMeds() { $("#textMeds").show();}
-        function hideMeds() { $("#textMeds").hide();}
-
-    hideAccomodations();
-        function showAccomodations() { $("#textAccomodations").show(); }
-        function hideAccomodations() { $("#textAccomodations").hide(); }
-
-      hideRestrictions();
-        function showRestrictions() { $("#textRestrictions").show(); }
-        function hideRestrictions() { $("#textRestrictions").hide(); }
-
-       hideConsent();
-        function showConsent() { $("#textConsent").show(); }
-        function hideConsent() { $("#textConsent").hide(); }
-
-     hideCondition();
-        function showCondition() { $("#textCondition").show(); }
-        function hideCondition() { $("#textCondition").hide(); }
-
-       hideInfo();
-        function showInfo() {$(".insured").show();}
-        function hideInfo() {$(".insured").hide();}
-
-        
-   
-</script>
 </div>
 </body>
 </html>

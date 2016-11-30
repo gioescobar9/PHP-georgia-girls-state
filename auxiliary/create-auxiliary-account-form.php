@@ -25,10 +25,12 @@ session_start();
     <div class="logoImage"></div>
 </div>
 
+<div class = "container">
+    <div class = "well">
     <form id = "create_auxiliary_account_form" action = "auxiliaryServices/create-auxiliary-account.php" method = "post" 
     name = "create_auxiliary_account_form">
       <div class="form-group">
-        <div class="well">
+        
             <legend>Create Auxiliary Account</legend>
             
             <label for = "username:">Username:</label><br>
@@ -62,9 +64,17 @@ session_start();
             <p>
                <input type="submit" class="button btn-primary" color="white" value = "Create Account">
             </p>
-        </div>
+    
       </div>
+
     </form>
+<div class = "buttonStudent">
+                <a href = "index.php"><button class="buttonSubmit">Cancel</button></a>
+    </div>
+    </div>
+
+</div>
+
 
 </body>
 </html>
