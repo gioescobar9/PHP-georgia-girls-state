@@ -65,7 +65,8 @@ else{
     $redirect="../index.php";
     closeConnection($auxConnection);
 }
-
-    }
+    
+}
 
 header('location:'.$redirect);
+?>
