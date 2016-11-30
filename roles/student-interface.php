@@ -2,8 +2,9 @@
 session_start();
 require_once "services/php-functions.php";
 
+
 studentLoggedin();
-//provide a interface for a student when they login
+//provide an interface for a student when they login
 ?>
 
 <html>

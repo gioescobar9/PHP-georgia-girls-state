@@ -17,7 +17,7 @@
     <body>
          <div class="heading">
             <h1 align="center" class="loginHeader"><img src="../roles/images/icon.jpg">
-            <a href = "../roles/services/logout.php"><span style = "float: right; margin-left: -20%" class = "btn 
+            <a href = "administrator-logout.php"><span style = "float: right; margin-left: -20%" class = "btn 
                 btn-primary">logout</span></a><br>The American Legion Auxiliary<br>Georgia Girls State</h1>
         <div class="logoImage"></div>
         </div>

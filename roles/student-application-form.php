@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once "services/php-functions.php";
-require_once 'services/connectAuxDB.php';
+require_once "services/connectAuxDB.php";
 $auxConnection=connectAuxDB();
 studentLoggedin();
 //the students application form
