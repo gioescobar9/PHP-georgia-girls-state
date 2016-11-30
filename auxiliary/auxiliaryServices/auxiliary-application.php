@@ -35,7 +35,7 @@ $toInsert = implode(',',array_map(
 
 //send our application data to the database and set its status as complete
 if(isset($_POST['studID'])) {
-	echo "studID";
+	echo "$studID";
 	$studID = $_POST['studID'];
 	$query = "UPDATE applications SET auxInfo = '$toInsert', auxInfoComplete = '1' WHERE studentID = '$studID';";
 	$result = $auxConnection->query($query);
@@ -58,7 +58,7 @@ $result = $auxConnection->query($query);
 	}
 }
 else{
-	echo "appID";
+	echo "$appID";
 	$appID = $_POST["appID"];
 	$query = "UPDATE applications SET auxInfo = '$toInsert', auxInfoComplete = '1' WHERE applicationID = '$appID';";
 	$result = $auxConnection->query($query);
@@ -83,6 +83,6 @@ $result = $auxConnection->query($query);
 
 
 
-header('location: ../auxiliary-main-interface.php');
+//header('location: ../auxiliary-main-interface.php');
 
 ?>

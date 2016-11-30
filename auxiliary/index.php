@@ -41,12 +41,21 @@ session_start();
             <input  type="password" passwordValidate id="inputPassword" maxlength="20" placeholder="Password" class="form-control" name = "password" required><br>
 
             <?php
-                if(isset($_SESSION["loggedIn"])){
+                if(isset($_SESSION["adminLoggedIn"])){
+                    if($_SESSION["adminLoggedIn"] == false )
+                    echo "<div class = 'alert alert-danger'>Wrong Username or Password</div><br>";
+                }
+                else if(isset($_SESSION["loggedIn"])){
                     if($_SESSION["loggedIn"] == false )
                     echo "<div class = 'alert alert-danger'>Wrong Username or Password</div><br>";
                 }
                 
-                if(isset($_SESSION["loggedOut"])){
+                else if(isset($_SESSION["adminLoggedOut"])){
+                  if($_SESSION["adminLoggedOut"] == true)
+                    echo "<div class = 'alert alert-success'>You have logged out successfully</div>";
+                }
+                
+                else if(isset($_SESSION["loggedOut"])){
                   if($_SESSION["loggedOut"] == true)
                     echo "<div class = 'alert alert-success'>You have logged out successfully</div>";
                 }

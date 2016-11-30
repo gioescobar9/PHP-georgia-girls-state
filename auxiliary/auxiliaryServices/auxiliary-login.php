@@ -7,19 +7,37 @@ $auxConnection = connectAuxDB();
 $username = $_POST["username"];
 $password = $_POST["password"];
 
+$isAuxiliary = false;
+$isAdministrator = false;
+
+//$adminPassword= "27865@@Admin";
+//$adminUsername = "000";
 // we check and see if the user name and password is accurate...we set a redirect page for either case
 
 $query = "SELECT * FROM auxiliary WHERE unitNumber = '$username' AND password = '$password';";
 $result = $auxConnection->query($query);
 if(!$result) die ("query failed".$auxConnection->error);
-if($result->num_rows > 0)
-	$_SESSION["loggedIn"] = true;
-else
-	$_SESSION["loggedIn"] = false;
-
+if($result->num_rows > 0){
+    if($username == '000'){
+        if($password == "27865@@Admin"){
+            $isAdministrator = true;
+        }
+    }
+    
+    else
+        $isAuxiliary = true;
+}
  
+if($isAdministrator == true){
+    $_SESSION["adminLoggedIn"] = true;
+    $_SESSION["loggedIn"] = false;
+    $redirect = "../../administrator/administrator-interface.php";
+    closeConnection($auxConnection);
+}
 
-if($_SESSION["loggedIn"] == true){
+else if($isAuxiliary == true){
+    $_SESSION["loggedIn"] = true;
+    $_SESSION["adminLoggedIn"] = false;
 	$redirect = "../auxiliary-main-interface.php";
 	closeConnection($auxConnection);
 
@@ -29,6 +47,7 @@ if($_SESSION["loggedIn"] == true){
 	setcookie("auxiliaryID", $record["auxiliaryID"], time() + 86400, "/");
 	
 	// in the future this will be where i could set cookies....
+
 
 }
 else {
