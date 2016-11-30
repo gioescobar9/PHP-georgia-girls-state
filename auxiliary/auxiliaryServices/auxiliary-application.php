@@ -32,10 +32,9 @@ $toInsert = implode(',',array_map(
 	$post_data,
 	array_keys($post_data)
 	));
-
+ 
 //send our application data to the database and set its status as complete
 if(isset($_POST['studID'])) {
-	echo "$studID";
 	$studID = $_POST['studID'];
 	$query = "UPDATE applications SET auxInfo = '$toInsert', auxInfoComplete = '1' WHERE studentID = '$studID';";
 	$result = $auxConnection->query($query);
@@ -47,10 +46,11 @@ now that we have submitted this applcation info we need to check if all other fo
 $query = "SELECT auxInfoComplete,schoolInfoComplete, studentInfoComplete, parentConsentInfoComplete FROM applications WHERE studentID = '$studID';";
 $result = $auxConnection->query($query);
 	if(!$result) die ("query3 failed".$auxConnection->error);
+
 	if($result->num_rows > 0){
 		$record = $result->fetch_assoc();
 		if($record['auxInfoComplete'] == TRUE && $record['schoolInfoComplete'] == TRUE && $record['studentInfoComplete'] == TRUE && $record['parentConsentInfoComplete'] == TRUE){
-		$query = "UPDATE applications SET complete = '1' WHERE applicationID = '$appID';";
+		$query = "UPDATE applications SET complete = '1' WHERE studentID = '$studID';";
 		$result = $auxConnection->query($query);
 		if(!$result) die ("query4 failed".$auxConnection->error);
 		}
@@ -58,7 +58,11 @@ $result = $auxConnection->query($query);
 	}
 }
 else{
+<<<<<<< HEAD
 	echo "$appID";
+=======
+	
+>>>>>>> 736465d463bb446b419b8980039ba3ce9af7475c
 	$appID = $_POST["appID"];
 	$query = "UPDATE applications SET auxInfo = '$toInsert', auxInfoComplete = '1' WHERE applicationID = '$appID';";
 	$result = $auxConnection->query($query);

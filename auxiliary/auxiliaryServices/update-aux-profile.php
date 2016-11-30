@@ -55,11 +55,13 @@ $auxProfile = array(
 
 <body>
 
+<header>
     <div class="heading">
-<h1 align="center" class="loginHeader"><img src="../images/icon.jpg"> 
-<a href = "auxiliaryServices/auxiliary-logout.php"><span style = "float: right; margin-left: -20%" class = "btn btn-primary">logout</span></a> 
-<br>The American Legion Auxiliary<br>Georgia Girls State</h1>
-	</div>
+        <h1 class="loginHeader"><img src="../images/icon.jpg" alt = "logo"><a href = "../auxiliary-main-interface.php"><span style = "float: left; margin-right: -20%" class="btn btn-info btn-lg">
+                <span class="glyphicon glyphicon-home"><br>Home</span></a>  
+        <br>The American Legion Auxiliary<br>Georgia Girls State</h1>
+    </div>
+</header>
 
 <div class="container">
 	<div class= "well">

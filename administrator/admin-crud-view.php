@@ -1,16 +1,17 @@
-<?php
+<?php 
 session_start();
 require_once 'auxiliaryConnectDB.php';
-// checks if the id was passed when the view link was clicked
+
 $studID = null;
 if(!empty($_GET['id'])){
     $studID = $_REQUEST['id'];
 }
 if($studID == null){
-    header("location: ../auxiliary-main-interface.php");
+    header("location: administrator-interface.php");
 }
 
 $auxConnection = connectAuxDB();
+
 
 //retrieve auxiliary info
 $query = "SELECT auxInfo, auxInfoComplete FROM applications WHERE studentID = '$studID';";
@@ -159,14 +160,14 @@ if($result->num_rows > 0){
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/additional-methods.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="js/form-validation.js"></script>
-    <link rel="stylesheet" type="text/css" href="../css/auxiliaryStyleSheet.css">
+    <link rel="stylesheet" type="text/css" href="administratorStyleSheet.css">
     
 </head>
 <body>
 
 <header>
     <div class="heading">
-        <h1 class="loginHeader"><img src="../images/icon.jpg" alt = "logo"><a href = "../auxiliary-main-interface.php"><span style = "float: left; margin-right: -20%" class="btn btn-info btn-lg">
+        <h1 class="loginHeader"><img src="images/icon.jpg" alt = "logo"><a href = "administrator-interface.php"><span style = "float: left; margin-right: -20%" class="btn btn-info btn-lg">
                 <span class="glyphicon glyphicon-home"><br>Home</span></a>  
         <br>The American Legion Auxiliary<br>Georgia Girls State</h1>
     </div>

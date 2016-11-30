@@ -1,7 +1,11 @@
 <?php
 session_start();
+<<<<<<< HEAD
 require_once "services/php-functions.php";
 require_once "services/connectAuxDB.php";
+=======
+require_once 'services/php-functions.php';
+>>>>>>> 736465d463bb446b419b8980039ba3ce9af7475c
 schoolLoggedIn();
 //get the studentID using GET
 $id = null;
@@ -50,8 +54,10 @@ enforce proper restrictions-->
 
     <!--<form class="form-horizontal" role="form" action="services/school-application-form-action.php" method="post">-->
         <?php
-        echo "<form class = 'form-horizontal' method='post' action='services/school-application-form-action.php?id=".$id."'>"
-        ?>
+
+        echo "<form class = 'form-horizontal' action='services/school-application-form-action.php?id=".$id."' method='post'>"
+            ?>
+
     <div class="form-group">
         <h3>School Information Form</h3>
         <legend>School Details</legend>

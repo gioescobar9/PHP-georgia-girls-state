@@ -60,7 +60,7 @@
         
         ?>
         
-//display form and fill in the previous application information     
+  
 <html>
 <head>
     <title>Edit Student Application</title>
