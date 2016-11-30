@@ -10,22 +10,29 @@ $password = $_POST["password"];
 $isAuxiliary = false;
 $isAdministrator = false;
 
-//$adminPassword= "27865@@Admin";
-//$adminUsername = "000";
+
 // we check and see if the user name and password is accurate...we set a redirect page for either case
 
 $query = "SELECT * FROM auxiliary WHERE unitNumber = '$username' AND password = '$password';";
 $result = $auxConnection->query($query);
 if(!$result) die ("query failed".$auxConnection->error);
 if($result->num_rows > 0){
+
     if($username == '000'){
-        if($password == '27865@@Admin'){
+        if($password == 'adminpass123'){
             $isAdministrator = true;
         }
-    }
+        else {
+            $redirect = "../index.php";
+        }
+    }   
     
     else
         $isAuxiliary = true;
+}
+else{
+    $redirect = '../index.php';
+    $_SESSION['adminLoggedIn'] = false;
 }
  
 if($isAdministrator == true){
@@ -45,7 +52,6 @@ else if($isAuxiliary == true){
 	setcookie("auxiliaryID", $record["auxiliaryID"], time() + 86400, "/");
 	
 	// in the future this will be where i could set cookies....
-
 
 }
 else {

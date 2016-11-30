@@ -40,16 +40,16 @@ enforce proper restrictions-->
            <legend>Student Information</legend>
             <div class="col-md-6">
             <label for = "studentFirstName">Student First Name:</label>
-               <input type="text" class="form-control" id="studentFirstName" maxlength="25" pattern="[a-zA-Z]+" autofocus  name = "stuFirstName" required><br>
+               <input type="text" class="form-control" id="studentFirstName" maxlength="25"  autofocus  name = "stuFirstName" required><br>
            </div>
            <div class="col-md-6">
             <label for = "studentLastName">Student Last Name:</label>
-               <input type="text" class="form-control" id="studentLastName" maxlength="25" pattern="[a-zA-Z]+" 
+               <input type="text" class="form-control" id="studentLastName" maxlength="25"  
                name = "stuLastName" required><br>
            </div>
            <div class="col-md-8">
             <label for = "studentEmail">Student Email:</label>
-               <input type="text" class="form-control" id="studentEmail" maxlength="50"  placeholder="user@gmail.com" 
+               <input type="email" class="form-control" id="studentEmail" maxlength="50"  placeholder="user@gmail.com" 
                name = "stuEmail" required><br>
            </div>
               <legend>School Information</legend>
@@ -60,7 +60,7 @@ enforce proper restrictions-->
            </div>
            <div class="col-md-6">
             <label for = "schoolEmail">School Email:</label>
-               <input type="text" class="form-control" id="schoolEmail" maxlength="25" placeholder="user@gmail.com" 
+               <input type="email" class="form-control" id="schoolEmail" maxlength="25" placeholder="user@gmail.com" 
                name = "schEmail" required><br>
            </div>
            <legend>Official Agreement</legend>
