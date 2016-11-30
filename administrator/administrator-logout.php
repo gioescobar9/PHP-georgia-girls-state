@@ -1,9 +1,8 @@
 <?php
 session_start();
-$_SESSION["loggedIn"] = false;
+$_SESSION["adminLoggedIn"] = false;
 $_SESSION["loggedOut"] = true;
-unset($_SESSION["admin"]);
-unset($_SESSION["loggedIn"]);
+unset($_SESSION["adminLoggedIn"]);
 
 setcookie("unitNumber", NULL, time() - 86400);
 setcookie("auxiliaryEmail", NULL, time()- 86400);
