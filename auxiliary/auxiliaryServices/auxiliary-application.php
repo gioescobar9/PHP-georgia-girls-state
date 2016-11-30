@@ -58,11 +58,7 @@ $result = $auxConnection->query($query);
 	}
 }
 else{
-<<<<<<< HEAD
-	echo "$appID";
-=======
-	
->>>>>>> 736465d463bb446b419b8980039ba3ce9af7475c
+
 	$appID = $_POST["appID"];
 	$query = "UPDATE applications SET auxInfo = '$toInsert', auxInfoComplete = '1' WHERE applicationID = '$appID';";
 	$result = $auxConnection->query($query);
@@ -87,6 +83,6 @@ $result = $auxConnection->query($query);
 
 
 
-//header('location: ../auxiliary-main-interface.php');
+header('location: ../auxiliary-main-interface.php');
 
 ?>
