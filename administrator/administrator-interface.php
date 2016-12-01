@@ -27,7 +27,7 @@ require_once 'AdminCrudTable.php';
                 btn-primary">logout</span></a><br>The American Legion Auxiliary<br>Georgia Girls State</h1>
         <div class="logoImage"></div>
         </div>
-        <div style="width:90%;" class="container">
+        <div style="width:85%;" class="container">
 
             <h3>Student Application Status</h3>         
                 <?php createAdminCrudTable(); ?>
