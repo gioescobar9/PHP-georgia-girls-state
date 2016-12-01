@@ -31,12 +31,14 @@ require_once 'auxiliaryServices/auxiliaryCrudTable.php';
 
 <div class="container">
   <h3>Auxiliary Task Bar</h3>
+<div class = "col-md-12">
   <ul class="nav nav-pills">
     <li class="active"><a data-toggle="pill" href="#home">Start New Application</a></li>
     <li><a data-toggle="pill" href="#menu1">My Applications</a></li>
     <li><a data-toggle="pill" href="#menu2">My Information</a></li>
-  </ul>
-    
+    <li><a data-toggle="pill" href="#menu3">School/Student Credentials</a></li>
+  </ul> 
+</div>
   <div class="tab-content">
 
     <div id="home" class="tab-pane fade in active">
@@ -77,10 +79,20 @@ echo "<div class='container'>";
     echo "</tbody>";
 echo "</table>";
 echo "</div>";
- ?>
+?>     
+      </div>
+<!--display student and school information so it can be emailed to them by the auxiliary user-->
+  <div id="menu3" class="tab-pane fade">
+      <h2 style = 'text-align:center;'>School/Student Credentials</h2>
+        <?php
+            createStudentCrudTable();
+            createSchoolCrudTable();
+        ?>
     </div>
-  </div>
-</div>
+    </div>
+    </div>
+    <!--</div>-->
+
 
 </body>
 </html>

@@ -90,4 +90,93 @@ closeConnection($auxConnection);
 return $toReturn; 
 
 }
+
+function createStudentCrudTable(){
+	$auxConnection = connectAuxDB();
+
+//$auxID = $_COOKIE["auxiliaryID"];
+$unitNumber = $_COOKIE["unitNumber"];
+$query = "SELECT * FROM student WHERE auxiliaryID = '$unitNumber';";
+
+$result = $auxConnection->query($query);
+if(!$result) die("query failed ".$auxConnection->error);
+
+$rows = $result->num_rows;
+
+echo "<div class='container'>";
+    echo "<legend>Student Credentials</legend>";
+	echo "<table class = 'table table-striped'>";
+		echo "<thead>";
+			echo "<tr>";
+				echo "<th>ID</th>";
+				echo "<th>Student Name</th>";
+                echo "<th> Student Email</th>";
+				echo "<th>Password</th>";
+			echo "</tr>";
+		echo "</thead>";
+    echo "<tbody>";
+for($i = 0;$i<$rows;$i++){
+  $result->data_seek($i);
+  $record = $result->fetch_array(MYSQLI_ASSOC);
+ $studID = $record["studentID"];
+ $studName = $record["firstName"]." ".$record["lastName"];
+ $studEmail = $record["studentEmail"];
+ $password = $record["studentPassword"];
+ echo "<tr>";
+  echo "<td> $studID </td>";
+  echo "<td> $studName </td>";
+  echo "<td> $studEmail</td>";
+  echo "<td> $password</td>";
+ echo "</tr>";
+}// end of for loop
+
+		echo "</tbody>";
+	echo "</table>";
+echo "</div>";	
+
+closeConnection($auxConnection);
+}// end of for loop
+
+function createSchoolCrudTable(){
+	$auxConnection = connectAuxDB();
+//$auxID = $_COOKIE["auxiliaryID"];
+$unitNumber = $_COOKIE["unitNumber"];
+$query = "SELECT * FROM school WHERE auxiliaryID = '$unitNumber';";
+
+$result = $auxConnection->query($query);
+if(!$result) die("query failed ".$auxConnection->error);
+
+$rows = $result->num_rows;
+
+echo "<div class='container'>";
+    echo "<legend>School Credentials</legend>";
+	echo "<table class = 'table table-striped'>";
+		echo "<thead>";
+			echo "<tr>";
+				echo "<th>ID</th>";
+				echo "<th>School Name</th>";
+                echo "<th>School Email</th>";
+				echo "<th>Password</th>";
+			echo "</tr>";
+		echo "</thead>";
+    echo "<tbody>";
+for($i = 0;$i<$rows;$i++){
+  $result->data_seek($i);
+  $record = $result->fetch_array(MYSQLI_ASSOC);
+ $schoolID = $record["schoolID"];
+ $schoolName = $record["schoolName"];
+ $schoolEmail = $record["schoolEmail"];   
+ $schPassword = $record["schoolPassword"];
+ echo "<tr>";
+  echo "<td> $schoolID </td>";
+  echo "<td> $schoolName </td>";
+  echo "<td> $schoolEmail </td>";
+  echo "<td> $schPassword</td>";
+ echo "</tr>";
+}// end of for loop
+
+		echo "</tbody>";
+	echo "</table>";
+echo "</div>";
+}
 ?>
