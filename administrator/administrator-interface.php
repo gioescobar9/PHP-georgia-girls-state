@@ -4,11 +4,10 @@ if(!isset($_SESSION["adminLoggedIn"])){
   header('location: index.php');
 }
 
-require_once 'auxiliaryConnectDB.php';
+require_once 'admin-connect-db.php';
 require_once 'adminFunc.php';
 require_once 'AdminCrudTable.php';
 ?>
-
 <html>
     <head>
         <title>Admin</title>
@@ -21,7 +20,7 @@ require_once 'AdminCrudTable.php';
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link rel="stylesheet" type="text/css" href="administratorStyleSheet.css">
     </head>
-    <body>
+    <body style="width:100%;">
         <div class="heading">
             <h1 align="center" class="loginHeader"><img src="../roles/images/icon.jpg">
             <a href = "administrator-logout.php"><span style = "float: right; margin-left: -20%; font-size:20px;" class = "btn 

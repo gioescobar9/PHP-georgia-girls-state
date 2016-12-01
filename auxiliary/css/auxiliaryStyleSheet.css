@@ -30,7 +30,7 @@
         margin:0 auto;
         align-content: center;  
     }
-
+   
      .loginContainer{
         /*height: 100vh;*/
         object-position: center;
@@ -145,11 +145,6 @@
         font-size: 16px;
     }
 
-    /*ul{
-        background-color: lightgray;
-        outline-color: white;
-    } */
-
     /*format the layout of the terms of applying for the student*/
     .terms{
         width:95%;
@@ -174,83 +169,6 @@
         text-align:center;
     }
     
-    input[type="checkbox"] {
-        display:none;
-    }
+    
 
-    input[type="checkbox"] {
-        display:inline-block;
-        width:40px;
-        height:40px;
-        margin: auto;
-        vertical-align:middle;
-        cursor:pointer;
-    }
-
-    /*used to format the page header navigation bar*/
-    /*ul.topnav {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        background-color:darkslategray;
-        text-justify:  center;
-        border-radius: 10px;
-    }
-
-    ul.topnav li {float: left;}
-
-    ul.topnav li a {
-        display: inline-block;
-        color: #f2f2f2;
-        text-align: center;
-        padding: 20px 20px;
-        text-decoration: none;
-        transition: 0.3s;
-        font-size: 18px;
-        font-family: "Times New Roman", Times, serif;
-    }
-
-    ul.topnav li a:hover {
-        background-color: darkgray; 
-        border-radius: 6px;
-    }
-
-    ul.topnav li.icon {display: none;}
-
-    nav{
-        padding-top: 10px;
-        width:100%;
-        text-align: center;
-    }
-
-    specifies that the bar should go across the entire screen
-    .nav{
-        width: 100%; 
-        margin: 0 auto;
-    }
-
-    ul{
-        text-align: center;  
-    }
-    specifyul.nav.nav-pills {
-    text-align: right;
-}
-
-.nav-pills>li {
-    float: none;
-    display: inline-block;
-} the width of each section. 3 sections would need 33% 5 would need 20%
-    li{
-         width: 25%;
-        vertical-align: center;
-    }
-    ul.nav.nav-pills {
-    text-align: right;
-}
-
-.nav-pills>li {
-    float: none;
-    display: inline-block;
-}*/
 

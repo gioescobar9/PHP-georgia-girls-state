@@ -28,10 +28,11 @@ else{
 //query based off of the login type
 if($missmatch == false){
 if($isStudent == true)
-    $query = "SELECT * FROM student WHERE studentEmail='$username' AND studentPassword='$password';";
+    $query = "SELECT * FROM student WHERE studentEmail='$username' AND BINARY studentPassword= BINARY '$password';";
 else if($isSchool == true){
-    $query = "SELECT * FROM school WHERE schoolEmail='$username' AND schoolPassword='$password';";
+    $query = "SELECT * FROM school WHERE schoolEmail='$username' AND BINARY schoolPassword= BINARY '$password';";
 }
+    
 $result = $auxConnection->query($query);
 if(!$result) die ("query failed".$auxConnection->error);
 

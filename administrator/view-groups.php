@@ -4,7 +4,7 @@ if(!isset($_SESSION["adminLoggedIn"])){
   header('location: index.php');
 }
 
-require_once 'auxiliaryConnectDB.php';
+require_once 'admin-connect-db.php';
 
 
 function displayCityTable($city){
