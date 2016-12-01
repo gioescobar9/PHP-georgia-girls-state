@@ -17,7 +17,7 @@
             $studentDOB = $_POST["studentDOB"];
             $studentStreetAddress = $_POST["studentStreetAddress"];
             $studentCity = $_POST["studentCity"];
-            $studentState = $_POST["studnetState"];
+            $studentState = $_POST["studentState"];
             $studentZip = $_POST["studentZip"];
             $studentPreferName = $_POST["studentPreferName"];
             $homePhone = $_POST["homePhone"];
