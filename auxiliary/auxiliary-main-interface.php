@@ -4,7 +4,7 @@ if(!isset($_SESSION["loggedIn"])){
   header('location: index.php');
 }
 require_once 'auxiliaryServices/auxiliaryCrudTable.php';
-// the button we make in order to start the applicatoin process wil
+// the button we make in order to start the application process will
 // be wrapped in a form, that way itll send us to a service that will make queries in order to send all info we need to send to the database
 ?>
 <!DOCTYPE html>
@@ -29,16 +29,17 @@ require_once 'auxiliaryServices/auxiliaryCrudTable.php';
 <br>The American Legion Auxiliary<br>Georgia Girls State</h1>
 	</div>
 
-<div class="container">
+
   <h3>Auxiliary Task Bar</h3>
-<div class = "col-md-12">
-  <ul class="nav nav-pills">
+
+  <ul class="nav nav-pills pull-right">
     <li class="active"><a data-toggle="pill" href="#home">Start New Application</a></li>
     <li><a data-toggle="pill" href="#menu1">My Applications</a></li>
     <li><a data-toggle="pill" href="#menu2">My Information</a></li>
-    <li><a data-toggle="pill" href="#menu3">School/Student Credentials</a></li>
+    <li><a data-toggle="pill" href="#menu3">Student Credentials</a></li>
+    <li><a data-toggle="pill" href="#menu4">School Credentials</a></li>
   </ul> 
-</div>
+    <div class="container">
   <div class="tab-content">
 
     <div id="home" class="tab-pane fade in active">
@@ -83,9 +84,14 @@ echo "</div>";
       </div>
 <!--display student and school information so it can be emailed to them by the auxiliary user-->
   <div id="menu3" class="tab-pane fade">
-      <h2 style = 'text-align:center;'>School/Student Credentials</h2>
+      <h2 style = 'text-align:center;'>Student Credentials</h2>
         <?php
             createStudentCrudTable();
+        ?>
+    </div>
+      <div id="menu4" class="tab-pane fade">
+      <h2 style = 'text-align:center;'>School Credentials</h2>
+        <?php
             createSchoolCrudTable();
         ?>
     </div>

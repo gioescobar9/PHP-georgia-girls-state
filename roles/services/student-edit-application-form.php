@@ -116,15 +116,25 @@ enforce proper restrictions-->
             <label for = "studentDOB">Date of Birth:</label>
                 <input type="date" class="form-control" name="studentDOB" placeholder="mm/dd/yyyy" required value="<?php echo $item["studentDOB"];?>"><br>
            </div>
-              <div class="col-md-6">
+              <div class="col-md-10">
                 <label for = "studentStreetAddress"> Street Address:</label>
-                    <input type="text" class="form-control" name="studentStreetAddress" required value="<?php echo $item["studentStreetAddress"];?>"><br>
+                    <input type="text" class="form-control" name="studentStreetAddress" required ><br>
               </div>
-              <div class="col-md-12">
-                <label for = "studentAddress">City,State,Zip:</label>
-                    <input type="text" class="form-control" name="studentAddress" required placeholder="City,State,Zip" value="<?php echo $item["studentAddress"];?>">
+              <div class="col-md-4">
+                <label for = "studentCity">City:</label>
+                    <input type="text" class="form-control" name="studentCity" required placeholder="City">
                     <br>
               </div>
+              <div class="col-md-4">
+                <label for = "studentState">State:</label>
+                    <input type="text" class="form-control" name="studentState" required placeholder="State">
+                    <br>
+              </div>
+              <div class="col-md-4">
+                <label for = "studentZip">Zip Code:</label>
+                    <input type="text" class="form-control" name="studentZip" required placeholder="Zip">
+                    <br>
+              
            <div class="col-md-3">
            </div>
            <div class="col-md-6" align="center">
