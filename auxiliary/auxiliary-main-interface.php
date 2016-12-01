@@ -36,7 +36,8 @@ require_once 'auxiliaryServices/auxiliaryCrudTable.php';
     <li class="active"><a data-toggle="pill" href="#home">Start New Application</a></li>
     <li><a data-toggle="pill" href="#menu1">My Applications</a></li>
     <li><a data-toggle="pill" href="#menu2">My Information</a></li>
-    <li><a data-toggle="pill" href="#menu3">School/Student Credentials</a></li>
+    <li><a data-toggle="pill" href="#menu3">Student Credentials</a></li>
+    <li><a data-toggle="pill" href="#menu4">School Credentials</a></li>
   </ul> 
 </div>
   <div class="tab-content">
@@ -83,9 +84,14 @@ echo "</div>";
       </div>
 <!--display student and school information so it can be emailed to them by the auxiliary user-->
   <div id="menu3" class="tab-pane fade">
-      <h2 style = 'text-align:center;'>School/Student Credentials</h2>
+      <h2 style = 'text-align:center;'>Student Credentials</h2>
         <?php
             createStudentCrudTable();
+        ?>
+    </div>
+      <div id="menu4" class="tab-pane fade">
+      <h2 style = 'text-align:center;'>School Credentials</h2>
+        <?php
             createSchoolCrudTable();
         ?>
     </div>

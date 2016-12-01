@@ -16,7 +16,9 @@
             $studentLastName = $_POST["studentLastName"];
             $studentDOB = $_POST["studentDOB"];
             $studentStreetAddress = $_POST["studentStreetAddress"];
-            $studentAddress = $_POST["studentAddress"];
+            $studentCity = $_POST["studentCity"];
+            $studentState = $_POST["studnetState"];
+            $studentZip = $_POST["studentZip"];
             $studentPreferName = $_POST["studentPreferName"];
             $homePhone = $_POST["homePhone"];
             $parentCellPhone = $_POST["parentCellPhone"];
@@ -34,7 +36,9 @@
                     'studentLastName' => $studentLastName,
                     'studentDOB' => $studentDOB,
                     'studentStreetAddress' => $studentStreetAddress,
-                    'studentAddress' => $studentAddress,
+                    'studentCity' => $studentCity,
+                    'studentState' => $studentState,
+                    'studentZip' => $studentZip,
                     'studentPreferName' => $studentPreferName,
                     'homePhone' => $homePhone,
                     'parentCellPhone' => $parentCellPhone,
