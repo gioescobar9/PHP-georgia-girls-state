@@ -9,7 +9,7 @@ function createSortTable(){
 	if(!$result) die ("query1 failed".$auxConnection->error);
 
 	$rows = $result->num_rows;
-
+echo "<form method = 'post' action = 'admin-sort.php'>";
 echo "<table class = 'table table-striped'>";
 		echo "<thead>";
 			echo "<tr>";
@@ -28,23 +28,67 @@ $auxiliary = $record["auxiliaryID"];
 $studName = $record["lastName"]." ".$record["firstName"];
 $school = $record["schoolID"];
 $hometown = "Milledgeville";
+$studID = $record["studentID"];
+$city = getCity($studID);
 // need to add payment status and app status
 echo "<tr>";
   echo "<td> $auxiliary</td>";
   echo "<td> $studName</td>";
 echo "<td> $school</td>";
 echo "<td> $hometown</td>";
-echo "<td><div class='dropdown'>
-    <button class='btn btn-primary dropdown-toggle' type='button' data-toggle='dropdown'>Add To City
-    <span class='caret'></span></button>
-    <ul class='dropdown-menu'>
-      <li><a href='#''>Houston</a></li>
-      <li><a href='#''>Harris</a></li>
-      <li><a href='#''>Telfair</a></li>
-    </ul>
-  </div></td>" ;
+echo "<td>
+<div class = 'form-group'>
+ <select class = 'form-control' name = 'assignedCity-".$studID."'>
+        <option value = ''>not assigned</option>";
+        if($city == "Harris")
+        echo "<option selected = 'selected' value = 'Harris'>County: Gwinnett, City: Harris</option>";
+        else echo "<option value = 'Harris'>County: Gwinnett, City: Harris</option>";
+        if($city == "Houston")
+        echo "<option selected = 'selected' value = 'Houston'>County: Gwinnett, City: Houston</option>";
+        else echo "<option value = 'Houston'>County: Gwinnett, City: Houston</option>";
+        if($city == "Telfair" )
+          echo "<option selected = 'selected' value = 'Telfair'>County: Gwinnett, City: Telfair</option>";
+        else echo "<option value = 'Telfair'>County: Gwinnett, City: Telfair</option>";
+        if($city == "Emanuel")
+          echo "<option selected = 'selected' value = 'Emanuel'>County: Hall, City: Emanuel</option>";
+        else echo "<option value = 'Emanuel'>County: Hall, City: Emanuel</option>";
+        if($city == "Irwin")
+          echo "<option value = 'Irwin'>County: Hall, City: Irwin</option>";
+        else echo "<option value = 'Irwin'>County: Hall, City: Irwin</option>";
+        if($city == "Jackson")
+          echo "<option selected = 'selected' value = 'Jackson'>County: Hall, City: Jackson</option>";
+        else "<option value = 'Jackson'>County: Hall, City: Jackson</option>";
+        if($city == "George")
+          echo "<option selected = 'selected' value = 'George'>County: Liberty, City: George</option>";
+        else echo "<option value = 'George'>County: Liberty, City: George</option>";
+        if($city == "Grady")
+          echo "<option selected = 'selected' value = 'Grady'>County: Liberty, City: Grady</option>";
+        else echo "<option value = 'Grady'>County: Liberty, City: Grady</option>";
+        if($city == "Lanier")
+          echo "<option selected = 'selected' value = 'Lanier'>County: Liberty, City: Lanier</option>";
+        else "<option value = 'Lanier'>County: Liberty, City: Lanier</option>";
+        if($city == "Baldwin")
+          echo "<option selected = 'selected' value = 'Baldwin'>County: Walton, City: Baldwin</option>";
+        else "<option value = 'Baldwin'>County: Walton, City: Baldwin</option>";
+        if($city == "Mitchell")
+          echo "<option selected = 'selected' value = 'Mitchell'>County: Walton, City: Mitchell</option>";
+        else echo "<option value = 'Mitchell'>County: Walton, City: Mitchell</option>";
+        if($city == "Tatnall")
+          echo "<option selected = 'selected' value = 'Tatnall'>County: Walton, City: Tatnal</option>";
+        else echo "<option value = 'Tatnall'>County: Walton, City: Tatnal</option>";
+echo "</select>
+  </div>
+        </td>" ;
   echo "</tr>";
 	}// end for loop
+
+    echo "</tbody>";
+  echo "</table>";
+  echo "<div class='buttonStudent'>
+          <input type = 'submit' class = 'buttonSubmit' 
+            value = 'Assign City'>
+        </div>";
+  echo "</form>";
 
 }// end func
 
@@ -101,6 +145,18 @@ $result = $auxConnection->query($query);
 closeConnection($auxConnection);
 return $toReturn; 
 
+}
+
+function getCity($stud_ID){
+$auxConnection = connectAuxDB();
+$toReturn = '';
+$query = "SELECT assignedCity FROM student WHERE studentID = '$stud_ID';";
+$result = $auxConnection->query($query);
+if(!$result) die("getCity query failed".$auxConnection->error);
+$record = $result->fetch_assoc();
+$toReturn = $record['assignedCity'];
+closeConnection($auxConnection);
+return $toReturn;
 }
 
 

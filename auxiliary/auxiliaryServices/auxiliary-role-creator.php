@@ -51,7 +51,7 @@ if($result->num_rows > 0){
 // next we create a student account
 $studentPassword = genStudentPass($_COOKIE["unitNumber"]);
 $auxiliaryID = $_COOKIE["auxiliaryID"];
-$query = "INSERT INTO student(firstName ,lastName, studentEmail, schoolID, auxiliaryID, studentPassword) VALUES ('$studentFirstName', '$studentLastName', '$studentEmail', '$schoolID', '$auxiliaryID','$studentPassword');";
+$query = "INSERT INTO student(firstName ,lastName, studentEmail, schoolID, auxiliaryID, studentPassword,assignedCity) VALUES ('$studentFirstName', '$studentLastName', '$studentEmail', '$schoolID', '$auxiliaryID','$studentPassword', '');";
 $result = $auxConnection->query($query);
 if(!$result) die ("query4 failed".$auxConnection->error);
 

@@ -41,6 +41,7 @@ if($paymentStatus == "Not Paid")
   $paymentStatusRow = "<td class = 'alert alert-warning'>".$paymentStatus."</td>";
 else
   $paymentStatusRow = "<td class = 'alert alert-success'>".$paymentStatus."</td>";
+
 echo "<tr>";
   echo "<td> $studID </td>";
   echo "<td> $studName </td>";
