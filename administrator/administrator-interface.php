@@ -20,14 +20,14 @@ require_once 'AdminCrudTable.php';
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link rel="stylesheet" type="text/css" href="administratorStyleSheet.css">
     </head>
-    <body style="width:100%;">
+    <body>
         <div class="heading">
             <h1 align="center" class="loginHeader"><img src="../roles/images/icon.jpg">
             <a href = "administrator-logout.php"><span style = "float: right; margin-left: -20%; font-size:20px;" class = "btn 
                 btn-primary">logout</span></a><br>The American Legion Auxiliary<br>Georgia Girls State</h1>
         <div class="logoImage"></div>
         </div>
-        <div class="container">
+        <div style="width:90%;" class="container">
 
             <h3>Student Application Status</h3>         
                 <?php createAdminCrudTable(); ?>
@@ -37,6 +37,8 @@ require_once 'AdminCrudTable.php';
         <h3>Applicant Group Creator</h3>
         <?php createSortTable(); ?>
         <br>
+
+
         </div>
 </body>
 <script>
