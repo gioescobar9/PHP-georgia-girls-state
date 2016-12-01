@@ -22,6 +22,7 @@ $officialSignatureDate = $_POST["officialSignatureDate"];
 4. insert a new application with empty string for thier applications
 */
 $schoolID; 
+$auxiliaryID = $_COOKIE["auxiliaryID"];
 
 /*This purpose of this block is to retrieve the schoolID , if the school we are looking for does not exist then we create an account for it, and then we retreive its ID
 */
@@ -35,7 +36,7 @@ if($result->num_rows > 0){
 	$schoolID = $record["schoolID"];
 }else{
 	$schoolPassword = genSchoolPass($_COOKIE["unitNumber"]);
-	$query = "INSERT INTO school(schoolName, schoolEmail, schoolPassword) VALUES ('$schoolName', '$schoolEmail', '$schoolPassword');";
+	$query = "INSERT INTO school(schoolName, schoolEmail, schoolPassword, auxiliaryID) VALUES ('$schoolName', '$schoolEmail', '$schoolPassword', '$auxiliaryID');";
 	$result = $auxConnection->query($query);
 	if(!$result) die("query2 failed".$auxConnection->error);
 
@@ -50,7 +51,7 @@ if($result->num_rows > 0){
 
 // next we create a student account
 $studentPassword = genStudentPass($_COOKIE["unitNumber"]);
-$auxiliaryID = $_COOKIE["auxiliaryID"];
+
 $query = "INSERT INTO student(firstName ,lastName, studentEmail, schoolID, auxiliaryID, studentPassword,assignedCity) VALUES ('$studentFirstName', '$studentLastName', '$studentEmail', '$schoolID', '$auxiliaryID','$studentPassword', '');";
 $result = $auxConnection->query($query);
 if(!$result) die ("query4 failed".$auxConnection->error);
