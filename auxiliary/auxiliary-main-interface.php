@@ -32,13 +32,22 @@ require_once 'auxiliaryServices/auxiliaryCrudTable.php';
 
   <h3>Auxiliary Task Bar</h3>
 
-  <ul class="nav nav-pills pull-right">
+  <ul class="nav nav-pills list-inline">
     <li class="active"><a data-toggle="pill" href="#home">Start New Application</a></li>
     <li><a data-toggle="pill" href="#menu1">My Applications</a></li>
     <li><a data-toggle="pill" href="#menu2">My Information</a></li>
     <li><a data-toggle="pill" href="#menu3">Student Credentials</a></li>
     <li><a data-toggle="pill" href="#menu4">School Credentials</a></li>
   </ul> 
+
+  <h3>Pills</h3>
+  <ul class="nav nav-pills">
+    <li class="active"><a href="#">Home</a></li>
+    <li><a href="#">Menu 1</a></li>
+    <li><a href="#">Menu 2</a></li>
+    <li><a href="#">Menu 3</a></li>
+  </ul>
+
     <div class="container">
   <div class="tab-content">
 

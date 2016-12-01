@@ -118,23 +118,23 @@ enforce proper restrictions-->
            </div>
               <div class="col-md-10">
                 <label for = "studentStreetAddress"> Street Address:</label>
-                    <input type="text" class="form-control" name="studentStreetAddress" required ><br>
+                    <input type="text" class="form-control" name="studentStreetAddress" required value="<?php echo $item["studentStreetAddress"];?>" ><br>
               </div>
               <div class="col-md-4">
                 <label for = "studentCity">City:</label>
-                    <input type="text" class="form-control" name="studentCity" required placeholder="City">
+                    <input type="text" class="form-control" name="studentCity" required value="<?php echo $item["studentCity"];?>">
                     <br>
               </div>
               <div class="col-md-4">
                 <label for = "studentState">State:</label>
-                    <input type="text" class="form-control" name="studentState" required placeholder="State">
+                    <input type="text" class="form-control" name="studentState" required value="<?php echo $item["studentState"];?>">
                     <br>
               </div>
               <div class="col-md-4">
                 <label for = "studentZip">Zip Code:</label>
-                    <input type="text" class="form-control" name="studentZip" required placeholder="Zip">
+                    <input type="text" class="form-control" name="studentZip" required value="<?php echo $item["studentZip"];?>">
                     <br>
-              
+        </div> 
            <div class="col-md-3">
            </div>
            <div class="col-md-6" align="center">

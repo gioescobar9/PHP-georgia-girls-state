@@ -188,7 +188,7 @@
     }
 
     /*used to format the page header navigation bar*/
-    ul.topnav {
+    /*ul.topnav {
         list-style-type: none;
         margin: 0;
         padding: 0;
@@ -224,7 +224,7 @@
         text-align: center;
     }
 
-    /*specifies that the bar should go across the entire screen*/
+    specifies that the bar should go across the entire screen
     .nav{
         width: 100%; 
         margin: 0 auto;
@@ -233,9 +233,24 @@
     ul{
         text-align: center;  
     }
-    /*specify the width of each section. 3 sections would need 33% 5 would need 20%*/
+    specifyul.nav.nav-pills {
+    text-align: right;
+}
+
+.nav-pills>li {
+    float: none;
+    display: inline-block;
+} the width of each section. 3 sections would need 33% 5 would need 20%
     li{
          width: 25%;
         vertical-align: center;
     }
+    ul.nav.nav-pills {
+    text-align: right;
+}
+
+.nav-pills>li {
+    float: none;
+    display: inline-block;
+}*/
 
