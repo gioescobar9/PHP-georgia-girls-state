@@ -32,7 +32,9 @@ $().ready(function() {
     });
     $("#confirmPassword").rules("add",{
         required: true,
+        equalTo: "#password",
         messages: {
+            equalTo: "passwords do not match",
             required: "Please confirm password."
         }
     });

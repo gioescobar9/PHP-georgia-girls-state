@@ -77,10 +77,7 @@ $record = $result->fetch_assoc();
 $appID = $record['applicationID'];
 
 
-
 header('location: ../auxiliary-application-form.php?id='.$appID);
-
-
 
 
 

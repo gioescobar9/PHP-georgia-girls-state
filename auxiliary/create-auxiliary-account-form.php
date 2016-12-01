@@ -76,5 +76,10 @@ session_start();
 </div>
 
 
+<!-- password validation here -->
+<script>
+    
+</script>
+
 </body>
 </html>
