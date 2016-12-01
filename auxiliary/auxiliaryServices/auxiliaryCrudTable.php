@@ -94,9 +94,9 @@ return $toReturn;
 function createStudentCrudTable(){
 	$auxConnection = connectAuxDB();
 
-//$auxID = $_COOKIE["auxiliaryID"];
-$unitNumber = $_COOKIE["unitNumber"];
-$query = "SELECT * FROM student WHERE auxiliaryID = '$unitNumber';";
+$auxID = $_COOKIE["auxiliaryID"];
+//$unitNumber = $_COOKIE["unitNumber"];
+$query = "SELECT * FROM student WHERE auxiliaryID = '$auxID';";
 
 $result = $auxConnection->query($query);
 if(!$result) die("query failed ".$auxConnection->error);
@@ -139,7 +139,7 @@ closeConnection($auxConnection);
 
 function createSchoolCrudTable(){
 	$auxConnection = connectAuxDB();
-//$auxID = $_COOKIE["auxiliaryID"];
+//$auxID = $_COOKIE["auxiliaryID"]; unsure what to query on here
 $unitNumber = $_COOKIE["unitNumber"];
 $query = "SELECT * FROM school WHERE auxiliaryID = '$unitNumber';";
 
