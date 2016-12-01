@@ -20,7 +20,19 @@ require_once 'auxiliaryServices/auxiliaryCrudTable.php';
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/auxiliaryStyleSheet.css">
 </head>
-
+<style>
+   
+    li{
+        width: 19%;
+       align-content: center;
+    }
+    .interface-container{
+        width:65%;
+        padding-top: 20px;
+        margin:0 auto;
+        align-content: center;
+    }
+</style>
 <body>
  
     <div class="heading">
@@ -32,29 +44,23 @@ require_once 'auxiliaryServices/auxiliaryCrudTable.php';
 
   <h3>Auxiliary Task Bar</h3>
 
-  <ul class="nav nav-pills list-inline">
+ 
+<div class = "interface-container">
+  <ul class="nav nav-pills">
     <li class="active"><a data-toggle="pill" href="#home">Start New Application</a></li>
     <li><a data-toggle="pill" href="#menu1">My Applications</a></li>
     <li><a data-toggle="pill" href="#menu2">My Information</a></li>
     <li><a data-toggle="pill" href="#menu3">Student Credentials</a></li>
     <li><a data-toggle="pill" href="#menu4">School Credentials</a></li>
   </ul> 
-
-  <h3>Pills</h3>
-  <ul class="nav nav-pills">
-    <li class="active"><a href="#">Home</a></li>
-    <li><a href="#">Menu 1</a></li>
-    <li><a href="#">Menu 2</a></li>
-    <li><a href="#">Menu 3</a></li>
-  </ul>
-
-    <div class="container">
+</div>
+  <div class="container">
   <div class="tab-content">
 
     <div id="home" class="tab-pane fade in active">
       <h2 style='text-align:center;'>Start A New Application</h2>
       <p>Here you may Initiate a new Application for a student, provided that you have both the student and schools information. After initiating the application, both the student and the school will recive e-mails with links to the application. </p> <br>
-      <a href = "auxiliary-role-creator-form.php"><button>Click here to start a new Application</button></a>
+        <div class="buttonStudent"> <a href = "auxiliary-role-creator-form.php"><button>Click here to start a new Application</button></a></div>
     </div>
 
     <div id="menu1" class="tab-pane fade">
