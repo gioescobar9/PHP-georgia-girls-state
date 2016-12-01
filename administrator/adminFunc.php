@@ -164,8 +164,50 @@ return $toReturn;
 }
 
 function getHomeTown($stud_ID){
+  $toReturn = "";
+  $auxConnection = connectAuxDB();
+  //retrieve student info
+$query = "SELECT studentInfo, studentInfoComplete FROM applications WHERE studentID = '$stud_ID';";
+$result = $auxConnection->query($query);
+if(!$result) die ("query3 failed".$auxConnection->error);
+if($result->num_rows > 0){
+  $record = $result->fetch_assoc();
 
-}
+    $studentInfoString = $record['studentInfo'];
+
+  if($record['studentInfoComplete'] == 1)
+    $studentInfoStatus = true;
+  else 
+    $studentInfoStatus = false;
+
+  if($studentInfoStatus == true){
+    // make associative array
+    $partial = explode("^",$studentInfoString);
+    $stringInfo = "";
+    $studentInfo = array();
+    $asscStudent = array();
+    $i = 1;
+    $count = count($partial);
+
+    foreach($partial as $values){
+      $stringInfo = $values;
+      if($i < $count){
+        $newStringInfo = explode(":", $stringInfo);
+        $asscStudent = array("$newStringInfo[0]"=>"$newStringInfo[1]");
+      }
+      $i++;
+      $studentInfo = array_merge($studentInfo, $asscStudent);
+    }
+        
+  }
+
+}// end of retreiving student info: $studentInfo and $studentInfoStatus
+
+$toReturn = $studentInfo['studentCity'];
+closeConnection($auxConnection);
+return $toReturn;
+
+}// end of function
 
 
 ?>

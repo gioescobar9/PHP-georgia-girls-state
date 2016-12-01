@@ -377,15 +377,25 @@ if($result->num_rows > 0){
             <label for = "studentDOB">Date of Birth:</label>
                 <input type="date" class="form-control" name="studentDOB" placeholder="mm/dd/yyyy" required value="<?php echo isset($studentInfo['studentDOB'])? $studentInfo['studentDOB']: '';?>" disabled><br>
            </div>
-              <div class="col-md-6">
+              <div class="col-md-12">
                 <label for = "studentStreetAddress"> Street Address:</label>
                     <input type="text" class="form-control" name="studentStreetAddress" required value="<?php echo isset($studentInfo['studentStreetAddress'])? $studentInfo['studentStreetAddress']: '';?>" disabled ><br>
               </div>
-              <div class="col-md-12">
-                <label for = "studentAddress">City,State,Zip:</label>
-                    <input type="text" class="form-control" name="studentAddress" required placeholder="City,State,Zip" value="<?php echo isset($studentInfo['studentAddress'])? $studentInfo['studentAddress']: '';?>" disabled >
+              <div class="col-md-4">
+                <label for = "studentCity">City:</label>
+                    <input type="text" class="form-control" name="studentCity" required value="<?php echo isset($studentInfo['studentCity'])? $studentInfo['studentCity']: '';?>" disabled>
                     <br>
               </div>
+              <div class="col-md-4">
+                <label for = "studentState">State:</label>
+                    <input type="text" class="form-control" name="studentState" required value="<?php echo isset($studentInfo['studentState'])? $studentInfo['studentState']: '';?>" disabled>
+                    <br>
+              </div>
+              <div class="col-md-4">
+                <label for = "studentZip">Zip Code:</label>
+                    <input type="text" class="form-control" name="studentZip" required value="<?php echo isset($studentInfo['studentZip'])? $studentInfo['studenZip']: '';?>" disabled>
+                    <br>
+                </div>
            <div class="col-md-3">
            </div>
            <div class="col-md-6" align="center">
