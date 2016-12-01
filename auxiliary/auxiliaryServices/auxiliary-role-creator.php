@@ -60,9 +60,43 @@ if(!$result) die ("query4 failed".$auxConnection->error);
 $query = "INSERT INTO applications(auxInfo, schoolInfo, studentInfo, parentConsentInfo, auxiliaryID, schoolID, complete) VALUES ('', '', '', '', '$auxiliaryID', '$schoolID', 'FALSE');";
 $result = $auxConnection->query($query);
 if(!$result) die ("query5 failed".$auxConnection->error);
+?>
 
-// in the future the email service will go here
+<script type="text/javascript">
 
+// email service
+var nodemailer = require('nodemailer');
+var smtpTransport = nodemailer.createTransport("SMTP", {
+	service: "Gmail",
+	auth: {
+		user: "gmail.user@gmail.com",
+		pass: "userpass"
+	}
+});
+
+var mailOptions: {
+	from: "American Legion Auxillary <americanlegion@gmail.com",
+	to: "$studentEmail",
+	subject: "Login to ALA",
+	text: "",
+	html: ""
+}
+
+smtpTransport.sendMail(mailOptions, function(error, response)
+{
+	if(error){
+		console.log(error);
+	}
+	else{
+		console.log("Message sent: " + response.message);
+	}
+
+	smtpTransport.close();
+})
+
+</script>
+
+<?php>
 
 header('location: ../auxiliary-application-form.php');
 

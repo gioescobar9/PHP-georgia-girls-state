@@ -11,14 +11,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
-    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/additional-methods.min.js"></<script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/additional-methods.js"></<script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
     <script src="jquery-1.12.4.min.js"></script>
     <script src="js/form-validation.js"></script>
     <link rel="stylesheet" type="text/css" href="css/rolesStyleSheet.css">
-
 </head>
 <header>
     <div class="heading">
@@ -31,7 +29,7 @@
 <div class="radioContainer">
     <div class="well">
 
-        <form class="form-horizontal"  name = "application" role="form" action="services/parent-consent-form-action.php" method = "post">
+        <form class="form-horizontal"  name = "application" id="applicationForm" role="form" action="services/parent-consent-form-action.php" method = "post">
 
             <div class="form-group">
                 <h3>Consent Form</h3>
@@ -40,32 +38,31 @@
                     </div>
                     <div class="col-md-6">
                         <label for = "motherName"> Mother/Guardian Name:</label><br>
-<<<<<<< HEAD
-                            <input type="text" class="form-control" name="motherName" maxlength="50"><br>
+                        <input type="text" class="form-control" name="motherName" id="nameSpaces" maxlength="50"><br>
                     </div>
                     <div class="col-md-6">
                         <label for = "motherPhone"> Mother/Guardian Phone:</label><br>
-                            <input type="text" class="form-control" name="motherPhone" maxlength="20"placeholder="(555)888-0000"><br>
+                            <input type="text" class="form-control" name="motherPhone" id="phoneNumber" maxlength="20"placeholder="(555)888-0000"><br>
                     </div>
                     <div class="col-md-6">
                         <label for = "fatherName">Father/Guardian Name:</label><br>
-                            <input type="text" class="form-control" name="fatherName" maxlength="50"><br>
+                            <input type="text" class="form-control" name="fatherName" id="nameSpaces" maxlength="50"><br>
                     </div>
                     <div class="col-md-6">
                         <label for = "fatherPhone">Father/Guardian Phone:</label><br>
-                            <input type="text" class="form-control" name="fatherPhone" maxlength="20"placeholder="(555)888-0000"><br>
+                            <input type="text" class="form-control" name="fatherPhone" id="phoneNumber" maxlength="20"placeholder="(555)888-0000"><br>
                     </div>
                     <div class="col-md-6">
                         <label for = "emergencyName">Emergency Contact Name:</label><br>
-                            <input type="text" class="form-control" name="emergencyName" maxlength="50"><br>
+                            <input type="text" class="form-control" name="emergencyName" id="nameSpaces" maxlength="50"><br>
                     </div>
                      <div class="col-md-6">
                         <label for = "emergencyRelationship">Emergency Contact Relationship:</label><br>
-                            <input type="text" class="form-control" name="emergencyRelationship" maxlength="25"><br>
+                            <input type="text" class="form-control" name="emergencyRelationship" id="nameSpaces" maxlength="25"><br>
                     </div>
                     <div class="col-md-6">
                         <label for = "emergencyPhone"> Emergency Contact Phone:</label><br>
-                            <input type="text" class="form-control" name="emergencyPhone" maxlength="20"placeholder="(555)888-0000"><br>
+                            <input type="text" class="form-control" name="emergencyPhone" id="phoneNumber" maxlength="20"placeholder="(555)888-0000"><br>
                     </div>
                     <div class="col-md-12">
                         <legend>Personal Information</legend>
@@ -134,12 +131,12 @@
 
                     <div class="col-md-6">
                         <label for = "physicianName">Physician's Name: </label>
-                            <input type="text" class="form-control" name="physicianName" maxlength="50"required><br>
+                            <input type="text" class="form-control" name="physicianName" id="nameSpaces" maxlength="50"required><br>
                     </div>
 
                     <div class="col-md-6">
                         <label for = "physicianPhoneNumber">Phone Number: </label>
-                            <input type="text" class="form-control" name="physicianPhoneNumber" maxlength="50"required placeholder="(555)888-0000"><br>
+                            <input type="text" class="form-control" name="physicianPhoneNumber" id="phoneNumber" maxlength="50"required placeholder="(555)888-0000"><br>
                     </div>
                     <div class="col-md-12">
                         <legend>Insurance Provider Information</legend>
@@ -152,24 +149,24 @@
                     <div class="insured">
                     <div class="col-md-12">
                         <label for = "insuranceCompany" >Insurance Company:</label>
-                            <input type="text" class="form-control" name="insuranceCompany" maxlength="50"><br>
+                            <input type="text" class="form-control" name="insuranceCompany" id="nameSpaces" maxlength="50"><br>
                     </div>
                     <div class="col-md-6">
                         <label for = "insuranceGroup" >Group Name:</label>
-                            <input type="text" class="form-control" name="insuranceGroup" maxlength="50"><br>
+                            <input type="text" class="form-control" name="insuranceGroup" id="nameSpaces" maxlength="50"><br>
                     </div>
                     <div class="col-md-6">
                         <label for = "insuranceGroupNumber" >Group Number:</label>
-                            <input type="text" class="form-control" name="insuranceGroupNumber" maxlength="50"><br>
+                            <input type="text" class="form-control" name="insuranceGroupNumber" id="number" maxlength="50"><br>
                     </div>
                     <div class="col-md-6">
                         <label for = "insuranceAddressStreet" >Insurance Street Address:</label>
-                            <input type="text" class="form-control" name="insuranceAddressStreet" maxlength="50" ><br>
+                            <input type="text" class="form-control" name="insuranceAddressStreet" id="address" maxlength="50" ><br>
                     </div>
 
                     <div class="col-md-6">
                         <label for = "insuranceAddress" >Insurance City,State,Zip:</label>
-                    <input type="text" class="form-control" name="insuranceAddress" maxlength="50" placeholder="City,State,Zip"><br>
+                    <input type="text" class="form-control" name="insuranceAddress" maxlength="50" id="address" placeholder="City,State,Zip"><br>
                     </div>
 
                     </div>
@@ -178,7 +175,7 @@
                     </div>
                     <div class="col-md-6">
                         <label for = "childsName" >As parent or Guardian of:</label>
-                            <input type="text" class="form-control" name="childsName" maxlength="50"required><br>
+                            <input type="text" class="form-control" name="childsName" id="nameSpaces" maxlength="50"required><br>
                     </div>
                     <div class="col-md-12">
                     <div class="terms">
@@ -223,7 +220,7 @@
                     </div>
                     <div class="col-md-6">
                         <label for = "parentSignature"> Parent/Guardian Signature:</label><br>
-                            <input type="text" class="form-control" name="parentSignature" maxlength="50" required><br>
+                            <input type="text" class="form-control" name="parentSignature" id="nameSpaces" maxlength="50" required><br>
                     </div>
                     <div class="col-md-6">
                         <label for = "signDate">Today's Date:</label>

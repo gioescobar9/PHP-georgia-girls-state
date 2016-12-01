@@ -12,8 +12,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
-    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/additional-methods.min.js"></<script
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/additional-methods.js"></<script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="js/form-validation.js"></script>
     <link rel="stylesheet" type="text/css" href="css/rolesStyleSheet.css">
@@ -35,7 +35,7 @@ Divide each field and label using col-md-3/6/12 for size needed. Collect all inf
 enforce proper restrictions-->
 <div class="container">
 <div class="well">
-<form class="form-horizontal" name = "application" role="form" action="services/student-application-form-action.php" 
+<form class="form-horizontal" name = "application" id="applicationForm" role="form" action="services/student-application-form-action.php" 
  method="post">
 
     <div class="form-group">
@@ -45,15 +45,15 @@ enforce proper restrictions-->
         </div>
            <div class="col-md-6">
             <label for = "studentFirstName">First Name:</label>
-               <input type="text" class="form-control" name="studentFirstName" maxlength="25"  autofocus required><br>
+               <input type="text" class="form-control" name="studentFirstName" id="name" maxlength="25"  autofocus required><br>
            </div>
            <div class="col-md-6">
             <label for = "studentMiddleName">Middle Name:</label>
-               <input type="text" class="form-control" name="studentMiddleName" maxlength="25"><br>
+               <input type="text" class="form-control" name="studentMiddleName" id="name" maxlength="25"><br><br>
            </div>
            <div class="col-md-6">
             <label for = "studentLastName">Last Name:</label>
-               <input type="text" class="form-control" name="studentLastName" required><br>
+               <input type="text" class="form-control" name="studentLastName" id="name" required><br>
            </div>
            <div class="col-md-6">
             <label for = "studentDOB">Date of Birth:</label>
@@ -61,18 +61,18 @@ enforce proper restrictions-->
            </div>
               <div class="col-md-6">
                 <label for = "studentStreetAddress"> Street Address:</label>
-                    <input type="text" class="form-control" name="studentStreetAddress" required ><br>
+                    <input type="text" class="form-control" name="studentStreetAddress" id="address" required ><br>
               </div>
               <div class="col-md-12">
                 <label for = "studentAddress">City,State,Zip:</label>
-                    <input type="text" class="form-control" name="studentAddress" required placeholder="City,State,Zip">
+                    <input type="text" class="form-control" name="studentAddress" id="address" required placeholder="City,State,Zip">
                     <br>
               </div>
            <div class="col-md-3">
            </div>
            <div class="col-md-6" align="center">
              <label for = "studentPreferName">Name to display on name tag:</label><br>
-                <input type="text" class="form-control" name="studentPreferName" maxlength="25" pattern="[a-zA-z ]+" required><br>
+                <input type="text" class="form-control" name="studentPreferName" id="nameSpaces" maxlength="25" pattern="[a-zA-z ]+" required><br>
             </div>
           
             <div class="col-md-12">
@@ -80,19 +80,19 @@ enforce proper restrictions-->
             </div>
            <div class="col-md-6">
             <label for = "homePhone">Home Phone:</label>
-                <input type="text" class="form-control" name="homePhone" maxlength="13" placeholder="(555)888-0000"><br>
+                <input type="text" class="form-control" name="homePhone" maxlength="13" id="phoneNumber" placeholder="(555)888-0000"><br>
            </div>
            <div class="col-md-6">
             <label for = "parentCellPhone">Parent Cell Phone:</label>
-                <input type="text" class="form-control" name="parentCellPhone" maxlength="13" placeholder="(555)888-0000"><br>
+                <input type="text" class="form-control" name="parentCellPhone" maxlength="13" id="phoneNumber" placeholder="(555)888-0000"><br>
            </div>
            <div class="col-md-6">
             <label for = "emergencyPhone">Emergency Contact Number:</label>
-                <input type="text" class="form-control" name="emergencyPhone" maxlength="13" placeholder="(555)888-0000"><br>
+                <input type="text" class="form-control" name="emergencyPhone" maxlength="13" id="phoneNumber" placeholder="(555)888-0000"><br>
            </div>
            <div class="col-md-6">
                <label for = "girlsCell">Girls Cell Phone:(If Available)</label>
-                   <input type="text" class="form-control" name="girlsCell" maxlength="13" placeholder="Optional"><br>
+                   <input type="text" class="form-control" name="girlsCell" maxlength="13" id="phoneNumber" placeholder="Optional"><br>
            </div>
            <div class="col-md-6">
             <label for = "studentEmail">Student Email:</label>
@@ -111,11 +111,11 @@ enforce proper restrictions-->
       <div class="signature">
         <div class="col-md-6">
             <label for = "studentSignature">Student Signature</label>
-                <input type="text" class="form-control" name="studentSignature" placeholder="Electronic Signature" pattern="[a-zA-Z]+" required><br>
+                <input type="text" class="form-control" name="studentSignature" id="nameSpaces" placeholder="Electronic Signature" pattern="[a-zA-Z]+" required><br>
         </div>
         <div class="col-md-6">
             <label for = "parentSignature">Parent Signature</label>
-                <input type="text" class="form-control" name="parentSignature" placeholder="Electronic Signature" pattern="[a-zA-Z]+" required><br>
+                <input type="text" class="form-control" name="parentSignature" id="nameSpaces" placeholder="Electronic Signature" pattern="[a-zA-Z]+" required><br>
         </div>
     </div>
     <div class ="labelCenter">

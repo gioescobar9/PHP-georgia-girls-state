@@ -1,114 +1,89 @@
-// Wait for the DOM to be ready
-$(function() {
-  // Initialize form validation on the registration form.
-  // It has the name attribute "registration"
-  $("form[name='login']").validate({
-    // Specify validation rules
-    rules: {
-      // The key name on the left side is the name attribute
-      // of an input field. Validation rules are defined
-      // on the right side
-      unitNumber: {
+$().ready(function() {
+    // validate the form when it is submitted
+     $("#loginForm").validate();
+     $("#unitNumber").rules("add", {
+         required:true,
+         pattern: /(?=.*\d)/,
+         maxlength: 20,
+         messages: {
+                required: "Please provide your unit number",
+                pattern: "Please enter only numbers"
+         }
+      });
+     $("#password").rules("add", {
+         required:true,
+         minlength: 5,
+         maxlength: 20,
+         pattern: /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])/, 
+         messages: {
+                required: "Please provide your password",
+                minlength: "Your password must be at least 5 characters long",
+                maxlength: "Your password can not be more than 20 characters long",
+                pattern: "Your password must at least contain at least one number, one uppercase letter, and one lowercase letter."
+         }
+      });
+      $("#auxEmail").rules("add", {
+          required:true,
+          email: true,
+          messages: {
+              required: "Please provide a valid email.",
+              email: "Please provide a valid email."
+        }   
+    });
+    $("#confirmPassword").rules("add",{
         required: true,
-        pattern: /(?=.*\d)/
-      },
-      password: {
-        required: true,
-        minlength: 5,
-        pattern: /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])/
-      }
-    },
-    // Specify validation error messages
-    messages: {
-      password: {
-        required: "Please provide a password",
-        minlength: "Your password must be at least 5 characters long",
-        pattern: "Your password must at least contain at least one number, one uppercase letter, and one lowercase letter."
+        messages: {
+            required: "Please confirm password."
+        }
+    });
+});
 
-      },
-      unitNumber: {
-          required: "Please provide a username",
-          pattern: "Please enter only numbers"
-      },
-    },
-    // Make sure the form is submitted to the destination defined
-    // in the "action" attribute of the form when valid
-    submitHandler: function(form) {
-      form.submit();
-    }
-  });
-
-    $("form[name='application']").validate({
-    // Specify validation rules
-    rules: {
-      schoolName: {
-        required: true,
-        pattern: /^[a-zA-Z_\- ]$/
-      },
-      name:
-      {
-          pattern: /^[a-zA-Z']+$/
-      },
-      address: {
-        required: true,
-        pattern: /^[a-zA-Z,- ]+$/
-      },
-      phoneNumber: {
-          pattern: /(?=.*\d)/
-      },
-      classRank:
-      {
+$().ready(function() {
+    // validate the form when it is submitted
+     $("#auxillaryForm").validate();
+     $("#name").rules("add", {
+         pattern: /^[a-zA-Z-']+$/,
+         messages: {
+             pattern: "Name can only contain uppercase, lower case letters, and certain symbols. No spaces."
+         }
+      });
+      $("#address").rules("add", {
           required: true,
-          pattern: /^[0-9]+$/
-      },
-      gradDate: {
-          date: true
-      },
-      signature: {
-          pattern: /^[a-zA-Z ]+$/
-      }, 
-      emergencyName: {
-          pattern: /^[a-zA-Z' ]$/
-      }, 
-      unitNumber: {
-          pattern: /(?=.*[0-9])/
-      }
-    },
-    
-    // Specify validation error messages
-    messages: {
-      schoolName: {
-          pattern: "Your name can only contain uppercase and lower case letters."
-      },
-      name: {
-          pattern: "Your name can only contain uppercase and lower case letters, no spaces."
-      },
-      address: {
-          pattern: "Your address can only contain at least one digit, uppercase, and lower case letter"
-      },
-      phoneNumber: {
-          pattern: "Your phone number can only contain digits, and symbols: ( ) -"
-      },
-      classRank: {
-          pattern: "Class Rank can only be numbers, at most three"
-      },
-      gradDate: {
-          date: "Graduation Date must be a date"
-      },
-      signature: {
-          pattern: "Signature is not in right format"
-      },
-      emergencyName: {
-          pattern: "Name can only contain letters, and '"
-      },
-      unitNumber: {
-          pattern: "Unit Number can only be numbers"
-      }
-    },
-    // Make sure the form is submitted to the destination defined
-    // in the "action" attribute of the form when valid
-    submitHandler: function(form) {
-      form.submit();
-    }
-  });
+          pattern: /^[a-zA-Z\d\s]+$/,
+          messages: {
+              pattern: "Address can only contain digits, uppercase, and lower case letter."
+         }
+      });
+      $("#phoneNumber").rules("add", {
+          pattern: /^[\d\(\)-]+$/,
+          messages: {
+              pattern: "Phone number can only contain digits, and symbols: ( ) -"
+          }
+      });
+      $("#email").rules("add", {
+          required: true,
+          email: true,
+          messages: {
+              required: "Please provide a valid email.",
+              email: "Please provide a valid email.",
+          }
+      });
+      $("#nameSpaces").rules("add", {
+          pattern: /^[a-zA-Z\s\.'-]+$/,
+          messages: {
+              pattern: "Name can only contain letters, and following symbols: .'-"
+          }
+      });
+      $("#unitNumber").rules("add", {
+          pattern: /(?=.*[0-9])/,
+          messages: {
+              pattern: "Unit Number can only be numbers"
+          }
+      });
+      $("#number").rules("add", {
+          pattern: /(?=.*[0-9])/,
+          messages: {
+              pattern: "Unit Number can only be numbers"
+          }
+      });
 });

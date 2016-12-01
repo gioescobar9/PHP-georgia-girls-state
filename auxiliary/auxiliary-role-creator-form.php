@@ -12,8 +12,8 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
-    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/additional-methods.min.js"></<script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/additional-methods.js"></<script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="js/form-validation.js"></script>
     <link rel="stylesheet" type="text/css" href="css/auxiliaryStyleSheet.css">
@@ -40,27 +40,27 @@ enforce proper restrictions-->
            <legend>Student Information</legend>
             <div class="col-md-6">
             <label for = "studentFirstName">Student First Name:</label>
-               <input type="text" class="form-control" id="studentFirstName" maxlength="25" pattern="[a-zA-Z]+" autofocus  name = "stuFirstName" required><br>
+               <input type="text" class="form-control" id="name" maxlength="25" autofocus  name = "stuFirstName" required><br>
            </div>
            <div class="col-md-6">
             <label for = "studentLastName">Student Last Name:</label>
-               <input type="text" class="form-control" id="studentLastName" maxlength="25" pattern="[a-zA-Z]+" 
+               <input type="text" class="form-control" id="name" maxlength="25" 
                name = "stuLastName" required><br>
            </div>
            <div class="col-md-8">
             <label for = "studentEmail">Student Email:</label>
-               <input type="text" class="form-control" id="studentEmail" maxlength="50"  placeholder="user@gmail.com" 
+               <input type="text" class="form-control" id="email" maxlength="50"  placeholder="user@gmail.com" 
                name = "stuEmail" required><br>
            </div>
               <legend>School Information</legend>
             <div class="col-md-6">
             <label for = "schoolName">School Name:</label>
-               <input type="text" class="form-control" id="schoolName" maxlength="30" pattern="[a-z A-Z]+" 
+               <input type="text" class="form-control" id="nameSpaces" maxlength="30"  
                name = "schName" required><br>
            </div>
            <div class="col-md-6">
             <label for = "schoolEmail">School Email:</label>
-               <input type="text" class="form-control" id="schoolEmail" maxlength="25" placeholder="user@gmail.com" 
+               <input type="text" class="form-control" id="email" maxlength="25" placeholder="user@gmail.com" 
                name = "schEmail" required><br>
            </div>
            <legend>Official Agreement</legend>
@@ -78,11 +78,11 @@ enforce proper restrictions-->
             <div class="col-md-8">
             <label for = "officialSignature">Official Signature:</label>
 
-               <input type="text" class="form-control" id="officialSignature" maxlength="25" pattern="[a-z A-Z]+" placeholder="Electronic Signature" name = "officialSignature" required><br>
+               <input type="text" class="form-control" id="nameSpaces" maxlength="25" placeholder="Electronic Signature" name = "officialSignature" required><br>
            </div>
            <div class="col-md-4">
             <label for = "signatureDate">Date:</label>
-               <input type="date" class="form-control" id="signatureDate" name = "officialSignatureDate" required><br>
+               <input type="date" class="form-control" name = "officialSignatureDate" required><br>
            </div>
 
            <div class="buttonStudent">

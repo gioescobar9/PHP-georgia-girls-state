@@ -27,7 +27,7 @@ else{
 
 if($missmatch == false){
         if($isStudent == true)
-    $query = "SELECT * FROM student WHERE studentEmail='$username' AND password='$password';";
+    $query = "SELECT * FROM student WHERE studentEmail='$username' AND studentPassword='$password';";
 else if($isSchool == true)
     $query = "SELECT * FROM school WHERE schoolEmail='$username' AND password='$password';";
 
