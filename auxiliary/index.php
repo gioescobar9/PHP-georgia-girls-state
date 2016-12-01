@@ -63,13 +63,11 @@ session_start();
 
             ?>
             
-              <div class = "logInButtons">
-              <input type="submit" class = "button btn-primary" color = "white" value = "Login">
-
-              <a href = "create-auxiliary-account-form.php"><input type="button" class="button btn-primary" color="white" value="Create Auxiliary Account" > </a>
-            </div>
-          </form>
-      </div>
+        <div class = "logInButtons">
+          <input type="submit" class = "button btn-primary" color = "white" value = "Login">
+          <a href = "create-auxiliary-account-form.php"> <input type="button" class="button btn-primary" color="white" value="Create Auxiliary Account" > </a>
+        </div>
+      </form>
     </div>
 </div>
 </body>

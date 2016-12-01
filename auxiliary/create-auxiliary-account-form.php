@@ -12,8 +12,8 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
-    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/additional-methods.min.js"></<script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/additional-methods.js"></<script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="js/form-validation.js"></script>
     <link rel="stylesheet" type="text/css" href="css/auxiliaryStyleSheet.css">
@@ -27,7 +27,7 @@ session_start();
 
 <div class = "container">
     <div class = "well">
-    <form id = "create_auxiliary_account_form" action = "auxiliaryServices/create-auxiliary-account.php" method = "post" 
+    <form id = "loginForm" action = "auxiliaryServices/create-auxiliary-account.php" method = "post" 
     name = "create_auxiliary_account_form">
       <div class="form-group">
         
@@ -35,7 +35,7 @@ session_start();
             
             <label for = "username:">Username:</label><br>
             <input type="text" class="form-control" id="username"  
-              name = "username" placeholder="Unit Number" required><br>
+              name = "username" id="unitNumber" placeholder="Unit Number" required><br>
 
              <label for = "auxEmail">Auxiliary Email: </label><br>
             <input  type="email"  id ="auxEmail" 
@@ -47,7 +47,7 @@ session_start();
                 name = "password" class="form-control" required><br>
 
                 <label for = "confirm_password">Confirm Password: </label><br>
-                <input type="password" id = "confirm-_password" class="form-control" required>
+                <input type="password" id = "confirmPassword" class="form-control" required>
             <br>
 
             <?php

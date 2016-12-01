@@ -77,8 +77,6 @@ $record = $result->fetch_assoc();
 $appID = $record['applicationID'];
 
 
-// in the future the email service will go here
-
 
 header('location: ../auxiliary-application-form.php?id='.$appID);
 

@@ -41,7 +41,8 @@ enforce proper restrictions-->
 <div class="container">
     <div class="well">
 
-        <form class="form-horizontal" name = "application" 
+
+        <form class="form-horizontal" id="auxillaryForm" name = "application" 
         action = 'auxiliaryServices/auxiliary-application.php' method = "post">
         <!-- here i will create a transparent input to pass along our application id -->
         <input type = "hidden" name = "appID" id = "appID" value = "<?php echo $id; ?>" />
@@ -59,47 +60,48 @@ enforce proper restrictions-->
             </div>
             <div class="col-md-12">
                 <label for = "unitStreetAddress">Street Address:</label>
-                <input type="text" class="form-control" id="unitStreetAddress" maxlength="30" name = "unitAddress" required><br>
+                <input type="text" class="form-control" id="address" maxlength="30" name = "unitAddress" required><br>
             </div>
             <div class="col-md-4">
                 <label for = "unitCity">City:</label>
-                <input type="text" class="form-control" id="unitCity" maxlength="30" placeholder="City" name = "unitCity" required><br>
+                <input type="text" class="form-control" id="nameSpaces" maxlength="30" placeholder="City" name = "unitCity" required><br>
             </div>
             <div class="col-md-4">
                 <label for = "unitState">State:</label>
-                <input type="text" class="form-control" id="unitState" maxlength="30" placeholder="Georgia" name = "unitState" required><br>
+                <input type="text" class="form-control" id="nameSpaces" maxlength="30" placeholder="Georgia" name = "unitState" required><br>
             </div>
             <div class="col-md-4">
                 <label for = "unitZip">ZipCode:</label>
-                <input type="text" class="form-control" id="unitZip" maxlength="30" placeholder="" name = "unitZip" required><br>
+                <input type="text" class="form-control" id="number" maxlength="30" placeholder="" name = "unitZip" required><br>
             </div>
             <div class="col-md-6">
                 <label for = "unitEmail">Email:</label>
-                <input type="text" class="form-control" id="unitEmail" maxlength="50" placeholder="user@gmail.com" name = "unitEmail" required><br>
+                <input type="text" class="form-control" id="email" maxlength="50" placeholder="user@gmail.com" name = "unitEmail" required><br>
             </div>
             <div class="col-md-6">
                 <label for = "unitPhone">Phone Number:</label>
-                <input type="text" class="form-control" id="unitPhone" maxlength="15" placeholder="(555)888-0000" name = "unitPhone" required><br>
+                <input type="text" class="form-control" id="phoneNumber" maxlength="15" placeholder="(555)888-0000" name = "unitPhone" required><br>
             </div>
             <div class="col-md-12">
                 <legend>Auxiliary Sponsoring Official Information</legend>
             </div>
             <div class="col-md-6">
                 <label for = "officialFirstName">First Name:</label>
-                <input type="text" class="form-control" id="officialFirstName" maxlength="25" name = "officialFirstName" required><br>
+                <input type="text" class="form-control" id="name" maxlength="25" name = "officialFirstName" required><br>
             </div>
             <div class="col-md-6">
                 <label for = "officialLastName">Last Name:</label>
-                <input type="text" class="form-control" id="officialLastName" maxlength="25" name = "officialLastName" required><br>
+                <input type="text" class="form-control" id="name" maxlength="25" name = "officialLastName" required><br>
 
             </div>
             <div class="col-md-6">
                 <label for = "officialEmail">Official's Email:</label>
-                <input type="text" class="form-control" id="officialEmail" maxlength="25" placeholder="user@gmail.com" name = "officialEmail" required><br>
+
+                <input type="text" class="form-control" id="email" maxlength="25" placeholder="user@gmail.com" name = "officialEmail" required><br>
             </div>
             <div class="col-md-6">
                 <label for = "officialPhone">Official's Phone:</label>
-                <input type="text" class="form-control" id="officialPhone" maxlength="15" placeholder="(555)888-0000" 
+                <input type="text" class="form-control" id="phoneNumber" maxlength="15" placeholder="(555)888-0000" 
                 name = "officialPhone" required><br>
             </div>
             </div>
