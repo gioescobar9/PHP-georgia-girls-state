@@ -27,8 +27,8 @@ $record = $result->fetch_array(MYSQLI_ASSOC);
 $auxiliary = $record["auxiliaryID"];
 $studName = $record["lastName"]." ".$record["firstName"];
 $school = $record["schoolID"];
-$hometown = "Milledgeville";
 $studID = $record["studentID"];
+$hometown = getHomeTown($studID);
 $city = getCity($studID);
 // need to add payment status and app status
 echo "<tr>";
@@ -89,6 +89,10 @@ echo "</select>
             value = 'Assign City'>
         </div>";
   echo "</form>";
+
+  echo "<div class='buttonStudent'>
+  <a href = 'view-groups.php' class = 'buttonSubmit'>View Groups</a>
+        </div>";
 
 }// end func
 
@@ -157,6 +161,10 @@ $record = $result->fetch_assoc();
 $toReturn = $record['assignedCity'];
 closeConnection($auxConnection);
 return $toReturn;
+}
+
+function getHomeTown($stud_ID){
+
 }
 
 

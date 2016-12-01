@@ -1,5 +1,9 @@
 <?php
 session_start();
+if(!isset($_SESSION["adminLoggedIn"])){
+  header('location: index.php');
+}
+
 require_once 'auxiliaryConnectDB.php';
 require_once 'adminFunc.php';
 require_once 'AdminCrudTable.php';
@@ -33,7 +37,7 @@ require_once 'AdminCrudTable.php';
 
         <h3>Applicant Group Creator</h3>
         <?php createSortTable(); ?>
-
+        <br>
         </div>
 </body>
 <script>

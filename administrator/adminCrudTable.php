@@ -25,22 +25,22 @@ function createAdminCrudTable(){
 		echo "</thead>";
     echo "<tbody>";
 for($i = 0;$i<$rows;$i++){
-$result->data_seek($i);
-$record = $result->fetch_array(MYSQLI_ASSOC);
-$studID = $record["studentID"];
-$studName = $record["lastName"]." ".$record["firstName"];
-$studEmail = $record["studentEmail"];
-$appStatus = getStatus($studID);
-if($appStatus == "Incomplete")
-  $statusRow = "<td class = 'alert alert-warning'>".$appStatus."</td>";
-else
-  $statusRow = "<td class = 'alert alert-success'>".$appStatus."</td>";
+	$result->data_seek($i);
+	$record = $result->fetch_array(MYSQLI_ASSOC);
+	$studID = $record["studentID"];
+	$studName = $record["lastName"]." ".$record["firstName"];
+	$studEmail = $record["studentEmail"];
+	$appStatus = getStatus($studID);
+	if($appStatus == "Incomplete")
+  		$statusRow = "<td class = 'alert alert-warning'>".$appStatus."</td>";
+	else
+  		$statusRow = "<td class = 'alert alert-success'>".$appStatus."</td>";
 
-$paymentStatus = getPayStatus($studID);
-if($paymentStatus == "Not Paid")
-  $paymentStatusRow = "<td class = 'alert alert-warning'>".$paymentStatus."</td>";
-else
-  $paymentStatusRow = "<td class = 'alert alert-success'>".$paymentStatus."</td>";
+	$paymentStatus = getPayStatus($studID);
+	if($paymentStatus == "Not Paid")
+  		$paymentStatusRow = "<td class = 'alert alert-warning'>".$paymentStatus."</td>";
+	else
+  		$paymentStatusRow = "<td class = 'alert alert-success'>".$paymentStatus."</td>";
 
 echo "<tr>";
   echo "<td> $studID </td>";
