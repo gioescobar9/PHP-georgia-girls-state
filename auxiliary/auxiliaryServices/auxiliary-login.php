@@ -13,7 +13,7 @@ $isAdministrator = false;
 
 // we check and see if the user name and password is accurate...we set a redirect page for either case
 
-$query = "SELECT * FROM auxiliary WHERE unitNumber = '$username' AND password = '$password';";
+$query = "SELECT * FROM auxiliary WHERE unitNumber = '$username' AND BINARY password = BINARY '$password';";
 $result = $auxConnection->query($query);
 if(!$result) die ("query failed".$auxConnection->error);
 if($result->num_rows > 0){

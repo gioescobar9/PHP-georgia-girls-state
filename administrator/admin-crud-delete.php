@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'auxiliaryConnectDB.php';
+require_once 'admin-connect-db.php';
 //retrieve student id for sql statement
 $id = null;
 if(!empty($_GET['id'])){

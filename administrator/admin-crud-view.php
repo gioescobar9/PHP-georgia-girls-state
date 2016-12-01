@@ -1,6 +1,6 @@
 <?php 
 session_start();
-require_once 'auxiliaryConnectDB.php';
+require_once 'admin-connect-db.php';
 
 $studID = null;
 if(!empty($_GET['id'])){

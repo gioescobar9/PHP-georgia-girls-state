@@ -1,5 +1,5 @@
 <?php
-require_once 'auxiliaryConnectDB.php';
+require_once 'admin-connect-db.php';
 
 function createSortTable(){
 	$auxConnection = connectAuxDB();	
