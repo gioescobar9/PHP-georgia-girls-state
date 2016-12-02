@@ -77,6 +77,19 @@ $record = $result->fetch_assoc();
 $appID = $record['applicationID'];
 
 
+$to = 'gioescobar9@gmail.com';
+
+$subject = 'this is a test';
+
+$message = '<h1>HIIII</h1><p>yo this actually worked</p>';
+
+$headers = "From: American Legion Auxiliary<giovanni.escobar@bobcats.gcsu.edu>\r\n";
+$header = "Reply-To: giovanni.escobar@bobcats.gcsu.edu\r\n";
+$header = "Content-type: text/html\r\n";
+
+mail($to, $subject, $message, $headers);
+
+
 header('location: ../auxiliary-application-form.php?id='.$appID);
 
 
