@@ -393,7 +393,7 @@ if($result->num_rows > 0){
               </div>
               <div class="col-md-4">
                 <label for = "studentZip">Zip Code:</label>
-                    <input type="text" class="form-control" name="studentZip" required value="<?php echo isset($studentInfo['studentZip'])? $studentInfo['studenZip']: '';?>" disabled>
+                    <input type="text" class="form-control" name="studentZip" required value="<?php echo isset($studentInfo['studentZip'])? $studentInfo['studentZip']: '';?>" disabled>
                     <br>
                 </div>
            <div class="col-md-3">

@@ -202,8 +202,11 @@ if($result->num_rows > 0){
   }
 
 }// end of retreiving student info: $studentInfo and $studentInfoStatus
+if(isset($studentInfo['studentCity']))
+  $toReturn = $studentInfo['studentCity'];
+else
+  $toReturn = "-";
 
-$toReturn = $studentInfo['studentCity'];
 closeConnection($auxConnection);
 return $toReturn;
 

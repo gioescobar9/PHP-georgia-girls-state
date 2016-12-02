@@ -1,5 +1,8 @@
 <?php 
 session_start();
+if(!isset($_SESSION["adminLoggedIn"])){
+  header('location: index.php');
+}
 require_once 'admin-connect-db.php';
 
 $studID = null;
@@ -172,6 +175,7 @@ if($result->num_rows > 0){
         <br>The American Legion Auxiliary<br>Georgia Girls State</h1>
     </div>
 </header>
+
 
 <ul class="nav nav-tabs">
   <li class="active"><a data-toggle="tab" href="#auxiliary">Auxiliary</a></li>
@@ -378,7 +382,7 @@ if($result->num_rows > 0){
             <label for = "studentDOB">Date of Birth:</label>
                 <input type="date" class="form-control" name="studentDOB" placeholder="mm/dd/yyyy" required value="<?php echo isset($studentInfo['studentDOB'])? $studentInfo['studentDOB']: '';?>" disabled><br>
            </div>
-              <div class="col-md-6">
+              <div class="col-md-12">
                 <label for = "studentStreetAddress"> Street Address:</label>
                     <input type="text" class="form-control" name="studentStreetAddress" required value="<?php echo isset($studentInfo['studentStreetAddress'])? $studentInfo['studentStreetAddress']: '';?>" disabled ><br>
               </div>
@@ -394,7 +398,7 @@ if($result->num_rows > 0){
               </div>
               <div class="col-md-4">
                 <label for = "studentZip">Zip Code:</label>
-                    <input type="text" class="form-control" name="studentZip" required value="<?php echo isset($studentInfo['studentZip'])? $studentInfo['studenZip']: '';?>" disabled>
+                    <input type="text" class="form-control" name="studentZip" required value="<?php echo isset($studentInfo['studentZip'])? $studentInfo['studentZip']: '';?>" disabled>
                     <br>
                 </div>
            <div class="col-md-3">
