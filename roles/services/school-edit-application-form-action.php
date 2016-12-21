@@ -68,6 +68,6 @@
             echo "<script>alert('Your Information has been submitted')</script>";
             $redirect="../school-interface.php";
             //redirect the user to the home page
-            header( "refresh:1;url='$redirect'" );
+            header('location:'.$redirect);
 ?>
  

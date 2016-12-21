@@ -23,6 +23,6 @@
     $redirect="../school-interface.php";
         
     //redirec the user to the home page    
-    header( "refresh:1;url='$redirect'" );
+    header('location:'.$redirect);
     
 ?>

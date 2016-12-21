@@ -24,6 +24,14 @@ $officialSignatureDate = $_POST["officialSignatureDate"];
 $schoolID; 
 $auxiliaryID = $_COOKIE["auxiliaryID"];
 
+
+//retrieve auxiliary email, so we can use it with the email service
+$query = "SELECT auxEmail FROM auxiliary WHERE auxiliaryID = '$auxiliaryID';";
+$result = $auxConnection->query($query);
+if(!$result) die("query 8 failed".$auxConnection->error);
+$record = $result->fetch_assoc();
+$auxEmail = $record['auxEmail'];
+
 /*This purpose of this block is to retrieve the schoolID , if the school we are looking for does not exist then we create an account for it, and then we retreive its ID
 */
 $query = "SELECT * FROM school WHERE  schoolName = '$schoolName' AND schoolEmail = '$schoolEmail';";
@@ -34,6 +42,21 @@ if(!$result) die("query1 failed".$auxConnection->error);
 if($result->num_rows > 0){
 	$record = $result->fetch_assoc();
 	$schoolID = $record["schoolID"];
+
+	//existing school email service
+	$to = $schoolEmail;
+
+	$subject = 'New Georgia Girls State Application';
+
+	$message = 'This email has been sent to you in order to inform you that a you have a new pending application,\n
+	please follow the following link to complete new applcations: http://pisforpizza.com/ggs/roles/ ';
+	$message = wordwrap($message, 70);
+
+	$headers = "From: American Legion Auxiliary<".$auxEmail.">\r\n";
+	$headers = "Reply-To: ".$auxEmail."\r\n";
+
+	mail($to, $subject, $message, $headers);
+
 }else{
 	$schoolPassword = genSchoolPass($_COOKIE["unitNumber"]);
 	$query = "INSERT INTO school(schoolName, schoolEmail, schoolPassword, auxiliaryID) VALUES ('$schoolName', '$schoolEmail', '$schoolPassword', '$auxiliaryID');";
@@ -46,6 +69,23 @@ if($result->num_rows > 0){
 	if(!$result) die("query3 failed".$auxConnection->error);
 	$record = $result->fetch_assoc();
 	$schoolID = $record["schoolID"];
+
+	// new school email service
+	$to = $schoolEmail;
+
+	$subject = 'Georgia Girls State Application';
+
+	$message = 'Your account has been successfully created!\n
+	Please complete your part of the application by clicking on the following link and using the credentials below that have been provided for you. \n Link to Application: http://pisforpizza.com/ggs/roles/ \n
+	Username: '.$schoolEmail.'\n
+	Password:'.$schoolPassword.'';
+
+	$message = wordwrap($message,70);
+
+	$headers = "From: American Legion Auxiliary<".$auxEmail.">\r\n";
+	$headers = "Reply-To: ".$auxEmail."\r\n";
+
+	mail($to, $subject, $message, $headers);
 }
 
 
@@ -63,6 +103,23 @@ if(!$result) die("query5 failed".$auxConnection->error);
 $record = $result->fetch_assoc();
 $studentID = $record['studentID'];
 
+//student email service first 
+$to = $studentEmail;
+
+$subject = 'Georgia Girls State Application';
+
+$message = 'Your account has been successfully created!\n
+Please complete your part of the application by clicking on the following link and using the credentials below that have been provided to you. \n Link to Application: http://pisforpizza.com/ggs/roles/ \n  
+	Username:'.$studentEmail.'\n
+	Password:'.$studentPassword.'';
+$message = wordwrap($message,70);
+
+$headers = "From: American Legion Auxiliary<".$auxEmail.">\r\n";
+$header = "Reply-To: ".$auxEmail."\r\n";
+
+mail($to, $subject, $message, $headers);
+
+
 
 // next we create the application and give it empty string values for the info fields
 $query = "INSERT INTO applications(auxInfo, auxInfoComplete, schoolInfo, schoolInfoComplete, studentInfo, studentInfoComplete, parentConsentInfo, parentConsentInfoComplete, auxiliaryID, schoolID, studentID, complete, paymentStatus) VALUES ('','FALSE', '', 'FALSE', '','FALSE', '', 'FALSE', '$auxiliaryID', '$schoolID', '$studentID','FALSE', 'FALSE');";
@@ -77,19 +134,8 @@ $record = $result->fetch_assoc();
 $appID = $record['applicationID'];
 
 
-$to = 'gioescobar9@gmail.com';
 
-$subject = 'this is a test';
-
-$message = '<h1>HIIII</h1><p>yo this actually worked</p>';
-
-$headers = "From: American Legion Auxiliary<giovanni.escobar@bobcats.gcsu.edu>\r\n";
-$header = "Reply-To: giovanni.escobar@bobcats.gcsu.edu\r\n";
-$header = "Content-type: text/html\r\n";
-
-mail($to, $subject, $message, $headers);
-
-
+closeConnection($auxConnection);
 header('location: ../auxiliary-application-form.php?id='.$appID);
 
 

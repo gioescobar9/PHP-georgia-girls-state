@@ -89,7 +89,7 @@
         
         //redirect the page back home
         $redirect = "../student-interface.php";
-        header( "refresh:1;url='$redirect'" );
+        header('Location:'.$redirect);
         
         
         ?>

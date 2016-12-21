@@ -77,5 +77,5 @@
 
         $redirect="school-application-view.php";
         
-        header( "refresh:1;url='$redirect'" );
+        header('location:'.$redirect);
 ?>
